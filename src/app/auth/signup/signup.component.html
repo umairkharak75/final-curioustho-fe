@@ -1,0 +1,58 @@
+
+   <div class="container">
+    <div class="row">
+  <div class="col-md-2 d-flex mx-auto">
+              <img src="assets/logo.png" alt="">
+            <form   [formGroup]="userForm">
+              <mat-form-field >
+                <mat-label>UserName</mat-label>
+                <input   matInput [formControlName]="'name'"
+                
+                         required   
+                         placeholder="Enter UserName">
+                         <mat-error *ngIf="userForm.get('name').invalid">Enter Username</mat-error>
+              </mat-form-field>
+              <mat-form-field>
+                <mat-label>Email</mat-label>
+                <input   matInput [formControlName]="'email'" 
+                [type]="'email'"
+                required
+                       placeholder="Ex. pat@example.com">
+               <mat-error *ngIf="userForm.get('email').invalid">please enter a valid email</mat-error>
+               
+              </mat-form-field>
+
+              <mat-form-field>
+                <mat-label>Password</mat-label>
+                <input   matInput
+                [type]="'password'"
+                [formControlName]="'password'" 
+                       placeholder="Enter Password"
+                       required>
+                       <mat-error *ngIf="userForm.get('confirmPassword').valid">Enter a password</mat-error>
+
+                       
+              </mat-form-field>
+
+              <mat-form-field>
+                <mat-label>Confirm Password</mat-label>
+                <input   matInput [type]="'password'" [formControlName]="'confirmPassword'" 
+                       placeholder=" Confirm Password"
+                       required
+                       >
+                       
+                       <mat-error *ngIf="isPasswordMatched===false">Password not matched</mat-error>
+
+              </mat-form-field>
+              <button  [disabled]="isDisabled" mat-flat-button color="primary"
+              [class.spinner]="isLoader" 
+
+              (click)="signUp()">Sign Up</button>
+            </form>
+          </div>
+
+      </div>
+    </div>
+
+  
+  

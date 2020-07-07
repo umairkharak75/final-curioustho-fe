@@ -1,0 +1,19 @@
+<app-header></app-header>
+
+<div class="container" style="margin:100px 0px;">
+    <div class="row">
+  <div  [formGroup]="copyLink"class="col-md-4 d-flex mx-auto">
+    <input   matInput [formControlName]="'link'"
+
+    required   
+    >
+    <button [cdkCopyToClipboard]="link" mat-flat-button color="primary">Copy URL</button>
+   
+    
+
+  </div>
+  
+</div>
+</div>
+
+
