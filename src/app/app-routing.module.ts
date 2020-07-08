@@ -4,6 +4,7 @@ import { DashbardComponent } from './dashboard/dashbard/dashbard.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { SignupComponent } from './auth/signup/signup.component';
+import { CreatePostComponent } from './create-post/create-post.component';
 
 
 
@@ -11,6 +12,8 @@ const routes: Routes = [
 
 {path:'',
 component:LoginComponent},
+{path:'create-post',
+component:CreatePostComponent},
 {path:'signup',
 component:SignupComponent},
 {path:'dashboard',

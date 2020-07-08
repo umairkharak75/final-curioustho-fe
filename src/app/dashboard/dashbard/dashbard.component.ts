@@ -8,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dashbard.component.css']
 })
 export class DashbardComponent implements OnInit {
+  imageChangedEvent: any = '';
+  croppedImage: any = '';
   copyLink:FormGroup
   constructor(public sharedDataService:SharedDataService) { }
 link:string
@@ -18,6 +20,20 @@ link:string
     this.copyLink=new FormGroup({
       link:new FormControl(this.link)
     })
+  }
+  
+
+  fileChangeEvent(event: any): void {
+    this.imageChangedEvent = event;
+  } 
+  imageCropped(image: string) {
+    this.croppedImage = image;
+  }
+  imageLoaded() {
+    // show cropper
+  }
+  loadImageFailed() {
+    // show message
   }
   
 }

@@ -19,7 +19,8 @@ import {MatButtonModule} from '@angular/material/button';
 import {ClipboardModule} from '@angular/cdk/clipboard';
 import { LoginComponent } from './auth/login/login.component';
 import { TimelineComponent } from './timeline/timeline.component';
-
+import { ImageCropperModule } from 'ngx-image-cropper';
+import { CreatePostComponent } from './create-post/create-post.component';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { TimelineComponent } from './timeline/timeline.component';
     DashbardComponent,
     HeaderComponent,
     LoginComponent,
-    TimelineComponent
+    TimelineComponent,
+    CreatePostComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +44,8 @@ import { TimelineComponent } from './timeline/timeline.component';
     MatToolbarModule,
     MatIconModule,
     MatButtonModule,
-    ClipboardModule
+    ClipboardModule,
+    ImageCropperModule
     
   ],
   providers: [AuthGuard],
