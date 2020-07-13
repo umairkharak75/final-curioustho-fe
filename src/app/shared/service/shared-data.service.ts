@@ -14,18 +14,25 @@ export class SharedDataService {
       return this.user.token;
     }
   }
+
+  getProvider() {
+    this.user = JSON.parse(localStorage.getItem('user'));
+    if (this.user) {
+      return this.user.provider;
+    }
+  }
+  getId() {
+    this.user = JSON.parse(localStorage.getItem('user'));
+    if (this.user) {
+      return this.user.id;
+    }
+  }
+
   getUser() {
     return localStorage.getItem('user');
   }
 
   setUsertoLocalStorage(user) {
-    const userData = {
-      email: user.user.email,
-      id: user.user.id,
-      link: user.user.link,
-      token: user.token,
-    };
-
-    localStorage.setItem('user', JSON.stringify(userData));
+    localStorage.setItem('user', JSON.stringify(user));
   }
 }

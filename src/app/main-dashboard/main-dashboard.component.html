@@ -8,9 +8,56 @@
       <!-- Body Section -->
       <div class="body_section">
         <div class="row mx-0">
-          <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12 px-0"></div>
+          <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12 px-0">
+            <div class="profile_details">
+              <img
+                src="https://imagevars.gulfnews.com/2019/06/20/190619-imran-khan_16b743b13a5_medium.jpg"
+              />
+              <h5>Imran Khan</h5>
+              <span>175 Votes</span>
+            </div>
+            <div class="copy_url_section">
+              <input
+                type="text"
+                value="https://curioustho.com/16126e"
+                disabled=""
+              />
+              <input type="button" id="copyURL" value="Copy URL" />
+            </div>
+            <div class="social_section">
+              <div class="row px-0">
+                <div class="col-sl-6 col-lg-6 col-md-12 col-sm-12 col-12 left">
+                  <div class="social_link">
+                    <i class="fa fa-facebook-official" aria-hidden="true"></i>
+                    <span>Facebook</span>
+                  </div>
+                </div>
+                <div class="col-sl-6 col-lg-6 col-md-12 col-sm-12 col-12 right">
+                  <div class="social_link">
+                    <i class="fa fa-instagram" aria-hidden="true"></i>
+                    <span>Instagram</span>
+                  </div>
+                </div>
+                <div class="col-sl-6 col-lg-6 col-md-12 col-sm-12 col-12 left">
+                  <div class="social_link">
+                    <i class="fa fa-linkedin-square" aria-hidden="true"></i>
+                    <span>Linked In</span>
+                  </div>
+                </div>
+                <div class="col-sl-6 col-lg-6 col-md-12 col-sm-12 col-12 right">
+                  <div class="social_link">
+                    <i class="fa fa-twitter-square" aria-hidden="true"></i>
+                    <span>Twitter</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
 
-          <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 px-0">
+          <div
+            class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 px-0"
+            style="height: 100%;"
+          >
             <app-create-post
               (postAdded)="newPostAdded($event)"
             ></app-create-post>

@@ -18,6 +18,7 @@ import { MatSliderModule } from '@angular/material/slider';
 import { FormsModule } from '@angular/forms';
 import { ConfirmationModalComponent } from './components/post/confirmation-modal/confirmation-modal.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { SocialAuthService } from 'angularx-social-login';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     ImageCropperModule,
     MatDialogModule,
   ],
-  providers: [PostService, SharedDataService],
+  providers: [PostService, SharedDataService, SocialAuthService],
   entryComponents: [ConfirmationModalComponent],
 })
 export class MainDashboardModule {}

@@ -1,6 +1,7 @@
 import { ApiService } from './../../core/services/api.service';
 import { HttpClientModule } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import io from 'socket.io-client';
 
 @Injectable({
   providedIn: 'root',

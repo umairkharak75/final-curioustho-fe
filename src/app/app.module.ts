@@ -21,6 +21,13 @@ import { ClipboardModule } from '@angular/cdk/clipboard';
 import { ImageCropperModule } from 'ngx-image-cropper';
 import { CreateProfileComponent } from './auth/components/create-profile/create-profile.component';
 
+import {
+  SocialLoginModule,
+  GoogleLoginProvider,
+  FacebookLoginProvider,
+  SocialAuthServiceConfig,
+} from 'angularx-social-login';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,8 +49,30 @@ import { CreateProfileComponent } from './auth/components/create-profile/create-
     MatButtonModule,
     ClipboardModule,
     ImageCropperModule,
+    SocialLoginModule,
   ],
-  providers: [AuthGuard, SharedDataService],
+  providers: [
+    AuthGuard,
+
+    {
+      provide: 'SocialAuthServiceConfig',
+      useValue: {
+        autoLogin: false,
+        providers: [
+          {
+            id: GoogleLoginProvider.PROVIDER_ID,
+            provider: new GoogleLoginProvider(
+              '989732037782-rmgp80ulhurl6off02chhehs1gig9csu.apps.googleusercontent.com'
+            ),
+          },
+          {
+            id: FacebookLoginProvider.PROVIDER_ID,
+            provider: new FacebookLoginProvider('clientId'),
+          },
+        ],
+      } as SocialAuthServiceConfig,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

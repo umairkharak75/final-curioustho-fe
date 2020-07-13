@@ -3,6 +3,7 @@ import { FormGroup, FormControl } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../../service/auth.service';
+import { SocialAuthService, GoogleLoginProvider } from 'angularx-social-login';
 
 @Component({
   selector: 'app-login',
@@ -17,6 +18,7 @@ export class LoginComponent implements OnInit {
   constructor(
     public authService: AuthService,
     public router: Router,
+    public socialAuth: SocialAuthService,
     public sharedDataService: SharedDataService
   ) {
     this.isDisabled = true;
@@ -53,7 +55,17 @@ export class LoginComponent implements OnInit {
     this.authService.login(url, body).subscribe(
       (response) => {
         if (response.token) {
-          this.sharedDataService.setUsertoLocalStorage(response);
+          const user = {
+            email: response.user.email,
+            name: '',
+            profilePic: '',
+            token: response.token,
+            id: '',
+            provider: '',
+            idToken: '',
+          };
+
+          this.sharedDataService.setUsertoLocalStorage(user);
           this.isLoader = false;
           this.router.navigateByUrl('/main-dashboard');
         }
@@ -66,7 +78,34 @@ export class LoginComponent implements OnInit {
       }
     );
   }
+  signInWithGoogle(): void {
+    this.socialAuth.signIn(GoogleLoginProvider.PROVIDER_ID).then((response) => {
+      const body = {
+        email: response.email,
+        password: '123456',
+        id: response.id,
+        provider: response.provider,
+      };
+      const url = 'http://localhost:5000/api/auth';
+
+      this.authService.login(url, body).subscribe((response) => {
+        const user = {
+          token: response.token,
+          email: response.user.email,
+          id: response.user.id,
+          link: response.user.link,
+        };
+
+        this.sharedDataService.setUsertoLocalStorage(user);
+        this.isLoader = false;
+        this.router.navigateByUrl('/main-dashboard');
+      });
+    });
+  }
   signup() {
     this.router.navigateByUrl('/signup');
+  }
+  signInWithFB() {
+    console.log();
   }
 }

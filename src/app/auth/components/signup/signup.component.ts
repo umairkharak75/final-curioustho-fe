@@ -16,6 +16,7 @@ export class SignupComponent implements OnInit {
   isDashboard: boolean;
   isPasswordMatched: boolean;
   isLoader: boolean;
+  errorMessage: string;
 
   private isAuthenticated$ = new BehaviorSubject<boolean>(false);
 
@@ -69,10 +70,17 @@ export class SignupComponent implements OnInit {
       email: this.userForm.value.email,
     };
 
-    this.auth.addNewUser(url, body).subscribe((response) => {
-      this.sharedService.setUsertoLocalStorage(response);
-      this.router.navigateByUrl('main-dashboard');
-      console.log(response);
-    });
+    this.auth.addNewUser(url, body).subscribe(
+      (response) => {
+        this.sharedService.setUsertoLocalStorage(response);
+        this.router.navigateByUrl('main-dashboard');
+      },
+      (error) => {
+        this.isLoader = false;
+        if (error) {
+          this.errorMessage = error.error.errors[0].msg;
+        }
+      }
+    );
   }
 }
