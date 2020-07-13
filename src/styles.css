@@ -1,26 +1,297 @@
 /* You can add global styles to this file, and also import other style files */
-
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-
-
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  font-family: Roboto, Arial, sans-serif;
+  margin: 0;
+}
+
 @keyframes spinner {
-    to {transform: rotate(360deg);}
+  to {
+    transform: rotate(360deg);
   }
-   
-  .spinner:before {
-    content: '';
-    box-sizing: border-box;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 20px;
-    height: 20px;
-    margin-top: -10px;
-    margin-left: -10px;
-    border-radius: 50%;
-    border: 2px solid #ffffff;
-    border-top-color: #000000;
-    animation: spinner .8s linear infinite;
-  }
+}
+
+.spinner:before {
+  content: "";
+  box-sizing: border-box;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  margin-top: -10px;
+  margin-left: -10px;
+  border-radius: 50%;
+  border: 2px solid #ffffff;
+  border-top-color: #000000;
+  animation: spinner 0.8s linear infinite;
+}
+
+/* Khurram's CSS */
+.signin-bg-img {
+  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.3)),
+    url("./assets/bg-01.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+  text-align: center;
+}
+.signin-heading {
+  color: #ffffff;
+}
+.signin-btn {
+  background: black !important;
+  color: white !important;
+  padding: 2px 41px !important;
+  font-size: 16px;
+  text-transform: uppercase;
+  margin-top: 30px !important;
+  font-family: "Montserrat";
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+.signin-main {
+  padding: 8% 0;
+}
+.signup-main {
+  padding: 5% 0;
+}
+.signin-main h2 {
+  font-size: 28px;
+  font-family: "Montserrat";
+  font-weight: bold;
+  letter-spacing: 1.5px;
+}
+.signup-main h2 {
+  font-size: 28px;
+  font-family: "Montserrat";
+  font-weight: bold;
+  letter-spacing: 1.5px;
+}
+.main-form {
+  background-color: white;
+  padding: 60px;
+  border-radius: 18px;
+  margin: 45px 0px;
+}
+.main-signup-form {
+  background-color: white;
+  padding: 45px;
+  border-radius: 18px;
+}
+.mat-form-field-infix {
+  width: 302px !important;
+  padding: 22px 0px !important;
+}
+
+/*
+zain
+       */
+
+body {
+  background: #eee;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span,
+a,
+i,
+ul,
+ul li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+input:focus,
+button:focus {
+  outline: none;
+}
+/************ Header CSS ***********/
+.small_container {
+  width: 99%;
+  margin: 0 auto;
+}
+.header_section {
+  padding: 10px 0px;
+  background: #fff;
+}
+.header_logo img {
+  width: 70%;
+}
+.header_menu ul {
+  display: flex;
+  height: 100%;
+}
+.header_menu ul li {
+  display: inline;
+  margin: auto;
+  text-align: center;
+  font-weight: bold;
+}
+.header_menu ul li:first-child {
+  margin-left: 0;
+}
+.header_menu ul li:last-child {
+  margin-right: 0;
+}
+.header_menu ul li.active {
+  color: #ffa500;
+}
+.header_menu ul li i {
+  display: block;
+}
+.header_profile {
+  text-align: right;
+}
+.header_profile ul li {
+  display: inline;
+  margin: 0 0 0 30px;
+}
+.header_profile ul li:first-child button {
+  background: #ffa500;
+  border-radius: 35px;
+  padding: 4px 10px 4px 6px;
+  color: #fff;
+  border: none;
+}
+.header_profile ul li button img {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  margin: 0px 5px 0px 0px;
+}
+.header_profile ul li i {
+  color: #ffa500;
+  transform: rotate(15deg);
+  font-size: 20px;
+}
+/************ Header CSS End ***********/
+/************ Home CSS ***********/
+.body_section {
+  margin: 10px 0px;
+}
+.profile_details {
+  text-align: center;
+  background: #fff;
+  border-radius: 3px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  padding: 20px 0px;
+}
+.profile_details img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  box-shadow: 0px 0px 5px #555;
+  -webkit-box-shadow: 0px 0px 5px #555;
+  -moz-box-shadow: 0px 0px 5px #555;
+}
+.profile_details h5 {
+  margin: 10px 0px 20px 0px;
+}
+.profile_details span {
+  background: #eee;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-weight: bold;
+}
+.copy_url_section {
+  background: #fff;
+  padding: 5px 10px;
+}
+.copy_url_section input {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-left: 5px solid #ffa500;
+  border-radius: 5px;
+  background: #ececf3;
+  color: #000;
+}
+.copy_url_section input#copyURL {
+  width: 100%;
+  padding: 10px;
+  margin: 20px 0px 0px 0px;
+  background: #ffa500;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.social_section {
+  background: #fff;
+  border-radius: 3px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  padding: 20px 0px;
+}
+.social_link {
+  background: #eee;
+  padding: 15px;
+}
+.left {
+  margin: 10px -10px 10px 10px;
+}
+.right {
+  margin: 10px 10px 10px -10px;
+}
+.social_link {
+  text-align: center;
+}
+.social_link i {
+  display: block;
+  font-size: 50px;
+  color: #3b5998;
+}
+.content_section {
+  padding: 0px 10px;
+  height: 100%;
+}
+.add_photo_section {
+  padding: 20px 0px;
+  border-radius: 3px;
+  background: #fff;
+}
+.add_photo_section img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+.add_photo_section button {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  padding: 10px 30%;
+  border: 1px solid #eee;
+  cursor: pointer;
+}
+.add_photo_section button#post {
+  background: #ffa500;
+  color: #fff;
+  display: unset;
+  padding: 0;
+  margin: 0;
+  border-radius: 35px;
+}
+.add_photo_section button i {
+  margin: 5px 10px 0 0;
+}
+
+.blank {
+  background: #fff;
+  height: 100%;
+  border-radius: 3px;
+}
+/************ Home CSS End ***********/

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <div class="small_container">
+      <!-- Header Section -->
+      <app-header [loggedUser]="user"> </app-header>
+
+      <!-- Body Section -->
+      <div class="body_section">
+        <div class="row mx-0">
+          <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12 px-0"></div>
+
+          <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 px-0">
+            <app-create-post
+              (postAdded)="newPostAdded($event)"
+            ></app-create-post>
+            <div *ngIf="!post" class="text-center">
+              <div
+                class="spinner-border"
+                style="width: 3rem; height: 3rem;"
+                role="status"
+              >
+                <span class="sr-only">Loading...</span>
+              </div>
+            </div>
+
+            <div *ngIf="post">
+              <div *ngFor="let post of post">
+                <app-post
+                  (deletedPost)="deletedPost($event)"
+                  [post]="post"
+                  [user]="user"
+                ></app-post>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12 px-0">
+            <div class="blank"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

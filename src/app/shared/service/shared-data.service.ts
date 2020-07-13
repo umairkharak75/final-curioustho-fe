@@ -1,20 +1,31 @@
 import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class SharedDataService {
-link:string
-  constructor() { }
+  link: string;
+  user;
+  constructor() {}
 
-setLink(link:string){
-this.link=link
+  getToken() {
+    this.user = JSON.parse(localStorage.getItem('user'));
+    if (this.user) {
+      return this.user.token;
+    }
+  }
+  getUser() {
+    return localStorage.getItem('user');
+  }
 
-}
-getLink(){
+  setUsertoLocalStorage(user) {
+    const userData = {
+      email: user.user.email,
+      id: user.user.id,
+      link: user.user.link,
+      token: user.token,
+    };
 
-return this.link
-
-}
-
+    localStorage.setItem('user', JSON.stringify(userData));
+  }
 }

@@ -1,0 +1,59 @@
+<!-- <mat-toolbar color="primary">
+  <button
+    mat-icon-button
+    class="example-icon"
+    aria-label="Example icon-button with menu icon"
+  >
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span>My App</span>
+
+  <span class="example-spacer"></span>
+  <span>{{ loggedUser.email }}</span>
+  <span (click)="logout()">Logout</span>
+</mat-toolbar> -->
+
+<div class="header_section">
+  <div class="row mx-0">
+    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12 header_logo">
+      <img
+        src="https://curioustho.com/wp-content/themes/curious/assets/images/logo2.png"
+      />
+    </div>
+    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 header_menu">
+      <ul>
+        <li class="active">
+          <i class="fa fa-home" aria-hidden="true"></i>
+          Home
+        </li>
+        <li>
+          <i class="fa fa-hashtag" aria-hidden="true"></i>
+          Explore
+        </li>
+        <li>
+          <i class="fa fa-user" aria-hidden="true"></i>
+          Activity
+        </li>
+        <li (click)="logout()">
+          <i class="fa fa-cog" aria-hidden="true"></i>
+          logout
+        </li>
+      </ul>
+    </div>
+    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12 header_profile">
+      <ul>
+        <li>
+          <button>
+            <img
+              src="https://imagevars.gulfnews.com/2019/06/20/190619-imran-khan_16b743b13a5_medium.jpg"
+            />
+            {{ loggedUser.email }}
+          </button>
+        </li>
+        <li>
+          <i class="fa fa-bell" aria-hidden="true"></i>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

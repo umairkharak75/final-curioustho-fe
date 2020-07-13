@@ -1,0 +1,63 @@
+<div class="signin-bg-img">
+  <div class="signin-main container">
+    <div class="row">
+      <div class="mx-auto">
+        <h2 class="text-center signin-heading">ACCOUNT LOGIN</h2>
+
+        <div class="main-form">
+          <form [formGroup]="loginForm">
+            <mat-form-field>
+              <mat-label>Email</mat-label>
+              <input
+                matInput
+                [formControlName]="'email'"
+                [type]="'email'"
+                required
+                placeholder="Ex. pat@example.com"
+              />
+              <mat-error *ngIf="loginForm.get('email').invalid"
+                >please enter a valid email</mat-error
+              >
+            </mat-form-field>
+            <br />
+            <mat-form-field>
+              <mat-label>Password</mat-label>
+              <input
+                matInput
+                [type]="'password'"
+                [formControlName]="'password'"
+                placeholder="Enter Password"
+                required
+              />
+              <mat-error *ngIf="loginForm.get('password').invalid"
+                >Enter a password</mat-error
+              >
+            </mat-form-field>
+            <br />
+            <mat-error *ngIf="!isValidCredentials"
+              >Please enter valid credentials</mat-error
+            >
+
+            <button
+              class="signin-btn"
+              [disabled]="isDisabled"
+              mat-flat-button
+              [class.spinner]="isLoader"
+              (click)="login()"
+            >
+              Login
+            </button>
+            <button
+              class="signin-btn"
+              [disabled]="isDisabled"
+              mat-flat-button
+              (click)="signup()"
+            >
+              Signup
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,37 +1,33 @@
+import { SharedDataService } from './shared/service/shared-data.service';
+import { SignupComponent } from './auth/components/signup/signup.component';
+import { LoginComponent } from './auth/components/login/login.component';
 import { AuthGuard } from './auth/auth.guard';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { SignupComponent } from './auth/signup/signup.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatInputModule} from '@angular/material/input';
+import { MatInputModule } from '@angular/material/input';
 import { ReactiveFormsModule } from '@angular/forms';
-import {MatToolbarModule} from '@angular/material/toolbar';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { DashbardComponent } from './dashboard/dashbard/dashbard.component';
-import {MatIconModule} from '@angular/material/icon';
-import { HeaderComponent } from './core/header/header/header.component';
-import {MatButtonModule} from '@angular/material/button';
-import {ClipboardModule} from '@angular/cdk/clipboard';
-import { LoginComponent } from './auth/login/login.component';
-import { TimelineComponent } from './timeline/timeline.component';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { ClipboardModule } from '@angular/cdk/clipboard';
 import { ImageCropperModule } from 'ngx-image-cropper';
-import { CreatePostComponent } from './create-post/create-post.component';
-
+import { CreateProfileComponent } from './auth/components/create-profile/create-profile.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SignupComponent,
     DashbardComponent,
-    HeaderComponent,
     LoginComponent,
-    TimelineComponent,
-    CreatePostComponent
+    CreateProfileComponent,
   ],
   imports: [
     BrowserModule,
@@ -45,10 +41,9 @@ import { CreatePostComponent } from './create-post/create-post.component';
     MatIconModule,
     MatButtonModule,
     ClipboardModule,
-    ImageCropperModule
-    
+    ImageCropperModule,
   ],
-  providers: [AuthGuard],
-  bootstrap: [AppComponent]
+  providers: [AuthGuard, SharedDataService],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
