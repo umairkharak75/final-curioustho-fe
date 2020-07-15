@@ -3,7 +3,11 @@ import { FormGroup, FormControl } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../../service/auth.service';
-import { SocialAuthService, GoogleLoginProvider } from 'angularx-social-login';
+import {
+  SocialAuthService,
+  GoogleLoginProvider,
+  FacebookLoginProvider,
+} from 'angularx-social-login';
 
 @Component({
   selector: 'app-login',
@@ -80,32 +84,42 @@ export class LoginComponent implements OnInit {
   }
   signInWithGoogle(): void {
     this.socialAuth.signIn(GoogleLoginProvider.PROVIDER_ID).then((response) => {
-      const body = {
-        email: response.email,
-        password: '123456',
-        id: response.id,
-        provider: response.provider,
-      };
-      const url = 'http://localhost:5000/api/auth';
-
-      this.authService.login(url, body).subscribe((response) => {
-        const user = {
-          token: response.token,
-          email: response.user.email,
-          id: response.user.id,
-          link: response.user.link,
-        };
-
-        this.sharedDataService.setUsertoLocalStorage(user);
-        this.isLoader = false;
-        this.router.navigateByUrl('/main-dashboard');
-      });
+      this.generateSocaialUuserToken(response);
     });
   }
   signup() {
     this.router.navigateByUrl('/signup');
   }
   signInWithFB() {
-    console.log();
+    this.socialAuth.signIn(FacebookLoginProvider.PROVIDER_ID).then((data) => {
+      this.generateSocaialUuserToken(data);
+    });
+  }
+
+  generateSocaialUuserToken(response) {
+    const body = {
+      email: response.email,
+      password: '123456',
+      id: response.id,
+      provider: response.provider,
+      idToken: response.idToken,
+      name: response.name,
+    };
+
+    const url = 'http://localhost:5000/api/auth';
+
+    this.authService.login(url, body).subscribe((response) => {
+      const user = {
+        token: response.token,
+        email: response.user.email,
+        id: response.user.id,
+        link: response.user.link,
+        idToken: response.idToken,
+      };
+
+      this.sharedDataService.setUsertoLocalStorage(user);
+      this.isLoader = false;
+      this.router.navigateByUrl('/main-dashboard');
+    });
   }
 }

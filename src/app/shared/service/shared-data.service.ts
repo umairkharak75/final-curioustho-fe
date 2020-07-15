@@ -21,6 +21,7 @@ export class SharedDataService {
       return this.user.provider;
     }
   }
+
   getId() {
     this.user = JSON.parse(localStorage.getItem('user'));
     if (this.user) {
@@ -31,7 +32,9 @@ export class SharedDataService {
   getUser() {
     return localStorage.getItem('user');
   }
-
+  getUserFromLs() {
+    return JSON.parse(localStorage.getItem('user'));
+  }
   setUsertoLocalStorage(user) {
     localStorage.setItem('user', JSON.stringify(user));
   }

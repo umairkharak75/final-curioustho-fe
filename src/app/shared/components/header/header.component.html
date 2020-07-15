@@ -1,3 +1,64 @@
+<!-- <!-- <mat-toolbar color="primary">
+  <button
+    mat-icon-button
+    class="example-icon"
+    aria-label="Example icon-button with menu icon"
+  >
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span>My App</span>
+
+  <span class="example-spacer"></span>
+  <span>{{ loggedUser.email }}</span>
+  <span (click)="logout()">Logout</span>
+</mat-toolbar> -->
+
+<!-- <div class="header_section">
+  <div class="row mx-0">
+    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12 header_logo">
+      <img
+        src="https://curioustho.com/wp-content/themes/curious/assets/images/logo2.png"
+      />
+    </div>
+    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 header_menu">
+      <ul>
+        <li class="active">
+          <i class="fa fa-home" aria-hidden="true"></i>
+          Home
+        </li>
+        <li>
+          <i class="fa fa-hashtag" aria-hidden="true"></i>
+          Explore
+        </li>
+        <li>
+          <i class="fa fa-user" aria-hidden="true"></i>
+          Activity
+        </li>
+        <li (click)="logout()">
+          <i class="fa fa-cog" aria-hidden="true"></i>
+          logout
+        </li>
+      </ul>
+    </div>
+    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12 header_profile">
+      <ul>
+        <li>
+          <button>
+            <img
+              src="https://imagevars.gulfnews.com/2019/06/20/190619-imran-khan_16b743b13a5_medium.jpg"
+            />
+            {{ loggedUser.email }}
+          </button>
+        </li>
+        <li>
+          <i class="fa fa-bell" aria-hidden="true"></i>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div> -->
+-->
+
 <div class="laptop_header">
   <div class="small_container">
     <!-- Header Section -->
@@ -530,229 +591,3 @@
     </div>
   </div>
 </div>
-<div class="mobile_body">
-  <div class="col-lg-12 col-md-12 col-sm-12 col-12 px-0">
-    <div class="profile_details">
-      <img
-        src="https://imagevars.gulfnews.com/2019/06/20/190619-imran-khan_16b743b13a5_medium.jpg"
-      />
-      <h5>Imran Khan</h5>
-      <h4>@imrankhanofficial</h4>
-      <p>
-        Lorem ipsum is simply a dummy text. Lorem ipsum is simply a dummy text.
-        Lorem ipsum is simply a dummy text. Lorem ipsum is simply a dummy text.
-        Lorem ipsum is simply a dummy text. Lorem ipsum is simply a dummy text.
-        Lorem ipsum is simply a dummy text.
-      </p>
-      <span>175 Votes</span>
-    </div>
-  </div>
-  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 px-0">
-    <div class="content_section">
-      <div class="custom_tabs">
-        <ul class="nav nav-pills">
-          <li class="active">
-            <a data-toggle="pill" href="#mobile_picture"
-              ><i class="fa fa-picture-o" aria-hidden="true"></i> My Images</a
-            >
-          </li>
-          <li>
-            <a data-toggle="pill" href="#mobile_ask_question"
-              ><i class="fa fa-comment" aria-hidden="true"></i> Ask Questions</a
-            >
-          </li>
-          <li>
-            <a data-toggle="pill" href="#mobile_question"
-              ><i class="fa fa-comment" aria-hidden="true"></i> My Questions</a
-            >
-          </li>
-        </ul>
-        <div class="tab-content">
-          <div id="mobile_picture" class="tab-pane fade in active show">
-            <div class="row mx-0">
-              <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-2">
-                <img
-                  src="https://imagevars.gulfnews.com/2019/06/20/190619-imran-khan_16b743b13a5_medium.jpg"
-                />
-              </div>
-              <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9 col-9">
-                <div class="mobile_details_section">
-                  <h5>Imran Khan</h5>
-                  <h4>@imrankhanofficial</h4>
-                  <span>08:18 PM 20/06/2020</span>
-                </div>
-              </div>
-              <div class="col-xl-1 col-lg-1 col-md-1 col-sm-1 col-1">
-                <nav class="navbar navbar-expand-lg navbar-light dropdown_nav">
-                  <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                    <ul class="navbar-nav">
-                      <li class="nav-item dropdown">
-                        <a
-                          class="nav-link dropdown-toggle"
-                          href="#"
-                          id="navbarDropdownMenuLink"
-                          role="button"
-                          data-toggle="dropdown"
-                          aria-haspopup="true"
-                          aria-expanded="false"
-                        >
-                          <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
-                        </a>
-                        <div
-                          class="dropdown-menu"
-                          aria-labelledby="navbarDropdownMenuLink"
-                        >
-                          <a class="dropdown-item" href="#">Delete</a>
-                        </div>
-                      </li>
-                    </ul>
-                  </div>
-                </nav>
-              </div>
-              <div
-                class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mobile_content_image"
-              >
-                <img
-                  src="https://i.pinimg.com/originals/c0/d6/25/c0d625a7ef5bc800380b76186f4f1e06.jpg"
-                />
-              </div>
-            </div>
-          </div>
-          <div id="mobile_ask_question" class="tab-pane fade">
-            <textarea id="ask_question" placeholder="Ask Question"></textarea>
-            <button id="ask_question">Ask</button>
-          </div>
-          <div id="mobile_question" class="tab-pane fade">
-            <div class="question_section">
-              <div class="row mx-0">
-                <div class="col-xl-8 col-lg-8 col-md-8 col-sm-11 col-11">
-                  <span>Q1</span>
-                  <input
-                    class="asked_question"
-                    id="q1"
-                    value="This is my question"
-                    disabled="true"
-                  />
-                </div>
-                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-1 col-1">
-                  <nav
-                    class="navbar navbar-expand-lg navbar-light dropdown_nav"
-                  >
-                    <div
-                      class="collapse navbar-collapse"
-                      id="navbarNavDropdown"
-                    >
-                      <ul class="navbar-nav">
-                        <li class="nav-item dropdown">
-                          <a
-                            class="nav-link dropdown-toggle"
-                            href="#"
-                            id="navbarDropdownMenuLink"
-                            role="button"
-                            data-toggle="dropdown"
-                            aria-haspopup="true"
-                            aria-expanded="false"
-                          >
-                            <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
-                          </a>
-                          <div
-                            class="dropdown-menu"
-                            aria-labelledby="navbarDropdownMenuLink"
-                          >
-                            <a class="dropdown-item" href="#">Delete</a>
-                          </div>
-                        </li>
-                      </ul>
-                    </div>
-                  </nav>
-                </div>
-                <div
-                  class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 answer_section"
-                >
-                  <input class="answer_question" id="a1" value="" />
-                  <span class="answer_index">A1</span>
-                </div>
-                <div
-                  class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 text-center py-3"
-                >
-                  <button id="cancel_answer">
-                    <i class="fa fa-times" aria-hidden="true"></i> Cancel
-                  </button>
-                  <button id="post_answer">
-                    <i class="fa fa-check" aria-hidden="true"></i> Post
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="floating_add_post">
-    <button
-      type="button"
-      id="add_new_photos"
-      class="btn btn-primary"
-      data-toggle="modal"
-      data-target="#add_photos"
-    >
-      +
-    </button>
-
-    <!-- Modal -->
-    <div
-      class="modal fade"
-      id="add_photos"
-      data-backdrop="static"
-      data-keyboard="false"
-      tabindex="-1"
-      role="dialog"
-      aria-labelledby="staticBackdropLabel"
-      aria-hidden="true"
-    >
-      <div
-        class="modal-dialog modal-dialog-centered modal-dialog-scrollable"
-        style="max-width: 1024px;"
-      >
-        <div class="modal-content" style="height: 100%;">
-          <div class="modal-header">
-            <button
-              type="button"
-              class="close"
-              data-dismiss="modal"
-              aria-label="Close"
-            >
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <div class="add_photo_section">
-              <div class="row mx-0">
-                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                  <button>
-                    <i class="fa fa-picture-o" aria-hidden="true"></i> Add a
-                    photo
-                  </button>
-                </div>
-                <div
-                  class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 my-3"
-                >
-                  <button id="post">Post</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<script>
-  jQuery(".content_section ul li").click(function () {
-    jQuery(".content_section ul li").each(function () {
-      jQuery(".content_section ul li").removeClass("active");
-    });
-    jQuery(this).addClass("active");
-  });
-</script>

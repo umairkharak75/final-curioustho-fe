@@ -21,6 +21,12 @@ const routes: Routes = [
         (m) => m.MainDashboardModule
       ),
   },
+  {
+    path: 'profile',
+    canActivate: [AuthGuard],
+    loadChildren: () =>
+      import('./profile/profile.module').then((m) => m.ProfileModule),
+  },
 ];
 
 @NgModule({

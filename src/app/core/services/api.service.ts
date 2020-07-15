@@ -13,6 +13,9 @@ export class ApiService {
   getData(url): Observable<any> {
     return this.http.get<any>(url, this.createHeaders());
   }
+  patchData(url, body): Observable<any> {
+    return this.http.patch<any>(url, body, this.createHeaders());
+  }
   deleteData(url): Observable<any> {
     console.log(this.createHeaders);
     return this.http.delete<any>(url, this.createHeaders());

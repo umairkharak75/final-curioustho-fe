@@ -1,4 +1,3 @@
-import { SharedDataService } from './shared/service/shared-data.service';
 import { SignupComponent } from './auth/components/signup/signup.component';
 import { LoginComponent } from './auth/components/login/login.component';
 import { AuthGuard } from './auth/auth.guard';
@@ -67,7 +66,7 @@ import {
           },
           {
             id: FacebookLoginProvider.PROVIDER_ID,
-            provider: new FacebookLoginProvider('clientId'),
+            provider: new FacebookLoginProvider('3215415031886304'),
           },
         ],
       } as SocialAuthServiceConfig,

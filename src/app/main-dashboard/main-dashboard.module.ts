@@ -1,6 +1,6 @@
+import { SharedModule } from './../shared/shared.module';
 import { SharedDataService } from 'src/app/shared/service/shared-data.service';
 import { PostService } from './services/post.service';
-import { HeaderComponent } from './../core/components/header/header/header.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -25,7 +25,6 @@ import { SocialAuthService } from 'angularx-social-login';
     MainDashboardComponent,
     CreatePostComponent,
     PostComponent,
-    HeaderComponent,
     ConfirmationModalComponent,
   ],
   imports: [
@@ -41,6 +40,7 @@ import { SocialAuthService } from 'angularx-social-login';
     ClipboardModule,
     ImageCropperModule,
     MatDialogModule,
+    SharedModule,
   ],
   providers: [PostService, SharedDataService, SocialAuthService],
   entryComponents: [ConfirmationModalComponent],

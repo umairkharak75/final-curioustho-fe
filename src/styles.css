@@ -91,10 +91,7 @@ body {
   padding: 22px 0px !important;
 }
 
-/*
-zain
-       */
-
+/********* Hadi's CSS *********/
 body {
   background: #eee;
 }
@@ -147,7 +144,7 @@ button:focus {
   margin-right: 0;
 }
 .header_menu ul li.active {
-  color: #ffa500;
+  color: #ff9909;
 }
 .header_menu ul li i {
   display: block;
@@ -160,7 +157,7 @@ button:focus {
   margin: 0 0 0 30px;
 }
 .header_profile ul li:first-child button {
-  background: #ffa500;
+  background: linear-gradient(to right, #ff9909, #d97d11);
   border-radius: 35px;
   padding: 4px 10px 4px 6px;
   color: #fff;
@@ -173,10 +170,14 @@ button:focus {
   margin: 0px 5px 0px 0px;
 }
 .header_profile ul li i {
-  color: #ffa500;
+  color: #ff9909;
   transform: rotate(15deg);
   font-size: 20px;
 }
+.mobile_header {
+  display: none;
+}
+
 /************ Header CSS End ***********/
 /************ Home CSS ***********/
 .body_section {
@@ -215,7 +216,7 @@ button:focus {
   width: 100%;
   padding: 10px;
   border: none;
-  border-left: 5px solid #ffa500;
+  border-left: 5px solid #ff9909;
   border-radius: 5px;
   background: #ececf3;
   color: #000;
@@ -224,7 +225,7 @@ button:focus {
   width: 100%;
   padding: 10px;
   margin: 20px 0px 0px 0px;
-  background: #ffa500;
+  background: linear-gradient(to right, #ff9909, #d97d11);
   color: #fff;
   border: none;
   border-radius: 5px;
@@ -236,6 +237,7 @@ button:focus {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
   padding: 20px 0px;
+  height: 100%;
 }
 .social_link {
   background: #eee;
@@ -278,7 +280,7 @@ button:focus {
   cursor: pointer;
 }
 .add_photo_section button#post {
-  background: #ffa500;
+  background: linear-gradient(to right, #ff9909, #d97d11);
   color: #fff;
   display: unset;
   padding: 0;
@@ -288,10 +290,125 @@ button:focus {
 .add_photo_section button i {
   margin: 5px 10px 0 0;
 }
+.content_section ul {
+  margin-top: 10px;
+}
+.content_section ul li {
+  width: 49%;
+  text-align: center;
+  background: #fff;
+  border-radius: 3px;
+  cursor: pointer;
+}
+.content_section ul li:first-child {
+  margin-right: 12px;
+}
+.content_section ul li.active {
+  background: linear-gradient(to right, #ff9909, #d97d11);
+  color: #fff;
+}
+.content_section ul li a {
+  color: #000;
+  padding: 10px 20px;
+  width: 100%;
+  display: block;
+}
+.content_section ul li a:hover {
+  text-decoration: none;
+}
+.content_section ul li.active a {
+  color: #fff;
+}
+.content_section input#ask_question {
+  width: 100%;
+  height: 70px;
+  margin-top: 10px;
+  padding: 10px;
+  border: none;
+  border-left: 5px solid #ff9909;
+  border-radius: 5px;
+  background: #fff;
+  color: #000;
+}
+.question_section {
+  margin-top: 10px;
+  padding: 40px 0px;
+  background: #fff;
+  border-radius: 3px;
+}
+.question_section span {
+  background: #ff9909;
+  color: #fff;
+  border-radius: 50%;
+  padding: 7px 7px;
+}
+.question_section input {
+  width: 80%;
+  background: linear-gradient(to right, #ff9909, #d97d11);
+  border-radius: 35px;
+  border: 1px solid #ff9909;
+  color: #fff;
+  margin: 0 0 20px 0;
+  padding: 10px 15px;
+}
+.question_section button#post_answer {
+  background: linear-gradient(to right, #ff9909, #d97d11);
+  color: #fff;
+  border-radius: 35px;
+  border: 1px solid #eee;
+  cursor: pointer;
+  margin: 4px 0 0 0;
+  padding: 5px 30px;
+}
+.dropdown_nav {
+  padding: 0;
+}
+.dropdown_nav ul {
+  width: 100%;
+}
+.dropdown_nav ul li.active {
+  background: none;
+  color: #fff;
+  margin: auto;
+  margin-right: 0;
+}
+.dropdown_nav ul li {
+  width: auto;
+  margin: auto;
+  margin-right: 0px !important;
+}
+.dropdown_nav ul li div.show {
+  left: -150px;
+}
+.dropdown_nav ul li div.show a {
+  color: #000;
+  padding: 0px 10px !important;
+}
+.dropdown_nav ul li a {
+  padding: 0 10px !important;
+}
+.dropdown_nav ul li a:after {
+  display: none;
+}
+.answer_section {
+  text-align: right;
+}
+.answer_section input {
+  background: #fff7b7;
+  border: 1px solid #fff7b7;
+  margin: 0;
+  color: #000;
+}
+.answer_section span {
+  background: #fff7b7;
+  color: #000;
+}
 
-.blank {
+.rating_section {
   background: #fff;
   height: 100%;
   border-radius: 3px;
 }
+/************ Home CSS End ***********/
+
 /************ Home CSS End ***********/
