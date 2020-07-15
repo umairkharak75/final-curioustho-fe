@@ -16,36 +16,68 @@
     <div class="col-lg-12 col-md-12 col-sm-12 col-12 px-0 mobile_show">
       <app-left-side-bar></app-left-side-bar>
     </div>
-    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 px-0 mobile_show">
-      <app-profile-body></app-profile-body>
+    <div
+      class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 px-0 mobile_show"
+    >
+      <app-profile-body [user]="user" [question]="question"></app-profile-body>
     </div>
     <div class="floating_add_post mobile_show">
-      <button type="button" id="add_new_photos" class="btn btn-primary" data-toggle="modal" data-target="#add_photos">
-          +
+      <button
+        type="button"
+        id="add_new_photos"
+        class="btn btn-primary"
+        data-toggle="modal"
+        data-target="#add_photos"
+      >
+        +
       </button>
-        
+
       <!-- Modal -->
-      <div class="modal fade" id="add_photos" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-          <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" style="max-width: 1024px;">
-              <div class="modal-content" style="height: 100%;">
-                  <div class="modal-header">
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                          <span aria-hidden="true">&times;</span>
-                      </button>
+      <div
+        class="modal fade"
+        id="add_photos"
+        data-backdrop="static"
+        data-keyboard="false"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="staticBackdropLabel"
+        aria-hidden="true"
+      >
+        <div
+          class="modal-dialog modal-dialog-centered modal-dialog-scrollable"
+          style="max-width: 1024px;"
+        >
+          <div class="modal-content" style="height: 100%;">
+            <div class="modal-header">
+              <button
+                type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="add_photo_section">
+                <div class="row mx-0">
+                  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                    <button>
+                      <i class="fa fa-picture-o" aria-hidden="true"></i> Add a
+                      photo
+                    </button>
                   </div>
-                  <div class="modal-body">
-                      <div class="add_photo_section">
-                          <div class="row mx-0">
-                              <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                                  <button><i class="fa fa-picture-o" aria-hidden="true"></i> Add a photo</button>
-                              </div>
-                              <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 my-3">
-                                  <button id="post">Post</button>
-                              </div>
-                          </div>
-                      </div>
+                  <div
+                    class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 my-3"
+                  >
+                    <button id="post">Post</button>
                   </div>
+                </div>
+              </div>
             </div>
           </div>
+        </div>
       </div>
     </div>
+  </div>
+</div>
