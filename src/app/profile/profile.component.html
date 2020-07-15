@@ -1,170 +1,83 @@
-<!-- <app-header [loggedUser]="user"> </app-header>
-<mat-tab-group>
-  <mat-tab label="Images">
-    <div *ngFor="let post of post">
-      <mat-card class="example-card">
-        <mat-card-header>
-          <div mat-card-avatar class="example-header-image"></div>
-          <mat-card-title>Shiba Inu</mat-card-title>
-          <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-          <button
-            *ngIf="user.id === post.user"
-            mat-stroked-button
-            color="warn"
-            (click)="deletePost()"
-          >
-            Delete
-          </button>
-        </mat-card-header>
-        <img
-          mat-card-image
-          src="{{ 'http://localhost:5000/' + post.productImage }}"
-          alt="Photo of a Shiba Inu"
-        />
-        <mat-card-content *ngIf="user.id !== post.user">
-          <h2>Review</h2>
-
-          <mat-slider
-            class="example-margin"
-            [disabled]="disabled"
-            [invert]="invert"
-            [max]="max"
-            #slider
-            [min]="min"
-            (change)="reviewValue($event)"
-            (mouseup)="onDropReview(slider.value)"
-            [step]="step"
-            [thumbLabel]="thumbLabel"
-            [vertical]="vertical"
-            [(ngModel)]="value"
-            [disabled]="hasSubmit === true ? true : false"
-          >
-          </mat-slider>
-        </mat-card-content>
-        <mat-card-actions> </mat-card-actions>
-      </mat-card>
-    </div>
-  </mat-tab>
-  <mat-tab label="Questions">
-    <div [formGroup]="questionForm">
-      <mat-form-field appearance="fill">
-        <mat-label>Input</mat-label>
-        <input formControlName="question" matInput />
-      </mat-form-field>
-      <button mat-raised-button color="primary" (click)="addQuestion()">
-        Add Question
-      </button>
-    </div>
-
-    <div [formGroup]="questionForm" *ngFor="let question of question">
-      <button
-        mat-raised-button
-        color="primary"
-        (click)="deleteQuestion(question)"
-      >
-        delete
-      </button>
-      <p>{{ question.question }}</p>
-      <mat-form-field appearance="fill">
-        <mat-label>submit answers</mat-label>
-        <input formControlName="answer" matInput />
-      </mat-form-field>
-      <button
-        mat-raised-button
-        color="primary"
-        (click)="submitAnswer(question)"
-      >
-        Submit Answer
-      </button>
-    </div>
-  </mat-tab>
-</mat-tab-group> -->
-
-<div class="laptop_header">
-  <div class="small_container">
-    <!-- Header Section -->
-    <app-header [loggedUser]="user"> </app-header>
-
-    <!-- Body Section -->
-    <div class="body_section">
-      <div class="row mx-0">
+<app-header></app-header>
+<div class="laptop_show">
+  <div class="body_section">
+    <!-- <div class="row mx-0">
+      <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12 px-0 laptop_show">
         <app-left-side-bar></app-left-side-bar>
-        <app-profile-body
-          [question]="question"
-          [post]="post"
-        ></app-profile-body>
+      </div>
+      <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 px-0 laptop_show">
+        <app-profile-body></app-profile-body>
+      </div>
+    </div> -->
+  </div>
+</div>
+<div class="mobile_show">
+  <div class="mobile_body">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-12 px-0 mobile_show">
+      <app-left-side-bar></app-left-side-bar>
+    </div>
+    <div
+      class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 px-0 mobile_show"
+    >
+      <app-profile-body [user]="user" [question]="question"></app-profile-body>
+    </div>
+    <div class="floating_add_post mobile_show">
+      <button
+        type="button"
+        id="add_new_photos"
+        class="btn btn-primary"
+        data-toggle="modal"
+        data-target="#add_photos"
+      >
+        +
+      </button>
 
-        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12 px-0">
-          <div class="rating_section"></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="mobile_header">
-  <div class="row px-0">
-    <div class="col-lg-5 col-md-5 col-sm-5 col-5">
-      <nav class="navbar navbar-expand-lg navbar-light">
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
+      <!-- Modal -->
+      <div
+        class="modal fade"
+        id="add_photos"
+        data-backdrop="static"
+        data-keyboard="false"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="staticBackdropLabel"
+        aria-hidden="true"
+      >
+        <div
+          class="modal-dialog modal-dialog-centered modal-dialog-scrollable"
+          style="max-width: 1024px;"
         >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="javascript:void(0);"
-                >Home <span class="sr-only">(current)</span></a
+          <div class="modal-content" style="height: 100%;">
+            <div class="modal-header">
+              <button
+                type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close"
               >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="javascript:void(0);">Explore</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="javascript:void(0);">Activity</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="javascript:void(0);">settings</a>
-            </li>
-          </ul>
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="add_photo_section">
+                <div class="row mx-0">
+                  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                    <button>
+                      <i class="fa fa-picture-o" aria-hidden="true"></i> Add a
+                      photo
+                    </button>
+                  </div>
+                  <div
+                    class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 my-3"
+                  >
+                    <button id="post">Post</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-      </nav>
-    </div>
-    <div class="col-lg-2 col-md-2 col-sm-2 col-2">
-      <div class="logo">
-        <img src="assets/logo-mobile.png" />
-      </div>
-    </div>
-    <div class="col-lg-5 col-md-5 col-sm-5 col-5">
-      <div class="header_profile">
-        <ul>
-          <li>
-            <button>
-              <img
-                src="https://imagevars.gulfnews.com/2019/06/20/190619-imran-khan_16b743b13a5_medium.jpg"
-              />
-              Imran Khan
-            </button>
-          </li>
-          <li>
-            <i class="fa fa-bell" aria-hidden="true"></i>
-          </li>
-        </ul>
       </div>
     </div>
   </div>
 </div>
-<script>
-  jQuery(".content_section ul li").click(function () {
-    jQuery(".content_section ul li").each(function () {
-      jQuery(".content_section ul li").removeClass("active");
-    });
-    jQuery(this).addClass("active");
-  });
-</script>

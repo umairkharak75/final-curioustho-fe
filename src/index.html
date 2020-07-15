@@ -36,4 +36,15 @@
   <body class="mat-typography">
     <app-root></app-root>
   </body>
+  <script>
+    var stickySidebar = 350;
+    $(window).scroll(function() {
+        if ($(window).scrollTop() > stickySidebar) {
+            $('.mobile_show ul.nav-pills').addClass('fixed_top');
+        }
+        else {
+            $('.mobile_show ul.nav-pills').removeClass('fixed_top');
+        }  
+    });
+  </script>
 </html>

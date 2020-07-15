@@ -115,6 +115,12 @@ input:focus,
 button:focus {
   outline: none;
 }
+.laptop_show {
+  display: block;
+}
+.mobile_show {
+  display: none;
+}
 /************ Header CSS ***********/
 .small_container {
   width: 99%;
@@ -174,10 +180,6 @@ button:focus {
   transform: rotate(15deg);
   font-size: 20px;
 }
-.mobile_header {
-  display: none;
-}
-
 /************ Header CSS End ***********/
 /************ Home CSS ***********/
 .body_section {
@@ -303,7 +305,7 @@ button:focus {
 .content_section ul li:first-child {
   margin-right: 12px;
 }
-.content_section ul li.active {
+.content_section ul li a.active {
   background: linear-gradient(to right, #ff9909, #d97d11);
   color: #fff;
 }
@@ -412,3 +414,15 @@ button:focus {
 /************ Home CSS End ***********/
 
 /************ Home CSS End ***********/
+
+
+.mat-slider.mat-slider.mat-focus-indicator.example-margin.mat-accent.mat-slider-horizontal.mat-slider-thumb-label-showing.mat-slider-min-value.ng-untouched.ng-pristine.ng-valid {
+  width: 100%;
+}
+.mat-slider-thumb {
+  background: url(assets/fire-ratings.png);
+  background-color: #fff !important;
+  padding: 25px;
+  background-size: cover;
+  margin: 0px -20px -20px 0px;
+}

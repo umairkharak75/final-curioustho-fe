@@ -1,65 +1,4 @@
-<!-- <!-- <mat-toolbar color="primary">
-  <button
-    mat-icon-button
-    class="example-icon"
-    aria-label="Example icon-button with menu icon"
-  >
-    <mat-icon>menu</mat-icon>
-  </button>
-  <span>My App</span>
-
-  <span class="example-spacer"></span>
-  <span>{{ loggedUser.email }}</span>
-  <span (click)="logout()">Logout</span>
-</mat-toolbar> -->
-
-<!-- <div class="header_section">
-  <div class="row mx-0">
-    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12 header_logo">
-      <img
-        src="https://curioustho.com/wp-content/themes/curious/assets/images/logo2.png"
-      />
-    </div>
-    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 header_menu">
-      <ul>
-        <li class="active">
-          <i class="fa fa-home" aria-hidden="true"></i>
-          Home
-        </li>
-        <li>
-          <i class="fa fa-hashtag" aria-hidden="true"></i>
-          Explore
-        </li>
-        <li>
-          <i class="fa fa-user" aria-hidden="true"></i>
-          Activity
-        </li>
-        <li (click)="logout()">
-          <i class="fa fa-cog" aria-hidden="true"></i>
-          logout
-        </li>
-      </ul>
-    </div>
-    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12 header_profile">
-      <ul>
-        <li>
-          <button>
-            <img
-              src="https://imagevars.gulfnews.com/2019/06/20/190619-imran-khan_16b743b13a5_medium.jpg"
-            />
-            {{ loggedUser.email }}
-          </button>
-        </li>
-        <li>
-          <i class="fa fa-bell" aria-hidden="true"></i>
-        </li>
-      </ul>
-    </div>
-  </div>
-</div> -->
--->
-
-<div class="laptop_header">
+<div class="laptop_show">
   <div class="small_container">
     <!-- Header Section -->
     <div class="header_section">
@@ -104,436 +43,9 @@
         </div>
       </div>
     </div>
-
-    <!-- Body Section -->
-    <div class="body_section">
-      <div class="row mx-0">
-        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12 px-0">
-          <div class="h-100" style="overflow: hidden;">
-            <div class="profile_details">
-              <img
-                src="https://imagevars.gulfnews.com/2019/06/20/190619-imran-khan_16b743b13a5_medium.jpg"
-              />
-              <h5>Imran Khan</h5>
-              <span>175 Votes</span>
-            </div>
-            <div class="copy_url_section">
-              <input
-                type="text"
-                value="https://curioustho.com/16126e"
-                disabled=""
-              />
-              <input type="button" id="copyURL" value="Copy URL" />
-            </div>
-            <div class="social_section">
-              <div class="row px-0">
-                <div class="col-sl-6 col-lg-6 col-md-12 col-sm-12 col-12 left">
-                  <div class="social_link">
-                    <i class="fa fa-facebook-official" aria-hidden="true"></i>
-                    <span>Facebook</span>
-                  </div>
-                </div>
-                <div class="col-sl-6 col-lg-6 col-md-12 col-sm-12 col-12 right">
-                  <div class="social_link">
-                    <i class="fa fa-instagram" aria-hidden="true"></i>
-                    <span>Instagram</span>
-                  </div>
-                </div>
-                <div class="col-sl-6 col-lg-6 col-md-12 col-sm-12 col-12 left">
-                  <div class="social_link">
-                    <i class="fa fa-linkedin-square" aria-hidden="true"></i>
-                    <span>Linked In</span>
-                  </div>
-                </div>
-                <div class="col-sl-6 col-lg-6 col-md-12 col-sm-12 col-12 right">
-                  <div class="social_link">
-                    <i class="fa fa-twitter-square" aria-hidden="true"></i>
-                    <span>Twitter</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 px-0">
-          <div class="content_section">
-            <div class="add_photo_section">
-              <div class="row mx-0">
-                <div class="col-xl-2 col-lg-2 col-md-2 col-sm-3 col-3">
-                  <img
-                    src="https://imagevars.gulfnews.com/2019/06/20/190619-imran-khan_16b743b13a5_medium.jpg"
-                  />
-                </div>
-                <div class="col-xl-7 col-lg-7 col-md-7 col-sm-5 col-5 px-0">
-                  <button>
-                    <i class="fa fa-picture-o" aria-hidden="true"></i> Add a
-                    photo
-                  </button>
-                </div>
-                <div class="col-xl-3 col-lg-3 col-md-3 col-sm-4 col-4">
-                  <button id="post">Post</button>
-                </div>
-              </div>
-            </div>
-            <div class="custom_tabs">
-              <ul class="nav nav-pills">
-                <li class="active">
-                  <a data-toggle="pill" href="#picture"
-                    ><i class="fa fa-picture-o" aria-hidden="true"></i> My
-                    Images</a
-                  >
-                </li>
-                <li>
-                  <a data-toggle="pill" href="#question"
-                    ><i class="fa fa-comment" aria-hidden="true"></i> My
-                    Questions</a
-                  >
-                </li>
-              </ul>
-              <div class="tab-content">
-                <div id="picture" class="tab-pane fade in active show"></div>
-                <div id="question" class="tab-pane fade">
-                  <input
-                    type="text"
-                    id="ask_question"
-                    placeholder="Ask Question"
-                    value=""
-                  />
-                  <div class="question_section">
-                    <div class="row mx-0">
-                      <div class="col-xl-8 col-lg-8 col-md-8 col-sm-11 col-11">
-                        <span>Q1</span>
-                        <input
-                          class="asked_question"
-                          id="q1"
-                          value="This is my question"
-                          disabled="true"
-                        />
-                      </div>
-                      <div class="col-xl-4 col-lg-4 col-md-4 col-sm-1 col-1">
-                        <nav
-                          class="navbar navbar-expand-lg navbar-light dropdown_nav"
-                        >
-                          <div
-                            class="collapse navbar-collapse"
-                            id="navbarNavDropdown"
-                          >
-                            <ul class="navbar-nav">
-                              <li class="nav-item dropdown">
-                                <a
-                                  class="nav-link dropdown-toggle"
-                                  href="#"
-                                  id="navbarDropdownMenuLink"
-                                  role="button"
-                                  data-toggle="dropdown"
-                                  aria-haspopup="true"
-                                  aria-expanded="false"
-                                >
-                                  <i
-                                    class="fa fa-ellipsis-v"
-                                    aria-hidden="true"
-                                  ></i>
-                                </a>
-                                <div
-                                  class="dropdown-menu"
-                                  aria-labelledby="navbarDropdownMenuLink"
-                                >
-                                  <a class="dropdown-item" href="#">Delete</a>
-                                </div>
-                              </li>
-                            </ul>
-                          </div>
-                        </nav>
-                      </div>
-                      <div
-                        class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12 d-none d-md-block"
-                      >
-                        <button id="post_answer">Post</button>
-                      </div>
-                      <div
-                        class="col-xl-8 col-lg-8 col-md-8 col-sm-12 col-12 answer_section"
-                      >
-                        <input class="answer_question" id="a1" value="" />
-                        <span class="answer_index">A1</span>
-                      </div>
-                      <div
-                        class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12 d-block d-md-none text-center"
-                      >
-                        <button id="post_answer">Post</button>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="question_section">
-                    <div class="row mx-0">
-                      <div class="col-xl-8 col-lg-8 col-md-8 col-sm-11 col-11">
-                        <span>Q1</span>
-                        <input
-                          class="asked_question"
-                          id="q1"
-                          value="This is my question"
-                          disabled="true"
-                        />
-                      </div>
-                      <div class="col-xl-4 col-lg-4 col-md-4 col-sm-1 col-1">
-                        <nav
-                          class="navbar navbar-expand-lg navbar-light dropdown_nav"
-                        >
-                          <div
-                            class="collapse navbar-collapse"
-                            id="navbarNavDropdown"
-                          >
-                            <ul class="navbar-nav">
-                              <li class="nav-item dropdown">
-                                <a
-                                  class="nav-link dropdown-toggle"
-                                  href="#"
-                                  id="navbarDropdownMenuLink"
-                                  role="button"
-                                  data-toggle="dropdown"
-                                  aria-haspopup="true"
-                                  aria-expanded="false"
-                                >
-                                  <i
-                                    class="fa fa-ellipsis-v"
-                                    aria-hidden="true"
-                                  ></i>
-                                </a>
-                                <div
-                                  class="dropdown-menu"
-                                  aria-labelledby="navbarDropdownMenuLink"
-                                >
-                                  <a class="dropdown-item" href="#">Delete</a>
-                                </div>
-                              </li>
-                            </ul>
-                          </div>
-                        </nav>
-                      </div>
-                      <div
-                        class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12 d-none d-md-block"
-                      >
-                        <button id="post_answer">Post</button>
-                      </div>
-                      <div
-                        class="col-xl-8 col-lg-8 col-md-8 col-sm-12 col-12 answer_section"
-                      >
-                        <input class="answer_question" id="a1" value="" />
-                        <span class="answer_index">A1</span>
-                      </div>
-                      <div
-                        class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12 d-block d-md-none text-center"
-                      >
-                        <button id="post_answer">Post</button>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="question_section">
-                    <div class="row mx-0">
-                      <div class="col-xl-8 col-lg-8 col-md-8 col-sm-11 col-11">
-                        <span>Q1</span>
-                        <input
-                          class="asked_question"
-                          id="q1"
-                          value="This is my question"
-                          disabled="true"
-                        />
-                      </div>
-                      <div class="col-xl-4 col-lg-4 col-md-4 col-sm-1 col-1">
-                        <nav
-                          class="navbar navbar-expand-lg navbar-light dropdown_nav"
-                        >
-                          <div
-                            class="collapse navbar-collapse"
-                            id="navbarNavDropdown"
-                          >
-                            <ul class="navbar-nav">
-                              <li class="nav-item dropdown">
-                                <a
-                                  class="nav-link dropdown-toggle"
-                                  href="#"
-                                  id="navbarDropdownMenuLink"
-                                  role="button"
-                                  data-toggle="dropdown"
-                                  aria-haspopup="true"
-                                  aria-expanded="false"
-                                >
-                                  <i
-                                    class="fa fa-ellipsis-v"
-                                    aria-hidden="true"
-                                  ></i>
-                                </a>
-                                <div
-                                  class="dropdown-menu"
-                                  aria-labelledby="navbarDropdownMenuLink"
-                                >
-                                  <a class="dropdown-item" href="#">Delete</a>
-                                </div>
-                              </li>
-                            </ul>
-                          </div>
-                        </nav>
-                      </div>
-                      <div
-                        class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12 d-none d-md-block"
-                      >
-                        <button id="post_answer">Post</button>
-                      </div>
-                      <div
-                        class="col-xl-8 col-lg-8 col-md-8 col-sm-12 col-12 answer_section"
-                      >
-                        <input class="answer_question" id="a1" value="" />
-                        <span class="answer_index">A1</span>
-                      </div>
-                      <div
-                        class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12 d-block d-md-none text-center"
-                      >
-                        <button id="post_answer">Post</button>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="question_section">
-                    <div class="row mx-0">
-                      <div class="col-xl-8 col-lg-8 col-md-8 col-sm-11 col-11">
-                        <span>Q1</span>
-                        <input
-                          class="asked_question"
-                          id="q1"
-                          value="This is my question"
-                          disabled="true"
-                        />
-                      </div>
-                      <div class="col-xl-4 col-lg-4 col-md-4 col-sm-1 col-1">
-                        <nav
-                          class="navbar navbar-expand-lg navbar-light dropdown_nav"
-                        >
-                          <div
-                            class="collapse navbar-collapse"
-                            id="navbarNavDropdown"
-                          >
-                            <ul class="navbar-nav">
-                              <li class="nav-item dropdown">
-                                <a
-                                  class="nav-link dropdown-toggle"
-                                  href="#"
-                                  id="navbarDropdownMenuLink"
-                                  role="button"
-                                  data-toggle="dropdown"
-                                  aria-haspopup="true"
-                                  aria-expanded="false"
-                                >
-                                  <i
-                                    class="fa fa-ellipsis-v"
-                                    aria-hidden="true"
-                                  ></i>
-                                </a>
-                                <div
-                                  class="dropdown-menu"
-                                  aria-labelledby="navbarDropdownMenuLink"
-                                >
-                                  <a class="dropdown-item" href="#">Delete</a>
-                                </div>
-                              </li>
-                            </ul>
-                          </div>
-                        </nav>
-                      </div>
-                      <div
-                        class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12 d-none d-md-block"
-                      >
-                        <button id="post_answer">Post</button>
-                      </div>
-                      <div
-                        class="col-xl-8 col-lg-8 col-md-8 col-sm-12 col-12 answer_section"
-                      >
-                        <input class="answer_question" id="a1" value="" />
-                        <span class="answer_index">A1</span>
-                      </div>
-                      <div
-                        class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12 d-block d-md-none text-center"
-                      >
-                        <button id="post_answer">Post</button>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="question_section">
-                    <div class="row mx-0">
-                      <div class="col-xl-8 col-lg-8 col-md-8 col-sm-11 col-11">
-                        <span>Q1</span>
-                        <input
-                          class="asked_question"
-                          id="q1"
-                          value="This is my question"
-                          disabled="true"
-                        />
-                      </div>
-                      <div class="col-xl-4 col-lg-4 col-md-4 col-sm-1 col-1">
-                        <nav
-                          class="navbar navbar-expand-lg navbar-light dropdown_nav"
-                        >
-                          <div
-                            class="collapse navbar-collapse"
-                            id="navbarNavDropdown"
-                          >
-                            <ul class="navbar-nav">
-                              <li class="nav-item dropdown">
-                                <a
-                                  class="nav-link dropdown-toggle"
-                                  href="#"
-                                  id="navbarDropdownMenuLink"
-                                  role="button"
-                                  data-toggle="dropdown"
-                                  aria-haspopup="true"
-                                  aria-expanded="false"
-                                >
-                                  <i
-                                    class="fa fa-ellipsis-v"
-                                    aria-hidden="true"
-                                  ></i>
-                                </a>
-                                <div
-                                  class="dropdown-menu"
-                                  aria-labelledby="navbarDropdownMenuLink"
-                                >
-                                  <a class="dropdown-item" href="#">Delete</a>
-                                </div>
-                              </li>
-                            </ul>
-                          </div>
-                        </nav>
-                      </div>
-                      <div
-                        class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12 d-none d-md-block"
-                      >
-                        <button id="post_answer">Post</button>
-                      </div>
-                      <div
-                        class="col-xl-8 col-lg-8 col-md-8 col-sm-12 col-12 answer_section"
-                      >
-                        <input class="answer_question" id="a1" value="" />
-                        <span class="answer_index">A1</span>
-                      </div>
-                      <div
-                        class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12 d-block d-md-none text-center"
-                      >
-                        <button id="post_answer">Post</button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12 px-0">
-          <div class="rating_section"></div>
-        </div>
-      </div>
-    </div>
   </div>
 </div>
-
-<div class="mobile_header">
+<div class="mobile_header mobile_show">
   <div class="row mx-0">
     <div class="col-lg-5 col-md-5 col-sm-5 col-5">
       <nav class="navbar navbar-expand-lg navbar-light">
@@ -570,7 +82,7 @@
     </div>
     <div class="col-lg-2 col-md-2 col-sm-2 col-2">
       <div class="logo">
-        <img src="logo-mobile.png" />
+        <img src="assets/logo-mobile.png" />
       </div>
     </div>
     <div class="col-lg-5 col-md-5 col-sm-5 col-5">
@@ -591,3 +103,379 @@
     </div>
   </div>
 </div>
+<!-- Body Section -->
+<!-- 
+      
+      <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 px-0">
+        <div class="content_section">
+          <div class="add_photo_section">
+            <div class="row mx-0">
+              <div class="col-xl-2 col-lg-2 col-md-2 col-sm-3 col-3">
+                <img
+                  src="https://imagevars.gulfnews.com/2019/06/20/190619-imran-khan_16b743b13a5_medium.jpg"
+                />
+              </div>
+              <div class="col-xl-7 col-lg-7 col-md-7 col-sm-5 col-5 px-0">
+                <button>
+                  <i class="fa fa-picture-o" aria-hidden="true"></i> Add a
+                  photo
+                </button>
+              </div>
+              <div class="col-xl-3 col-lg-3 col-md-3 col-sm-4 col-4">
+                <button id="post">Post</button>
+              </div>
+            </div>
+          </div>
+          <div class="custom_tabs">
+            <ul class="nav nav-pills">
+              <li class="active">
+                <a data-toggle="pill" href="#picture"
+                  ><i class="fa fa-picture-o" aria-hidden="true"></i> My
+                  Images</a
+                >
+              </li>
+              <li>
+                <a data-toggle="pill" href="#question"
+                  ><i class="fa fa-comment" aria-hidden="true"></i> My
+                  Questions</a
+                >
+              </li>
+            </ul>
+            <div class="tab-content">
+              <div id="picture" class="tab-pane fade in active show"></div>
+              <div id="question" class="tab-pane fade">
+                <input
+                  type="text"
+                  id="ask_question"
+                  placeholder="Ask Question"
+                  value=""
+                />
+                <div class="question_section">
+                  <div class="row mx-0">
+                    <div class="col-xl-8 col-lg-8 col-md-8 col-sm-11 col-11">
+                      <span>Q1</span>
+                      <input
+                        class="asked_question"
+                        id="q1"
+                        value="This is my question"
+                        disabled="true"
+                      />
+                    </div>
+                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-1 col-1">
+                      <nav
+                        class="navbar navbar-expand-lg navbar-light dropdown_nav"
+                      >
+                        <div
+                          class="collapse navbar-collapse"
+                          id="navbarNavDropdown"
+                        >
+                          <ul class="navbar-nav">
+                            <li class="nav-item dropdown">
+                              <a
+                                class="nav-link dropdown-toggle"
+                                href="#"
+                                id="navbarDropdownMenuLink"
+                                role="button"
+                                data-toggle="dropdown"
+                                aria-haspopup="true"
+                                aria-expanded="false"
+                              >
+                                <i
+                                  class="fa fa-ellipsis-v"
+                                  aria-hidden="true"
+                                ></i>
+                              </a>
+                              <div
+                                class="dropdown-menu"
+                                aria-labelledby="navbarDropdownMenuLink"
+                              >
+                                <a class="dropdown-item" href="#">Delete</a>
+                              </div>
+                            </li>
+                          </ul>
+                        </div>
+                      </nav>
+                    </div>
+                    <div
+                      class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12 d-none d-md-block"
+                    >
+                      <button id="post_answer">Post</button>
+                    </div>
+                    <div
+                      class="col-xl-8 col-lg-8 col-md-8 col-sm-12 col-12 answer_section"
+                    >
+                      <input class="answer_question" id="a1" value="" />
+                      <span class="answer_index">A1</span>
+                    </div>
+                    <div
+                      class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12 d-block d-md-none text-center"
+                    >
+                      <button id="post_answer">Post</button>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="question_section">
+                  <div class="row mx-0">
+                    <div class="col-xl-8 col-lg-8 col-md-8 col-sm-11 col-11">
+                      <span>Q1</span>
+                      <input
+                        class="asked_question"
+                        id="q1"
+                        value="This is my question"
+                        disabled="true"
+                      />
+                    </div>
+                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-1 col-1">
+                      <nav
+                        class="navbar navbar-expand-lg navbar-light dropdown_nav"
+                      >
+                        <div
+                          class="collapse navbar-collapse"
+                          id="navbarNavDropdown"
+                        >
+                          <ul class="navbar-nav">
+                            <li class="nav-item dropdown">
+                              <a
+                                class="nav-link dropdown-toggle"
+                                href="#"
+                                id="navbarDropdownMenuLink"
+                                role="button"
+                                data-toggle="dropdown"
+                                aria-haspopup="true"
+                                aria-expanded="false"
+                              >
+                                <i
+                                  class="fa fa-ellipsis-v"
+                                  aria-hidden="true"
+                                ></i>
+                              </a>
+                              <div
+                                class="dropdown-menu"
+                                aria-labelledby="navbarDropdownMenuLink"
+                              >
+                                <a class="dropdown-item" href="#">Delete</a>
+                              </div>
+                            </li>
+                          </ul>
+                        </div>
+                      </nav>
+                    </div>
+                    <div
+                      class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12 d-none d-md-block"
+                    >
+                      <button id="post_answer">Post</button>
+                    </div>
+                    <div
+                      class="col-xl-8 col-lg-8 col-md-8 col-sm-12 col-12 answer_section"
+                    >
+                      <input class="answer_question" id="a1" value="" />
+                      <span class="answer_index">A1</span>
+                    </div>
+                    <div
+                      class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12 d-block d-md-none text-center"
+                    >
+                      <button id="post_answer">Post</button>
+                    </div>
+                  </div>
+                </div>
+                <div class="question_section">
+                  <div class="row mx-0">
+                    <div class="col-xl-8 col-lg-8 col-md-8 col-sm-11 col-11">
+                      <span>Q1</span>
+                      <input
+                        class="asked_question"
+                        id="q1"
+                        value="This is my question"
+                        disabled="true"
+                      />
+                    </div>
+                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-1 col-1">
+                      <nav
+                        class="navbar navbar-expand-lg navbar-light dropdown_nav"
+                      >
+                        <div
+                          class="collapse navbar-collapse"
+                          id="navbarNavDropdown"
+                        >
+                          <ul class="navbar-nav">
+                            <li class="nav-item dropdown">
+                              <a
+                                class="nav-link dropdown-toggle"
+                                href="#"
+                                id="navbarDropdownMenuLink"
+                                role="button"
+                                data-toggle="dropdown"
+                                aria-haspopup="true"
+                                aria-expanded="false"
+                              >
+                                <i
+                                  class="fa fa-ellipsis-v"
+                                  aria-hidden="true"
+                                ></i>
+                              </a>
+                              <div
+                                class="dropdown-menu"
+                                aria-labelledby="navbarDropdownMenuLink"
+                              >
+                                <a class="dropdown-item" href="#">Delete</a>
+                              </div>
+                            </li>
+                          </ul>
+                        </div>
+                      </nav>
+                    </div>
+                    <div
+                      class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12 d-none d-md-block"
+                    >
+                      <button id="post_answer">Post</button>
+                    </div>
+                    <div
+                      class="col-xl-8 col-lg-8 col-md-8 col-sm-12 col-12 answer_section"
+                    >
+                      <input class="answer_question" id="a1" value="" />
+                      <span class="answer_index">A1</span>
+                    </div>
+                    <div
+                      class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12 d-block d-md-none text-center"
+                    >
+                      <button id="post_answer">Post</button>
+                    </div>
+                  </div>
+                </div>
+                <div class="question_section">
+                  <div class="row mx-0">
+                    <div class="col-xl-8 col-lg-8 col-md-8 col-sm-11 col-11">
+                      <span>Q1</span>
+                      <input
+                        class="asked_question"
+                        id="q1"
+                        value="This is my question"
+                        disabled="true"
+                      />
+                    </div>
+                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-1 col-1">
+                      <nav
+                        class="navbar navbar-expand-lg navbar-light dropdown_nav"
+                      >
+                        <div
+                          class="collapse navbar-collapse"
+                          id="navbarNavDropdown"
+                        >
+                          <ul class="navbar-nav">
+                            <li class="nav-item dropdown">
+                              <a
+                                class="nav-link dropdown-toggle"
+                                href="#"
+                                id="navbarDropdownMenuLink"
+                                role="button"
+                                data-toggle="dropdown"
+                                aria-haspopup="true"
+                                aria-expanded="false"
+                              >
+                                <i
+                                  class="fa fa-ellipsis-v"
+                                  aria-hidden="true"
+                                ></i>
+                              </a>
+                              <div
+                                class="dropdown-menu"
+                                aria-labelledby="navbarDropdownMenuLink"
+                              >
+                                <a class="dropdown-item" href="#">Delete</a>
+                              </div>
+                            </li>
+                          </ul>
+                        </div>
+                      </nav>
+                    </div>
+                    <div
+                      class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12 d-none d-md-block"
+                    >
+                      <button id="post_answer">Post</button>
+                    </div>
+                    <div
+                      class="col-xl-8 col-lg-8 col-md-8 col-sm-12 col-12 answer_section"
+                    >
+                      <input class="answer_question" id="a1" value="" />
+                      <span class="answer_index">A1</span>
+                    </div>
+                    <div
+                      class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12 d-block d-md-none text-center"
+                    >
+                      <button id="post_answer">Post</button>
+                    </div>
+                  </div>
+                </div>
+                <div class="question_section">
+                  <div class="row mx-0">
+                    <div class="col-xl-8 col-lg-8 col-md-8 col-sm-11 col-11">
+                      <span>Q1</span>
+                      <input
+                        class="asked_question"
+                        id="q1"
+                        value="This is my question"
+                        disabled="true"
+                      />
+                    </div>
+                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-1 col-1">
+                      <nav
+                        class="navbar navbar-expand-lg navbar-light dropdown_nav"
+                      >
+                        <div
+                          class="collapse navbar-collapse"
+                          id="navbarNavDropdown"
+                        >
+                          <ul class="navbar-nav">
+                            <li class="nav-item dropdown">
+                              <a
+                                class="nav-link dropdown-toggle"
+                                href="#"
+                                id="navbarDropdownMenuLink"
+                                role="button"
+                                data-toggle="dropdown"
+                                aria-haspopup="true"
+                                aria-expanded="false"
+                              >
+                                <i
+                                  class="fa fa-ellipsis-v"
+                                  aria-hidden="true"
+                                ></i>
+                              </a>
+                              <div
+                                class="dropdown-menu"
+                                aria-labelledby="navbarDropdownMenuLink"
+                              >
+                                <a class="dropdown-item" href="#">Delete</a>
+                              </div>
+                            </li>
+                          </ul>
+                        </div>
+                      </nav>
+                    </div>
+                    <div
+                      class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12 d-none d-md-block"
+                    >
+                      <button id="post_answer">Post</button>
+                    </div>
+                    <div
+                      class="col-xl-8 col-lg-8 col-md-8 col-sm-12 col-12 answer_section"
+                    >
+                      <input class="answer_question" id="a1" value="" />
+                      <span class="answer_index">A1</span>
+                    </div>
+                    <div
+                      class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12 d-block d-md-none text-center"
+                    >
+                      <button id="post_answer">Post</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12 px-0">
+        <div class="rating_section"></div>
+      </div> -->

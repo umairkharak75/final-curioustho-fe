@@ -4,10 +4,12 @@ import { LoginComponent } from './auth/components/login/login.component';
 import { AuthGuard } from './auth/auth.guard';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { HeaderComponent } from './shared/components/header/header.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
+  { path: 'header', component: HeaderComponent },
   {
     path: 'create-profile',
     canActivate: [AuthGuard],
