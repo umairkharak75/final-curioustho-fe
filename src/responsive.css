@@ -1,16 +1,29 @@
 @media(max-width: 1024px) {
     /****************** Header CSS ******************/
+    .fixed_top {
+        position: fixed;
+        top: 75px;
+        margin-top: 0 !important;
+        background: #eee;
+        width: 87.4%;
+        z-index: 1;
+        padding: 10px 0px;
+    }
+    .laptop_show {
+        display: none;
+    }
+    .mobile_show {
+        display: block;
+    }
     .mobile_header {
         display: block;
         width: 87.3%;
         background: #fff;
         padding: 10px 0px;
-        position: absolute;
+        position: fixed;
         top: 0;
         margin: 0px 65px;
-    }
-    .laptop_header {
-        display: none;
+        z-index: 1;
     }
     .mobile_header .navbar-expand-lg .navbar-toggler {
         display: block;
@@ -83,9 +96,13 @@
     .mobile_body .content_section #mobile_picture .mobile_details_section {
         margin: 0 0 0 -25px;
     }
+    .mobile_body .content_section #mobile_picture .mobile_details_section h5 {
+        font-size: 20px;
+        margin: 0px;
+    }
     .mobile_body .content_section #mobile_picture .mobile_details_section h4 {
         font-size: 16px;
-        margin: 7px 0px;
+        margin: 0px 0px;
         color: #666;
     }
     .mobile_body .content_section #mobile_picture .mobile_content_image {
@@ -151,9 +168,6 @@
         border-radius: 3px;
         padding: 10px 30px;
     }
-    .mobile_body .floating_add_post {
-
-    }
     .mobile_body .floating_add_post button#add_new_photos {
         position: absolute;
         right: 20px;
@@ -169,6 +183,9 @@
     /****************** Profile Page CSS End ******************/
 }
 @media(max-width: 768px) {
+    .fixed_top {
+        width: 100%;
+    }
     .header_profile ul li {
         margin: 0 0 0 2px;
     }

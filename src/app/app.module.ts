@@ -26,6 +26,7 @@ import {
   FacebookLoginProvider,
   SocialAuthServiceConfig,
 } from 'angularx-social-login';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -49,6 +50,7 @@ import {
     ClipboardModule,
     ImageCropperModule,
     SocialLoginModule,
+    SharedModule
   ],
   providers: [
     AuthGuard,
