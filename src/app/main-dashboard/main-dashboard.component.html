@@ -11,6 +11,7 @@
           <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12 px-0">
             <div class="profile_details">
               <img
+                (click)="routeToProfile()"
                 src="https://imagevars.gulfnews.com/2019/06/20/190619-imran-khan_16b743b13a5_medium.jpg"
               />
               <h5>Imran Khan</h5>
@@ -18,11 +19,17 @@
             </div>
             <div class="copy_url_section">
               <input
+                [(ngModel)]="askQuestionLink"
                 type="text"
-                value="https://curioustho.com/16126e"
+                value="{{ askQuestionLink }}"
                 disabled=""
               />
-              <input type="button" id="copyURL" value="Copy URL" />
+              <input
+                [cdkCopyToClipboard]="askQuestionLink"
+                type="button"
+                id="copyURL"
+                value="Copy URL"
+              />
             </div>
             <div class="social_section">
               <div class="row px-0">
