@@ -73,7 +73,7 @@ export class SignupComponent implements OnInit {
     this.auth.addNewUser(url, body).subscribe(
       (response) => {
         this.sharedService.setUsertoLocalStorage(response);
-        this.router.navigateByUrl('main-dashboard');
+        this.router.navigateByUrl('home');
       },
       (error) => {
         this.isLoader = false;

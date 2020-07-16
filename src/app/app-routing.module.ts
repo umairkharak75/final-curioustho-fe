@@ -16,7 +16,7 @@ const routes: Routes = [
     component: CreateProfileComponent,
   },
   {
-    path: 'main-dashboard',
+    path: 'home',
     canActivate: [AuthGuard],
     loadChildren: () =>
       import('./main-dashboard/main-dashboard.module').then(

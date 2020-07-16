@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
     const user = this.sharedDataService.getUserFromLs();
     if (user.token) {
-      this.router.navigateByUrl('main-dashboard');
+      this.router.navigateByUrl('home');
     }
 
     this.loginForm = new FormGroup({

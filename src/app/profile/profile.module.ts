@@ -14,7 +14,13 @@ import { AskQuestionComponent } from './components/ask-question/ask-question.com
 import { InboxComponent } from './components/inbox/inbox.component';
 
 @NgModule({
-  declarations: [ProfileComponent, LeftSideBarComponent, ProfileBodyComponent, AskQuestionComponent, InboxComponent],
+  declarations: [
+    ProfileComponent,
+    LeftSideBarComponent,
+    ProfileBodyComponent,
+    AskQuestionComponent,
+    InboxComponent,
+  ],
   imports: [
     CommonModule,
     ProfileRoutingModule,
