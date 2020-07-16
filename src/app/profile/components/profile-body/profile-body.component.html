@@ -550,9 +550,7 @@
             <div *ngFor="let question of question; index as i">
               <div
                 class="col-xl-8 col-lg-8 col-md-8 col-sm-11 col-11"
-                *ngIf="
-                  question.user === user.id || question.visibleStatus === true
-                "
+                *ngIf="question.visibleStatus === true"
               >
                 <span>Q{{ i + 1 }}</span>
                 <input
@@ -604,17 +602,17 @@
                   value=""
                   [disabled]="question.visibleStatus"
                 />
-                <span class="answer_index">A1</span>
+                <span class="answer_index">A{{ i + 1 }}</span>
               </div>
               <div
                 class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 text-center py-3"
               >
-                <button
+                <!-- <button
                   id="post_answer"
                   (click)="submitAnswer(question, model[question._id])"
                 >
                   <i class="fa fa-check" aria-hidden="true"></i> Post
-                </button>
+                </button> -->
               </div>
             </div>
           </div>

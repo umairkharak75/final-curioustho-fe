@@ -13,12 +13,12 @@ export class ProfileBodyComponent implements OnInit {
   @Input() user;
   questionForm: any;
   model: any = {};
-  constructor(private fb: FormBuilder, public profile: ProfileService) {}
+  constructor(private fb: FormBuilder, public profile: ProfileService) {
+  }
 
   ngOnInit(): void {
     this.questionForm = new FormGroup({
       question: new FormControl(),
-      answer: new FormControl(),
     });
   }
 
