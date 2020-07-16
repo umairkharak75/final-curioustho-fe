@@ -1,0 +1,9 @@
+<div id="mobile_ask_question" [formGroup]="questionForm">
+  <textarea
+    formControlName="question"
+    question
+    id="ask_question"
+    placeholder="Ask Question"
+  ></textarea>
+  <button id="ask_question" (click)="addQuestion()">Ask</button>
+</div>
