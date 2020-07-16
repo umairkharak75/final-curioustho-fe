@@ -31,8 +31,8 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    const token = localStorage.getItem('token');
-    if (token) {
+    const user = this.sharedDataService.getUserFromLs();
+    if (user.token) {
       this.router.navigateByUrl('main-dashboard');
     }
 
