@@ -42,6 +42,7 @@ export class LoginComponent implements OnInit {
     });
 
     this.loginForm.valueChanges.subscribe((value) => {
+      console.log('check');
       if (!value.email || !value.password) {
         this.isDisabled = true;
       } else {
@@ -83,6 +84,7 @@ export class LoginComponent implements OnInit {
     );
   }
   signInWithGoogle(): void {
+    this.isLoader = true;
     this.socialAuth.signIn(GoogleLoginProvider.PROVIDER_ID).then((response) => {
       this.generateSocaialUuserToken(response);
     });
@@ -115,6 +117,7 @@ export class LoginComponent implements OnInit {
         id: response.user.id,
         link: response.user.link,
         idToken: response.idToken,
+        askQuestionLink: response.user.askQuestionLink,
       };
 
       this.sharedDataService.setUsertoLocalStorage(user);
