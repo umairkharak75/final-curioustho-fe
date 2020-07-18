@@ -27,6 +27,8 @@ import {
   SocialAuthServiceConfig,
 } from 'angularx-social-login';
 import { SharedModule } from './shared/shared.module';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -50,7 +52,10 @@ import { SharedModule } from './shared/shared.module';
     ClipboardModule,
     ImageCropperModule,
     SocialLoginModule,
-    SharedModule
+    SharedModule,
+   ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
+   // ServiceWorkerModule.register('ngsw-worker.js', { enabled: true})
+
   ],
   providers: [
     AuthGuard,

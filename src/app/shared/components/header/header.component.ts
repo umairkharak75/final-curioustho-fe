@@ -1,3 +1,4 @@
+import { PostService } from './../../../main-dashboard/services/post.service';
 import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -8,11 +9,30 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
   @Input() loggedUser;
-  constructor(public route: Router) {}
+  notifications
+  notificationslength
+  constructor(public route: Router,public PostService:PostService) {
+    this.notifications=[]
+  }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+
+   
+
+    this.PostService.getAddedPost().subscribe(notifications=>{
+      notifications=notifications
+      notifications.forEach(notification=>{
+        if(notification.userNotification===this.loggedUser.id){
+          this.notifications.push(notification)
+        }
+      })
+      this.notificationslength=this.notifications.length
+    })
+  }
   logout() {
     localStorage.removeItem('user');
     this.route.navigateByUrl('/');
   }
+
+  
 }

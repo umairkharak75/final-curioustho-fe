@@ -1,6 +1,8 @@
 import { ApiService } from './../../core/services/api.service';
 import { Observable, BehaviorSubject } from 'rxjs';
 import { Injectable } from '@angular/core';
+import io from 'socket.io-client';
+
 
 @Injectable({
   providedIn: 'root',
@@ -8,6 +10,7 @@ import { Injectable } from '@angular/core';
 export class AuthService {
   isLoggedIn: boolean;
   private isAuthenticated$ = new BehaviorSubject<boolean>(false);
+  socket = io('http://localhost:5000');
 
   constructor(public apiService: ApiService) {}
   addNewUser(url, body): Observable<any> {
@@ -40,4 +43,6 @@ export class AuthService {
   getToken() {
     return localStorage.getItem('token');
   }
+
+
 }

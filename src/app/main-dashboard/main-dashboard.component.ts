@@ -1,7 +1,9 @@
+import { ApiService } from './../core/services/api.service';
 import { Router } from '@angular/router';
 import { SharedDataService } from 'src/app/shared/service/shared-data.service';
 import { PostService } from './services/post.service';
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-main-dashboard',
@@ -12,13 +14,17 @@ export class MainDashboardComponent implements OnInit {
   post;
   user;
   askQuestionLink;
+  allUsers
   constructor(
     public postService: PostService,
     public sharedData: SharedDataService,
-    public router: Router
+    public router: Router,
+     public api:ApiService
   ) {}
 
   ngOnInit(): void {
+    this.fetchAllusers()
+    
     this.user = JSON.parse(this.sharedData.getUser());
     this.askQuestionLink = this.user.askQuestionLink;
     console.log(this.askQuestionLink);
@@ -30,6 +36,7 @@ export class MainDashboardComponent implements OnInit {
   }
 
   deletedPost(deletedpost) {
+    console.log(deletedpost)
     var newPost = this.post.filter(function (post) {
       return post._id !== deletedpost._id;
     });
@@ -41,5 +48,19 @@ export class MainDashboardComponent implements OnInit {
   routeToProfile() {
     console.log(this.user.link);
     this.router.navigateByUrl(`profile/${this.user.id}`);
+  }
+
+  fetchAllusers(){
+    const url='http://localhost:5000/api/users/allUser'
+     this.api.getData(url).subscribe(response=>{
+
+      this.allUsers=response.users
+     })
+
+
+  }
+
+  navigateToProfile(id){
+    this.router.navigateByUrl(`profile/${id}`)
   }
 }

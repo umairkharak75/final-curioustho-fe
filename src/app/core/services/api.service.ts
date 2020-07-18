@@ -24,15 +24,23 @@ export class ApiService {
     return this.http.post<any>(url, body, this.createHeaders());
   }
   postImageData(url, body): Observable<any> {
-    var header = {
-      headers: new HttpHeaders().set(
-        'x-auth-token',
-        this.sharedData.getToken()
-      ),
-    };
+    // var header = {
+    //   headers: new HttpHeaders().set(
+    //     'x-auth-token',
+    //     this.sharedData.getToken()
+    //   ),
+    // };
 
-    return this.http.post<any>(url, body, header);
-  }
+      const httpOptions = new HttpHeaders({
+        'x-auth-token':this.sharedData.getToken()
+        })
+
+      return this.http.post(url, body, { reportProgress: true, observe: 'events', headers: httpOptions });
+    }
+
+
+   // return this.http.post<any>(url, body, header);
+
 
   createHeaders() {
     return (this.httpOptions = {
@@ -41,5 +49,9 @@ export class ApiService {
         'x-auth-token': this.sharedData.getToken() || '',
       }),
     });
+  }
+
+  public sendSubscriptionToTheServer(url,subscription: PushSubscription) {
+    return this.http.post(url, subscription)
   }
 }

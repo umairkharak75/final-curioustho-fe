@@ -1,5 +1,7 @@
 import { SharedDataService } from 'src/app/shared/service/shared-data.service';
 import { Component, OnInit } from '@angular/core';
+import * as io from 'socket.io-client';
+
 
 @Component({
   selector: 'app-root',
@@ -7,6 +9,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent implements OnInit {
-  ngOnInit() {}
+  ngOnInit() {
+
+
+
+  }
   constructor(public sharedDataService: SharedDataService) {}
 }

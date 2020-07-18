@@ -12,6 +12,8 @@ import { LeftSideBarComponent } from './components/left-side-bar/left-side-bar.c
 import { ProfileBodyComponent } from './components/profile-body/profile-body.component';
 import { AskQuestionComponent } from './components/ask-question/ask-question.component';
 import { InboxComponent } from './components/inbox/inbox.component';
+import { MessageInboxComponent } from './components/message-inbox/message-inbox.component';
+import {MatExpansionModule} from '@angular/material/expansion';
 
 @NgModule({
   declarations: [
@@ -20,6 +22,7 @@ import { InboxComponent } from './components/inbox/inbox.component';
     ProfileBodyComponent,
     AskQuestionComponent,
     InboxComponent,
+    MessageInboxComponent,
   ],
   imports: [
     CommonModule,
@@ -29,6 +32,8 @@ import { InboxComponent } from './components/inbox/inbox.component';
     FormsModule,
     MatInputModule,
     SharedModule,
+    MatExpansionModule
+    
   ],
   providers: [PostService],
 })

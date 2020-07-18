@@ -2,6 +2,7 @@ import { FormGroup, FormControl } from '@angular/forms';
 import { PostService } from './../../services/post.service';
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import * as cloneDeep from 'lodash/cloneDeep';
+import { HttpClient, HttpEvent, HttpEventType } from '@angular/common/http';
 
 @Component({
   selector: 'app-create-post',
@@ -13,9 +14,11 @@ export class CreatePostComponent implements OnInit {
   postForm: FormGroup;
   isImage: boolean;
   imgUrl;
+ progress
+
   @Output() postAdded = new EventEmitter();
 
-  constructor(public postService: PostService) {}
+  constructor(public postService: PostService,public http:HttpClient) {}
   ngOnInit() {
     this.isImage = false;
     this.postForm = new FormGroup({
@@ -59,16 +62,38 @@ export class CreatePostComponent implements OnInit {
   upload() {
     this.postForm.get('image').setValue('');
     const url = 'http://localhost:5000/api/posts';
-    this.postService.createPost(url, this.formData).subscribe((response) => {
-      if (response) {
+    this.postService.createPost(url, this.formData).subscribe((event: HttpEvent<any>) => {
+      switch (event.type) {
+        case HttpEventType.UploadProgress:
+          this.progress = Math.round(event.loaded / event.total * 100);
+          console.log(`Uploaded! ${this.progress}%`);
+          break;
+        case HttpEventType.Response:
+          console.log('User successfully created!', event.body);
+         
         this.postForm.get('image').setValue('');
         this.isImage = false;
-        this.postAdded.emit(response.createdPost);
+         this.postAdded.emit(event.body.createdPost);
+          setTimeout(() => {
+            this.progress = 0;
+            
+          }, 1500);
+
       }
-    });
+    })
   }
+  
+
 
   addFile() {
     document.getElementById('selectedFile').click();
   }
+uploads(){
+  this.http.post('http://localhost:5000/api/posts' ,this.formData, {  
+  reportProgress: true,
+    observe: 'events'
+  })
+    .subscribe(event => {
+      console.log(event); // handle event here
+    })}
 }

@@ -1,7 +1,10 @@
+import { Router } from '@angular/router';
 import { ConfirmationModalComponent } from './confirmation-modal/confirmation-modal.component';
 import { SharedDataService } from './../../../shared/service/shared-data.service';
 import { PostService } from './../../services/post.service';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import * as moment from 'moment';
+
 
 import {
   MatDialog,
@@ -18,6 +21,8 @@ export class PostComponent implements OnInit {
   @Input() post;
   @Input() user;
   @Output() deletedPost = new EventEmitter();
+  postProfilePic
+  postUserName
 
   autoTicks = false;
   disabled = false;
@@ -40,6 +45,7 @@ export class PostComponent implements OnInit {
     return 0;
   }
   constructor(
+    public router:Router,
     public dialog: MatDialog,
     public postService: PostService,
     public sharedDataService: SharedDataService
@@ -48,7 +54,14 @@ export class PostComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    if(this.post.user){
+      if(this.post.user.profilePic){
+        this.postProfilePic=this.post.user.profilePic
+        this.postUserName=this.post.user.name
+      }
+    }
     this.setPostReviewsValue();
+    this.formatDate()
   }
 
   reviewValue(params) {
@@ -61,6 +74,9 @@ export class PostComponent implements OnInit {
       const data = { review: this.value };
       this.postService.postReview(url, data).subscribe((data) => {
         this.hasSubmit = true;
+      
+        this.postService.addPost(this.user._id)
+        this.postService.getAddedPost().subscribe(data=>{console.log(data)})
       });
     }
   }
@@ -77,6 +93,11 @@ export class PostComponent implements OnInit {
     }
   }
 
+  routeToProfile(){
+    this.router.navigateByUrl(`profile/${this.post.user.id}`)
+  }
+
+
   deletePost() {
     const dialogRef = this.dialog.open(ConfirmationModalComponent, {
       width: '250px',
@@ -92,5 +113,12 @@ export class PostComponent implements OnInit {
         });
       }
     });
+  }
+  formatDate(){
+    this.post.date
+    
+    const date=moment(this.post.date, "MM-DD-YYYY");
+    console.log(date)
+
   }
 }

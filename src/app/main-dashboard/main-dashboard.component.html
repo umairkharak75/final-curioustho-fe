@@ -1,12 +1,12 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html>
   <body>
     <div class="small_container">
       <!-- Header Section -->
-      <app-header [loggedUser]="user"> </app-header>
+      <!-- <app-header [loggedUser]="user"> </app-header> -->
 
       <!-- Body Section -->
-      <div class="body_section">
+      <!-- <div class="body_section">
         <div class="row mx-0">
           <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12 px-0">
             <div class="profile_details">
@@ -93,7 +93,73 @@
             <div class="blank"></div>
           </div>
         </div>
-      </div>
-    </div>
+      </div> -->
+    <!-- </div>
   </body>
-</html>
+</html> -->
+
+       <app-header [loggedUser]="user"> </app-header>
+       <!-- <app-create-post
+       (postAdded)="newPostAdded($event)"
+     ></app-create-post> -->
+
+
+<div class="dashboard_posts_section">
+  <div class="container">
+      <div class="row mx-0 my-5">
+          
+          <div  *ngFor="let post of post"class="col-xl-8 col-lg-8 col-md-12 col-sm-12 col-12 dashboard_post_container">
+            <app-post
+            (deletedPost)="deletedPost($event)"
+            [post]="post"
+            [user]="user"
+          ></app-post>
+          </div>
+
+
+
+          <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 dashboard_recommend_section">
+            <div class="recommend_section_inner">
+                <div class="recommend_section_inner_image">
+                  <div (click)="navigateToProfile(user.id)"  class="img" style="background: url('{{user.profielPic}}');"></div>
+
+                    <!-- <img src="https://imagevars.gulfnews.com/2020/03/03/Mahira-Khan_170a034b091_large.jpg"> -->
+                </div>
+                <div class="recommend_section_inner_details">
+                    <p>{{user.name}}</p>
+                    <span>{{user.name}}</span>
+                </div>
+                <div class="suggestions_section">
+                    <div class="row w-100 my-5">
+                        <div class="col-xl-10 col-lg-10 col-md-10 col-sm-10 col-10 suggestion_title">
+                            <p>Suggestions for you</p>
+                        </div>
+                        <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-2 suggestion_link">
+                            <a href="javascript:void(0);">See all</a>
+                        </div>
+                       
+                          <div class="col-xl-10 col-lg-10 col-md-10 col-sm-10 col-10 suggestion_title" *ngFor="let user of allUsers">
+                            <div class="row">
+                                <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3">
+                                    <div (click)="navigateToProfile(user._id)" class="img" style="background: url('https://stat1.bollywoodhungama.in/wp-content/uploads/2018/01/Anushka-Sharma-was-never-offered-Jasmine-news.jpg');"></div>
+                                </div>
+                                <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9 col-9">
+                                    <h5>{{user.name}}</h5>
+                                   
+                                </div>
+                            
+                        </div>
+
+                        </div>
+                                                
+                   
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        </div>
+    </div>
+  </div>
