@@ -1,36 +1,32 @@
-<div class="content_section">
-  <div class="add_photo_section">
-    <div class="row mx-0">
-      <div class="col-xl-2 col-lg-2 col-md-2 col-sm-3 col-3">
-        <img
-          src="https://imagevars.gulfnews.com/2019/06/20/190619-imran-khan_16b743b13a5_medium.jpg"
-        />
-      </div>
-      <div
-        [formGroup]="postForm"
-        class="col-xl-7 col-lg-7 col-md-7 col-sm-5 col-5 px-0"
-      >
-        <button (click)="addFile()" *ngIf="!isImage">
-          <i class="fa fa-picture-o" aria-hidden="true"> </i> Add a photo
-          <input
-            id="selectedFile"
-            style="display: none;"
-            formControlName="image"
-            type="file"
-            (change)="fileChangeEvent($event)"
-          />
-        </button>
-        <img *ngIf="isImage" [src]="imgUrl" alt="" />
-      </div>
-      <div class="col-xl-3 col-lg-3 col-md-3 col-sm-4 col-4">
-        <button id="post" (click)="upload()">Post</button>
-      </div>
-     
-    </div>
-  </div>
-</div>
-<div class="progress form-group" *ngIf="progress > 0">
-  <div class="progress-bar progress-bar-striped bg-success" role="progressbar" [style.width.%]="progress">
-  </div>
-</div>
-
+<!DOCTYPE html>
+<html>
+   
+    <body>
+        <div class="inbox_section">
+            <div class="inbox_section_inner">
+                <div class="d-block">
+                    <h1>Inbox</h1>
+                    <h5>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</h5>
+                    <div class="inbox_question_section">
+                        <span>Q</span>
+                        <textarea rows="4" placeholder="No Question">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</textarea>
+                        <input type="text" placeholder="Write your reply ...">
+                        <button>Post</button>
+                    </div>
+                    <div class="inbox_question_section">
+                        <span>Q</span>
+                        <textarea rows="4" placeholder="No Question">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</textarea>
+                        <input type="text" placeholder="Write your reply ...">
+                        <button>Post</button>
+                    </div>
+                    <div class="inbox_question_section">
+                        <span>Q</span>
+                        <textarea rows="4" placeholder="No Question">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</textarea>
+                        <input type="text" placeholder="Write your reply ...">
+                        <button>Post</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

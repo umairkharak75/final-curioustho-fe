@@ -1,3 +1,4 @@
+import { AskQuestionComponent } from './components/ask-question/ask-question.component';
 import { CreateProfileComponent } from './auth/components/create-profile/create-profile.component';
 import { SignupComponent } from './auth/components/signup/signup.component';
 import { LoginComponent } from './auth/components/login/login.component';
@@ -10,6 +11,9 @@ const routes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
   { path: 'header', component: HeaderComponent },
+  { path: 'ask/:id', component: AskQuestionComponent },
+
+  
   {
     path: 'create-profile',
     canActivate: [AuthGuard],

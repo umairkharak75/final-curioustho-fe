@@ -23,6 +23,7 @@ export class PostComponent implements OnInit {
   @Output() deletedPost = new EventEmitter();
   postProfilePic
   postUserName
+  totalReviews
 
   autoTicks = false;
   disabled = false;
@@ -54,6 +55,11 @@ export class PostComponent implements OnInit {
   }
 
   ngOnInit(): void {
+if(this.post.comments){
+  console.log(this.post.comments)
+  this.totalReviews=this.post.comments.length
+}
+
     if(this.post.user){
       if(this.post.user.profilePic){
         this.postProfilePic=this.post.user.profilePic
@@ -74,9 +80,18 @@ export class PostComponent implements OnInit {
       const data = { review: this.value };
       this.postService.postReview(url, data).subscribe((data) => {
         this.hasSubmit = true;
+        const newReviewObject={
+
+date: new Date(),
+name: this.user.name,
+review: this.value,
+user: this.user.id,
+profilePic:this.user.profielPic
+        }
+        this.post.comments.push(newReviewObject)
       
         this.postService.addPost(this.user._id)
-        this.postService.getAddedPost().subscribe(data=>{console.log(data)})
+        this.postService.getAddedPost().subscribe(data=>{})
       });
     }
   }
@@ -96,7 +111,9 @@ export class PostComponent implements OnInit {
   routeToProfile(){
     this.router.navigateByUrl(`profile/${this.post.user.id}`)
   }
-
+  routeToProfileByComment(userId){
+    this.router.navigateByUrl(`profile/${userId}`)
+  }
 
   deletePost() {
     const dialogRef = this.dialog.open(ConfirmationModalComponent, {
@@ -116,9 +133,7 @@ export class PostComponent implements OnInit {
   }
   formatDate(){
     this.post.date
-    
-    const date=moment(this.post.date, "MM-DD-YYYY");
-    console.log(date)
-
+    const date=moment(this.post.date);
+  this.post.date=date.format('MM-DD-YYYY')
   }
 }

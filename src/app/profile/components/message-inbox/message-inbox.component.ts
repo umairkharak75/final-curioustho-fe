@@ -49,7 +49,6 @@ export class MessageInboxComponent implements OnInit {
     this.profile.sumbitAnswer(url, body).subscribe((response) => {
       if (response.msg === 'success') {
         question.answer = answer;
-        question.visibleStatus = false;
         this.openSnackBar('Successfully Answer Added', 'Done');
       }
     });

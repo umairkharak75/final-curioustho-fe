@@ -1,8 +1,9 @@
-import { ProfileService } from './../../service/profile.service';
+import { ApiService } from './../../core/services/api.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { ProfileService } from 'src/app/profile/service/profile.service';
 
 @Component({
   selector: 'app-ask-question',
@@ -12,17 +13,25 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class AskQuestionComponent implements OnInit {
   questionForm;
   userId;
+  panelOpenState
+  hasError
 
   constructor(
     private route: ActivatedRoute,
     public router: Router,
     public profile: ProfileService,
-    public _snackBar: MatSnackBar
-  ) {}
+    public _snackBar: MatSnackBar,
+    public api:ApiService
+  ) {
+    this.hasError=false
+  }
 
   ngOnInit(): void {
+
+
     this.route.params.subscribe((params) => {
       this.userId = params.id;
+      this.checkUserId(this.userId)
     });
     this.questionForm = new FormGroup({
       question: new FormControl(),
@@ -48,5 +57,10 @@ export class AskQuestionComponent implements OnInit {
   }
   navigateToProfile() {
     this.router.navigateByUrl('');
+  }
+
+  checkUserId(id){
+    const url=`http://localhost:5000/api/users/userIdConfirmation/${id}`
+    this.api.getData(url).subscribe(response=>{console.log(response)},error=>{if(error){this.hasError=true}})
   }
 }

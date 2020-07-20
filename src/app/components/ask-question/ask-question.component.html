@@ -1,0 +1,57 @@
+
+
+
+
+
+
+<!-- <app-header > </app-header> -->
+
+<div *ngIf="!hasError"  class="dashboard_posts_section">
+<div class="container">
+<div class="row mx-0 my-5">
+   <div  class="col-xl-8 col-lg-8 col-md-12 col-sm-12 col-12 dashboard_post_container">
+       
+<div  class="dashboard_indivisual_post_section">
+    <div class="dashboard_indivisual_post">
+        <div class="dashboard_post_header_section">
+           
+
+  
+            <!-- Button trigger modal -->
+      
+            <!-- Modal -->
+            
+        </div>
+        
+        <div class="dashboard_post_content_section"  [formGroup]="questionForm">
+              <mat-expansion-panel
+              [expanded]="true"
+              >
+                <mat-expansion-panel-header>
+                  <mat-panel-title>
+                  </mat-panel-title>
+                </mat-expansion-panel-header>
+                
+                <input
+                formControlName="question"
+                question
+                id="ask_question"
+                placeholder="Ask Question"
+              />
+              <button id="ask_question" (click)="addQuestion()">Ask</button> 
+
+              </mat-expansion-panel>
+        </div>
+       
+    </div>
+    
+    
+</div>
+    
+   </div>
+ </div>
+</div>
+</div>
+<div *ngIf="hasError" >
+<h1> No User Found Invalid Account</h1>
+</div>

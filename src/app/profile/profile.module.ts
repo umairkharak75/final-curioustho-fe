@@ -10,7 +10,6 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { LeftSideBarComponent } from './components/left-side-bar/left-side-bar.component';
 import { ProfileBodyComponent } from './components/profile-body/profile-body.component';
-import { AskQuestionComponent } from './components/ask-question/ask-question.component';
 import { InboxComponent } from './components/inbox/inbox.component';
 import { MessageInboxComponent } from './components/message-inbox/message-inbox.component';
 import {MatExpansionModule} from '@angular/material/expansion';
@@ -20,7 +19,7 @@ import {MatExpansionModule} from '@angular/material/expansion';
     ProfileComponent,
     LeftSideBarComponent,
     ProfileBodyComponent,
-    AskQuestionComponent,
+    
     InboxComponent,
     MessageInboxComponent,
   ],

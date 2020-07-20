@@ -1,17 +1,10 @@
 <app-header></app-header>
-<div class="laptop_show">
+<!-- <div class="laptop_show">
   <div class="body_section">
-    <!-- <div class="row mx-0">
-      <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12 px-0 laptop_show">
-        <app-left-side-bar></app-left-side-bar>
-      </div>
-      <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 px-0 laptop_show">
-        <app-profile-body></app-profile-body>
-      </div>
-    </div> -->
+
   </div>
-</div>
-<div class="mobile_show">
+</div> -->
+<!-- <div class="mobile_show">
   <div class="mobile_body">
     <div class="col-lg-12 col-md-12 col-sm-12 col-12 px-0 mobile_show">
       <app-left-side-bar></app-left-side-bar>
@@ -33,7 +26,7 @@
       </button>
 
       <!-- Modal -->
-      <div
+      <!-- <div
         class="modal fade"
         id="add_photos"
         data-backdrop="static"
@@ -77,7 +70,185 @@
             </div>
           </div>
         </div>
+      </div> -->
+    <!-- </div>
+  </div>
+</div> --> 
+<div class="dashboard_posts_section">
+  <div class="container">
+      <div class="row mx-0 my-5">
+          <!-- <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12 dashboard_empty_section">
+
+          </div> -->
+          <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12 col-12 dashboard_post_container">
+              <div class="add_photo_section">
+                  <div class="row mx-0">
+                      <div class="col-xl-2 col-lg-2 col-md-2 col-sm-3 col-3">
+                          <div class="img" style="background: url('{{user.profielPic}}');"></div>
+                          <!-- <img src="https://imagevars.gulfnews.com/2019/06/20/190619-imran-khan_16b743b13a5_medium.jpg"> -->
+                      </div>
+                      <div class="col-xl-7 col-lg-7 col-md-7 col-sm-5 col-5 px-0">
+                          <input type="text" placeholder="Write a post...">
+                      </div>
+                      <div class="col-xl-3 col-lg-3 col-md-3 col-sm-4 col-4">
+                          <button id="post"><i class="fa fa-picture-o" aria-hidden="true"></i>Upload</button>
+                      </div>
+                  </div>
+              </div>
+              <div class="content_section">
+                  <div class="custom_tabs">
+                      <ul class="nav nav-pills">
+                          <li><a data-toggle="pill" href="#picture" class="active"><i class="fa fa-picture-o" aria-hidden="true"></i> My Images</a></li>
+                          <li><a data-toggle="pill" href="#question"><i class="fa fa-comment" aria-hidden="true"></i> My Questions</a></li>
+                      </ul>
+                      <div class="tab-content">
+                          <div id="picture" class="tab-pane fade in active show">
+                              
+                          </div>
+                          
+                          <div id="question" class="tab-pane fade">
+                              <div class="dashboard_indivisual_post_section" >
+                                  <div class="dashboard_indivisual_post" *ngFor="let question of question">
+                                      <div  *ngIf="question.visibleStatus"class="dashboard_post_header_section">
+                                          <!-- <img src="https://cutacut.com/wp-content/uploads/2019/09/MK-768x512.jpg"> -->
+                                          <div class="img" style="background: url('{{user.profielPic}}');"></div>
+                                          <h5>{{user.name}}</h5>
+                                          <!-- Button trigger modal -->
+                                          <button type="button" data-toggle="modal" id="dashboard_post_menu" data-target="#postmenu1">
+                                              <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+                                          </button>
+                                          <!-- Modal -->
+                                          <div class="modal fade postmenu" id="postmenu1" tabindex="-1" role="dialog" aria-labelledby="postmenuLabel" aria-hidden="true">
+                                              <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" style="max-width: 400px; margin: 0 auto;">
+                                                  <div class="modal-content">
+                                                      <div class="modal-body">
+                                                          <button type="button"data-dismiss="modal">Report Inappropriate</button>
+                                                          <button type="button"data-dismiss="modal" (click)="deleteQuestion(question)">Delete</button>
+                                                          <button type="button"data-dismiss="modal">Go to post</button>
+                                                          <button type="button"data-dismiss="modal">Cancel</button>
+                                                      </div>  
+                                                  </div>
+                                              </div>
+                                          </div>
+                                      
+                                      <div class="dashboard_post_content_section">
+                                        <h5>{{question.question}}</h5>
+                                      </div>
+                                      <div class="dashboard_post_footer_section">
+                                          <p>This is your answer..!</p>
+                                          <i class="fa fa-quote-left" aria-hidden="true"></i>
+                                          <h1>
+                                              {{question.answer}}
+                                          </h1>
+                                          <i class="fa fa-quote-right" aria-hidden="true"></i>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                        </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 dashboard_recommend_section">
+              <div class="recommend_section_inner">
+                  <div class="recommend_section_inner_image">
+                      <!-- <img src="https://imagevars.gulfnews.com/2020/03/03/Mahira-Khan_170a034b091_large.jpg"> -->
+                      <div class="img2" style="background: url('{{user.profielPic}}');"></div>
+                  </div>
+                  <div class="recommend_section_inner_details">
+                      <p>{{user.name}}</p>
+                      <span>{{user.name}}</span>
+                  </div>
+                  <div class="suggestions_section">
+                      <div class="row w-100 my-5">
+                          <div class="col-xl-10 col-lg-10 col-md-10 col-sm-10 col-10 suggestion_title">
+                              <p>Suggestions for you</p>
+                          </div>
+                          <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-2 suggestion_link">
+                              <a href="javascript:void(0);">See all</a>
+                          </div>
+                          <div class="col-xl-10 col-lg-10 col-md-10 col-sm-10 col-10 suggestion_title">
+                              <div class="row">
+                                  <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3">
+                                      <div class="img" style="background: url('https://stat1.bollywoodhungama.in/wp-content/uploads/2018/01/Anushka-Sharma-was-never-offered-Jasmine-news.jpg');"></div>
+                                  </div>
+                                  <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9 col-9">
+                                      <h5>Anushka Sharma</h5>
+                                      <span>Followed by hadi.ahmed</span>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-2 suggestion_link follow_link">
+                              <a href="javascript:void(0);">Follow</a>
+                          </div>
+                          <div class="col-xl-10 col-lg-10 col-md-10 col-sm-10 col-10 suggestion_title">
+                              <div class="row">
+                                  <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3">
+                                      <div class="img" style="background: url('https://english.cdn.zeenews.com/sites/default/files/styles/zm_700x400/public/2020/05/26/863183-nora-fatehi-indian.jpg');"></div>
+                                  </div>
+                                  <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9 col-9">
+                                      <h5>Nora Fatehi</h5>
+                                      <span>Followed by hadi.ahmed</span>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-2 suggestion_link follow_link">
+                              <a href="javascript:void(0);">Follow</a>
+                          </div>
+                          <div class="col-xl-10 col-lg-10 col-md-10 col-sm-10 col-10 suggestion_title">
+                              <div class="row">
+                                  <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3">
+                                      <div class="img" style="background: url('https://akm-img-a-in.tosshub.com/indiatoday/images/story/201901/Nargis-Fakhri.jpeg?8gc4rY1Rye1n4kQAi3.Y9P1w5d1gaLRs');"></div>
+                                  </div>
+                                  <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9 col-9">
+                                      <h5>Nargis Fakhri</h5>
+                                      <span>Followed by hadi.ahmed</span>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-2 suggestion_link follow_link">
+                              <a href="javascript:void(0);">Follow</a>
+                          </div>
+                          <div class="col-xl-10 col-lg-10 col-md-10 col-sm-10 col-10 suggestion_title">
+                              <div class="row">
+                                  <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3">
+                                      <div class="img" style="background: url('https://www.geo.tv/assets/uploads/updates/2020-05-20/288855_5135613_updates.jpg');"></div>
+                                  </div>
+                                  <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9 col-9">
+                                      <h5>Kareena Kapoor</h5>
+                                      <span>Followed by hadi.ahmed</span>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-2 suggestion_link follow_link">
+                              <a href="javascript:void(0);">Follow</a>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
       </div>
-    </div>
+  </div>
+</div>
+<div class="floating_add_post_section">
+  <div class="img" style="float: right; background: url('{{user.profielPic}}');"></div>
+  <button data-toggle="modal" data-target="#floating_ask_question">Ask Question From {{user.name}}</button>
+  <div class="modal fade" id="floating_ask_question" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" style="max-width: 700px;">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                  </button>
+              </div>
+              <div class="modal-body">
+                  <h1>Ask a question</h1>
+                  <p>Lorem Ipsum is simply a dummy text</p>
+                  <input type="text" placeholder="Ask Your Questions?">
+                  <button type="button" class="btn btn-primary">Ask Question</button>
+              </div>
+        </div>
+      </div>
   </div>
 </div>

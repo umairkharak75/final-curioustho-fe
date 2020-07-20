@@ -3,7 +3,8 @@ import { Router } from '@angular/router';
 import { SharedDataService } from 'src/app/shared/service/shared-data.service';
 import { PostService } from './services/post.service';
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { NgxSpinnerService } from 'ngx-spinner';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-main-dashboard',
@@ -15,14 +16,18 @@ export class MainDashboardComponent implements OnInit {
   user;
   askQuestionLink;
   allUsers
+  hasSpinner
   constructor(
     public postService: PostService,
     public sharedData: SharedDataService,
     public router: Router,
-     public api:ApiService
-  ) {}
+     public api:ApiService,
+     public spinner: NgxSpinnerService,
+     public _snackBar: MatSnackBar,
+     ) {}
 
   ngOnInit(): void {
+    
     this.fetchAllusers()
     
     this.user = JSON.parse(this.sharedData.getUser());
@@ -30,16 +35,22 @@ export class MainDashboardComponent implements OnInit {
     console.log(this.askQuestionLink);
     const token = this.user.token;
     const url = 'http://localhost:5000/api/posts';
+    this.spinner.show()
+    this.hasSpinner=true
     this.postService.getAllPosts(url).subscribe((response) => {
       this.post = response;
+      this.hasSpinner=true
+      this.spinner.hide()
     });
   }
 
   deletedPost(deletedpost) {
-    console.log(deletedpost)
     var newPost = this.post.filter(function (post) {
       return post._id !== deletedpost._id;
+    
+    
     });
+    this.openSnackBar('Successfully deleted ', 'Done');
     this.post = newPost;
   }
   newPostAdded(params) {
@@ -62,5 +73,10 @@ export class MainDashboardComponent implements OnInit {
 
   navigateToProfile(id){
     this.router.navigateByUrl(`profile/${id}`)
+  }
+  openSnackBar(message, action: string) {
+    this._snackBar.open(message, action, {
+      duration: 2000,
+    });
   }
 }

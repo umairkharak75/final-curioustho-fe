@@ -98,13 +98,17 @@
   </body>
 </html> -->
 
-       <app-header [loggedUser]="user"> </app-header>
+        <app-header [loggedUser]="user"> </app-header> 
        <!-- <app-create-post
        (postAdded)="newPostAdded($event)"
-     ></app-create-post> -->
+     ></app-create-post>        -->
 
+      <ngx-spinner *ngIf="!post"></ngx-spinner> 
 
-<div class="dashboard_posts_section">
+      
+
+<div *ngIf="post" class="dashboard_posts_section">
+  
   <div class="container">
       <div class="row mx-0 my-5">
           
@@ -123,7 +127,6 @@
                 <div class="recommend_section_inner_image">
                   <div (click)="navigateToProfile(user.id)"  class="img" style="background: url('{{user.profielPic}}');"></div>
 
-                    <!-- <img src="https://imagevars.gulfnews.com/2020/03/03/Mahira-Khan_170a034b091_large.jpg"> -->
                 </div>
                 <div class="recommend_section_inner_details">
                     <p>{{user.name}}</p>
@@ -163,3 +166,9 @@
         </div>
     </div>
   </div>
+  
+
+
+
+
+        

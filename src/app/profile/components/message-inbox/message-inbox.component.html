@@ -1,76 +1,27 @@
 
-
-<app-header > </app-header>
-
-<div class="dashboard_posts_section">
-<div class="container">
-<div class="row mx-0 my-5">
-   <div  *ngFor="let question of question"class="col-xl-8 col-lg-8 col-md-12 col-sm-12 col-12 dashboard_post_container">
-       
-<div *ngIf="question.visibleStatus" class="dashboard_indivisual_post_section">
-    <div class="dashboard_indivisual_post">
-        <div class="dashboard_post_header_section">
-           
-             <div (click)="routeToProfile()" class="img" style="background: url('{{postProfilePic}}');"></div>
-  
-            <h5>{{question.text}}</h5>
-            <!-- Button trigger modal -->
-            <button  type="button" data-toggle="modal" id="dashboard_post_menu" data-target="#postmenu1">
-                <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
-            </button>
-            <!-- Modal -->
-            <div class="modal fade postmenu" id="postmenu1" tabindex="-1" role="dialog" aria-labelledby="postmenuLabel" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" style="max-width: 400px; margin: 0 auto;">
-                    <div class="modal-content">
-                        <div class="modal-body">
-                            <button type="button"data-dismiss="modal">Report Inappropriate</button>
-                            <button  type="button"data-dismiss="modal" (click)="deletePost()">Delete</button>
-                            <button type="button"data-dismiss="modal">Go to post</button>
-                            <button  type="button"data-dismiss="modal">Cancel</button>
-                        </div>
-                    </div>
-                </div>
+<div class="inbox_section">
+    <div class="inbox_section_inner">
+        <div class="d-block">
+            <h1>Inbox</h1>
+            <h5>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</h5>
+            <div *ngFor="let question of question">
+            <div *ngIf="!question.answer" class="inbox_question_section"  >
+                <span>Q</span>
+                <textarea rows="4" placeholder="No Question">{{question.question}}</textarea>
+                <input
+                
+                placeholder="'Enter Your Answer'"
+                [(ngModel)]="model[question._id]"
+                name="model[question._id]"
+                [ngModelOptions]="{ standalone: true }"
+               
+                id="a1"
+                value=""
+                
+                type="text" placeholder="Write your reply ...">
+                <button  (click)="submitAnswer(question, model[question._id])">Post</button>
             </div>
         </div>
-        
-        <div class="dashboard_post_content_section">
-            <mat-accordion>
-                
-                <mat-expansion-panel
-                [expanded]="true"
-                (opened)="panelOpenState = true"
-                                     (closed)="panelOpenState = false">
-                  <mat-expansion-panel-header>
-                    <mat-panel-title>
-                     {{question.question}}
-                    </mat-panel-title>
-                    
-                  </mat-expansion-panel-header>
-                  
-                  <input
-                  matInput
-                  placeholder="'Enter Your Answer'"
-                  [(ngModel)]="model[question._id]"
-                  name="model[question._id]"
-                  [ngModelOptions]="{ standalone: true }"
-                  class="answer_question"
-                  id="a1"
-                  value=""
-                />
-
-              
-                <button (click)="submitAnswer(question, model[question._id])" mat-button color="primary">Reply</button>
-
-                </mat-expansion-panel>
-              </mat-accordion>
         </div>
-       
     </div>
-    
-    
-</div>
-    
-   </div>
- </div>
-</div>
 </div>

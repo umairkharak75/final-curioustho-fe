@@ -29,6 +29,7 @@ import {
 import { SharedModule } from './shared/shared.module';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { AskQuestionComponent } from './components/ask-question/ask-question.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,8 @@ import { environment } from '../environments/environment';
     DashbardComponent,
     LoginComponent,
     CreateProfileComponent,
+    AskQuestionComponent
+    
   ],
   imports: [
     BrowserModule,
