@@ -1,3 +1,4 @@
+import { MatSliderModule } from '@angular/material/slider';
 import { CreatePostComponent } from '../shared/components/create-post/create-post.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { PostService } from './../main-dashboard/services/post.service';
@@ -22,6 +23,7 @@ import { PostComponent } from './components/post/post.component';
   ],
   entryComponents: [ConfirmationModalComponent],
   imports: [
+    MatSliderModule,
     CommonModule,
     MatSnackBarModule,
     MatExpansionModule,

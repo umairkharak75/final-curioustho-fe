@@ -15,40 +15,37 @@ export class MainDashboardComponent implements OnInit {
   post;
   user;
   askQuestionLink;
-  allUsers
-  hasSpinner
+  allUsers;
+  hasSpinner;
   constructor(
     public postService: PostService,
     public sharedData: SharedDataService,
     public router: Router,
-     public api:ApiService,
-     public spinner: NgxSpinnerService,
-     public _snackBar: MatSnackBar,
-     ) {}
+    public api: ApiService,
+    public spinner: NgxSpinnerService,
+    public _snackBar: MatSnackBar
+  ) {}
 
   ngOnInit(): void {
-    
-    this.fetchAllusers()
-    
+    this.fetchAllusers();
+
     this.user = JSON.parse(this.sharedData.getUser());
     this.askQuestionLink = this.user.askQuestionLink;
     console.log(this.askQuestionLink);
     const token = this.user.token;
     const url = 'http://localhost:5000/api/posts';
-    this.spinner.show()
-    this.hasSpinner=true
+    this.spinner.show();
+    this.hasSpinner = true;
     this.postService.getAllPosts(url).subscribe((response) => {
       this.post = response;
-      this.hasSpinner=true
-      this.spinner.hide()
+      this.hasSpinner = true;
+      this.spinner.hide();
     });
   }
 
   deletedPost(deletedpost) {
     var newPost = this.post.filter(function (post) {
       return post._id !== deletedpost._id;
-    
-    
     });
     this.openSnackBar('Successfully deleted ', 'Done');
     this.post = newPost;
@@ -61,18 +58,15 @@ export class MainDashboardComponent implements OnInit {
     this.router.navigateByUrl(`profile/${this.user.id}`);
   }
 
-  fetchAllusers(){
-    const url='http://localhost:5000/api/users/allUser'
-     this.api.getData(url).subscribe(response=>{
-
-      this.allUsers=response.users
-     })
-
-
+  fetchAllusers() {
+    const url = 'http://localhost:5000/api/users/allUser';
+    this.api.getData(url).subscribe((response) => {
+      this.allUsers = response.users;
+    });
   }
 
-  navigateToProfile(id){
-    this.router.navigateByUrl(`profile/${id}`)
+  navigateToProfile(id) {
+    this.router.navigateByUrl(`profile/${id}`);
   }
   openSnackBar(message, action: string) {
     this._snackBar.open(message, action, {

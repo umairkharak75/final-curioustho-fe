@@ -1,27 +1,33 @@
-
+<app-header [loggedUser]="user"></app-header>
 <div class="inbox_section">
-    <div class="inbox_section_inner">
-        <div class="d-block">
-            <h1>Inbox</h1>
-            <h5>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</h5>
-            <div *ngFor="let question of question">
-            <div *ngIf="!question.answer" class="inbox_question_section"  >
-                <span>Q</span>
-                <textarea rows="4" placeholder="No Question">{{question.question}}</textarea>
-                <input
-                
-                placeholder="'Enter Your Answer'"
-                [(ngModel)]="model[question._id]"
-                name="model[question._id]"
-                [ngModelOptions]="{ standalone: true }"
-               
-                id="a1"
-                value=""
-                
-                type="text" placeholder="Write your reply ...">
-                <button  (click)="submitAnswer(question, model[question._id])">Post</button>
-            </div>
+  <div class="inbox_section_inner">
+    <div class="d-block">
+      <h1>Inbox</h1>
+      <h5>
+        Lorem Ipsum is simply dummy text of the printing and typesetting
+        industry.
+      </h5>
+      <div *ngFor="let question of question">
+        <div *ngIf="!question.answer" class="inbox_question_section">
+          <span>Q</span>
+          <textarea rows="4" placeholder="No Question">{{
+            question.question
+          }}</textarea>
+          <input
+            placeholder="'Enter Your Answer'"
+            [(ngModel)]="model[question._id]"
+            name="model[question._id]"
+            [ngModelOptions]="{ standalone: true }"
+            id="a1"
+            value=""
+            type="text"
+            placeholder="Write your reply ..."
+          />
+          <button (click)="submitAnswer(question, model[question._id])">
+            Post
+          </button>
         </div>
-        </div>
+      </div>
     </div>
+  </div>
 </div>

@@ -1,9 +1,13 @@
+import { ApiService } from './../core/services/api.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormGroup, FormControl } from '@angular/forms';
 import { ProfileService } from './service/profile.service';
 import { SharedDataService } from 'src/app/shared/service/shared-data.service';
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { RepositionScrollStrategy } from '@angular/cdk/overlay';
+import { Route } from '@angular/compiler/src/core';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-profile',
@@ -14,22 +18,41 @@ export class ProfileComponent implements OnInit {
   user;
   post;
   question;
+  allUsers;
   questionForm: FormGroup;
   postForm: FormGroup;
   currentProfileId;
+  profileImage;
+  profileName;
+  hasloader;
   constructor(
     public sharedData: SharedDataService,
     public profile: ProfileService,
     public _snackBar: MatSnackBar,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    public router: Router,
+    public api: ApiService,
+    public spinner: NgxSpinnerService
   ) {
     this.question = [];
   }
 
   ngOnInit(): void {
+    console.log('check');
+    this.spinner.show();
+    this.fetchAllusers();
     this.route.params.subscribe((data) => {
       this.currentProfileId = data.id;
+      this.post = [];
+      this.question = [];
+      this.hasloader = true;
+      const url = `http://localhost:5000/api/posts/${this.currentProfileId}`;
+      this.profile.getAllCurrentPosts(url).subscribe((data) => {
+        this.post = data;
+      });
+      this.getAllQuestion();
     });
+
     this.questionForm = new FormGroup({
       question: new FormControl(),
       answer: new FormControl(),
@@ -40,6 +63,13 @@ export class ProfileComponent implements OnInit {
     });
 
     this.user = this.sharedData.getUserFromLs();
+
+    if (this.currentProfileId !== this.user.id) {
+      this.fetchProfileUser();
+    } else {
+      this.profileImage = this.user.profielPic;
+      this.profileName = this.user.name;
+    }
     const url = `http://localhost:5000/api/posts/${this.currentProfileId}`;
     this.profile.getAllCurrentPosts(url).subscribe((data) => {
       this.post = data;
@@ -62,8 +92,8 @@ export class ProfileComponent implements OnInit {
     const url = `http://localhost:5000/api/question/${this.currentProfileId}`;
 
     this.profile.GetAllAskedQuestion(url).subscribe((response) => {
-      console.log(response);
       this.question = response;
+      this.hasloader = false;
     });
   }
   submitAnswer(param) {
@@ -119,5 +149,31 @@ export class ProfileComponent implements OnInit {
 
   newPostAdded(params) {
     this.post.unshift(params);
+  }
+  fetchAllusers() {
+    const url = 'http://localhost:5000/api/users/allUser';
+    this.api.getData(url).subscribe((response) => {
+      console.log(response);
+      this.allUsers = response.users;
+    });
+  }
+  fetchProfileUser() {
+    const url = `http://localhost:5000/api/users/findSpecificUser/${this.currentProfileId}`;
+
+    this.api.getData(url).subscribe((response) => {
+      if (response) {
+        this.profileImage = response.users[0].profilePic;
+        this.profileName = response.users[0].name;
+      }
+    });
+  }
+  navigateToProfile(user) {
+    this.profileImage = user.profilePic;
+    this.profileName = user.name;
+    this.router.navigateByUrl(`profile/${user._id}`);
+  }
+  profileClicked() {
+    this.profileImage = this.user.profielPic;
+    this.profileName = this.user.name;
   }
 }

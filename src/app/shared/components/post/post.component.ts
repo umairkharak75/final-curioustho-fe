@@ -51,9 +51,14 @@ export class PostComponent implements OnInit {
 
   ngOnInit(): void {
     console.log(this.post);
-    if (this.post.user) {
-      this.postUserId = this.post.user;
+    if (typeof this.post.user === 'string') {
+      {
+        this.postUserId = this.post.user;
+      }
+    } else {
+      this.postUserId = this.post.user._id;
     }
+
     if (this.post.comments) {
       this.totalReviews = this.post.comments.length;
     }

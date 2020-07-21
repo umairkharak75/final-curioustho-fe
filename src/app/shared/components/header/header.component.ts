@@ -1,6 +1,6 @@
 import { ApiService } from './../../../core/services/api.service';
 import { PostService } from './../../../main-dashboard/services/post.service';
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -12,6 +12,8 @@ export class HeaderComponent implements OnInit {
   @Input() loggedUser;
   notifications;
   notificationslength;
+  @Output() profileClicked: EventEmitter<any> = new EventEmitter();
+
   constructor(
     public route: Router,
     public PostService: PostService,
@@ -41,12 +43,11 @@ export class HeaderComponent implements OnInit {
     this.route.navigateByUrl('/');
   }
   routeToHome() {
-    this.route.navigateByUrl('/');
+    this.route.navigateByUrl('home');
   }
   getAllNotifications() {
     const url = `http://localhost:5000/api/posts/notification/${this.loggedUser.id}`;
     this.api.getData(url).subscribe((notification) => {
-      console.log(notification);
       this.notificationslength = notification.length;
     });
   }
@@ -55,5 +56,6 @@ export class HeaderComponent implements OnInit {
   }
   routeToProfle() {
     this.route.navigateByUrl(`profile/${this.loggedUser.id}`);
+    this.profileClicked.emit();
   }
 }

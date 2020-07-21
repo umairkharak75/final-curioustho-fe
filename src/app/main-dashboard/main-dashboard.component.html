@@ -1,8 +1,4 @@
 <app-header [loggedUser]="user"> </app-header>
-<!-- <app-create-post
-  [user]="user"
-  (postAdded)="newPostAdded($event)"
-></app-create-post> -->
 
 <ngx-spinner *ngIf="!post"></ngx-spinner>
 
@@ -44,9 +40,7 @@
               </div>
               <div
                 class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-2 suggestion_link"
-              >
-                <a href="javascript:void(0);">See all</a>
-              </div>
+              ></div>
 
               <div
                 class="col-xl-10 col-lg-10 col-md-10 col-sm-10 col-10 suggestion_title"
@@ -57,9 +51,7 @@
                     <div
                       (click)="navigateToProfile(user._id)"
                       class="img"
-                      style="
-                        background: url('https://stat1.bollywoodhungama.in/wp-content/uploads/2018/01/Anushka-Sharma-was-never-offered-Jasmine-news.jpg');
-                      "
+                      style="background: url('{{ user.profielPic }}');"
                     ></div>
                   </div>
                   <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9 col-9">

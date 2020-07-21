@@ -1,6 +1,11 @@
-<app-header [loggedUser]="user"></app-header>
+<app-header
+  (profileClicked)="profileClicked()"
+  [loggedUser]="user"
+></app-header>
 
-<div class="profile_posts_section">
+<ngx-spinner *ngIf="hasloader"></ngx-spinner>
+
+<div *ngIf="!hasloader" class="profile_posts_section">
   <div class="container">
     <div class="row mx-0 my-5">
       <div
@@ -51,7 +56,6 @@
                       *ngIf="question.visibleStatus"
                       class="dashboard_post_header_section"
                     >
-                      <!-- <img src="https://cutacut.com/wp-content/uploads/2019/09/MK-768x512.jpg"> -->
                       <div
                         class="img"
                         style="background: url('{{ user.profielPic }}');"
@@ -130,12 +134,12 @@
             <!-- <img src="https://imagevars.gulfnews.com/2020/03/03/Mahira-Khan_170a034b091_large.jpg"> -->
             <div
               class="img2"
-              style="background: url('{{ user.profielPic }}');"
+              style="background: url('{{ profileImage }}');"
             ></div>
           </div>
           <div class="recommend_section_inner_details">
-            <p>{{ user.name }}</p>
-            <span>{{ user.name }}</span>
+            <p>{{ profileName }}</p>
+            <span>{{ profileName }}</span>
           </div>
           <div class="suggestions_section">
             <div class="row w-100 my-5">
@@ -147,99 +151,29 @@
               <div
                 class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-2 suggestion_link"
               >
-                <a href="javascript:void(0);">See all</a>
+                <!-- <a href="javascript:void(0);">See all</a> -->
               </div>
               <div
+                *ngFor="let user of allUsers"
                 class="col-xl-10 col-lg-10 col-md-10 col-sm-10 col-10 suggestion_title"
               >
                 <div class="row">
                   <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3">
                     <div
+                      (click)="navigateToProfile(user)"
                       class="img"
-                      style="
-                        background: url('https://stat1.bollywoodhungama.in/wp-content/uploads/2018/01/Anushka-Sharma-was-never-offered-Jasmine-news.jpg');
-                      "
+                      style="background: url('{{ user.profielPic }}');"
                     ></div>
                   </div>
                   <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9 col-9">
-                    <h5>Anushka Sharma</h5>
-                    <span>Followed by hadi.ahmed</span>
+                    <h5>{{ user.name }}</h5>
                   </div>
                 </div>
               </div>
               <div
                 class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-2 suggestion_link follow_link"
               >
-                <a href="javascript:void(0);">Follow</a>
-              </div>
-              <div
-                class="col-xl-10 col-lg-10 col-md-10 col-sm-10 col-10 suggestion_title"
-              >
-                <div class="row">
-                  <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3">
-                    <div
-                      class="img"
-                      style="
-                        background: url('https://english.cdn.zeenews.com/sites/default/files/styles/zm_700x400/public/2020/05/26/863183-nora-fatehi-indian.jpg');
-                      "
-                    ></div>
-                  </div>
-                  <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9 col-9">
-                    <h5>Nora Fatehi</h5>
-                    <span>Followed by hadi.ahmed</span>
-                  </div>
-                </div>
-              </div>
-              <div
-                class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-2 suggestion_link follow_link"
-              >
-                <a href="javascript:void(0);">Follow</a>
-              </div>
-              <div
-                class="col-xl-10 col-lg-10 col-md-10 col-sm-10 col-10 suggestion_title"
-              >
-                <div class="row">
-                  <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3">
-                    <div
-                      class="img"
-                      style="
-                        background: url('https://akm-img-a-in.tosshub.com/indiatoday/images/story/201901/Nargis-Fakhri.jpeg?8gc4rY1Rye1n4kQAi3.Y9P1w5d1gaLRs');
-                      "
-                    ></div>
-                  </div>
-                  <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9 col-9">
-                    <h5>Nargis Fakhri</h5>
-                    <span>Followed by hadi.ahmed</span>
-                  </div>
-                </div>
-              </div>
-              <div
-                class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-2 suggestion_link follow_link"
-              >
-                <a href="javascript:void(0);">Follow</a>
-              </div>
-              <div
-                class="col-xl-10 col-lg-10 col-md-10 col-sm-10 col-10 suggestion_title"
-              >
-                <div class="row">
-                  <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3">
-                    <div
-                      class="img"
-                      style="
-                        background: url('https://www.geo.tv/assets/uploads/updates/2020-05-20/288855_5135613_updates.jpg');
-                      "
-                    ></div>
-                  </div>
-                  <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9 col-9">
-                    <h5>Kareena Kapoor</h5>
-                    <span>Followed by hadi.ahmed</span>
-                  </div>
-                </div>
-              </div>
-              <div
-                class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-2 suggestion_link follow_link"
-              >
-                <a href="javascript:void(0);">Follow</a>
+                <a href="javascript:void(0);">profile</a>
               </div>
             </div>
           </div>
