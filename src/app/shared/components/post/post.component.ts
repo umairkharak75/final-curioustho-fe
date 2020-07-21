@@ -1,16 +1,10 @@
+import { OnInit, EventEmitter, Input, Output, Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { PostService } from 'src/app/main-dashboard/services/post.service';
+import { SharedDataService } from '../../service/shared-data.service';
+import { MatDialog } from '@angular/material/dialog';
 import { ConfirmationModalComponent } from './confirmation-modal/confirmation-modal.component';
-import { SharedDataService } from './../../../shared/service/shared-data.service';
-import { PostService } from './../../services/post.service';
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import * as moment from 'moment';
-
-
-import {
-  MatDialog,
-  MatDialogRef,
-  MAT_DIALOG_DATA,
-} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-post',
@@ -21,9 +15,9 @@ export class PostComponent implements OnInit {
   @Input() post;
   @Input() user;
   @Output() deletedPost = new EventEmitter();
-  postProfilePic
-  postUserName
-  totalReviews
+  postProfilePic;
+  postUserName;
+  totalReviews;
 
   autoTicks = false;
   disabled = false;
@@ -46,7 +40,7 @@ export class PostComponent implements OnInit {
     return 0;
   }
   constructor(
-    public router:Router,
+    public router: Router,
     public dialog: MatDialog,
     public postService: PostService,
     public sharedDataService: SharedDataService
@@ -55,19 +49,20 @@ export class PostComponent implements OnInit {
   }
 
   ngOnInit(): void {
-if(this.post.comments){
-  console.log(this.post.comments)
-  this.totalReviews=this.post.comments.length
-}
+    console.log(this.post);
+    console.log(this.user);
+    if (this.post.comments) {
+      this.totalReviews = this.post.comments.length;
+    }
 
-    if(this.post.user){
-      if(this.post.user.profilePic){
-        this.postProfilePic=this.post.user.profilePic
-        this.postUserName=this.post.user.name
+    if (this.post.user) {
+      if (this.post.user.profilePic) {
+        this.postProfilePic = this.post.user.profilePic;
+        this.postUserName = this.post.user.name;
       }
     }
     this.setPostReviewsValue();
-    this.formatDate()
+    this.formatDate();
   }
 
   reviewValue(params) {
@@ -80,18 +75,17 @@ if(this.post.comments){
       const data = { review: this.value };
       this.postService.postReview(url, data).subscribe((data) => {
         this.hasSubmit = true;
-        const newReviewObject={
+        const newReviewObject = {
+          date: new Date(),
+          name: this.user.name,
+          review: this.value,
+          user: this.user.id,
+          profilePic: this.user.profielPic,
+        };
+        this.post.comments.push(newReviewObject);
 
-date: new Date(),
-name: this.user.name,
-review: this.value,
-user: this.user.id,
-profilePic:this.user.profielPic
-        }
-        this.post.comments.push(newReviewObject)
-      
-        this.postService.addPost(this.user._id)
-        this.postService.getAddedPost().subscribe(data=>{})
+        this.postService.addPost(this.user._id);
+        this.postService.getAddedPost().subscribe((data) => {});
       });
     }
   }
@@ -108,11 +102,12 @@ profilePic:this.user.profielPic
     }
   }
 
-  routeToProfile(){
-    this.router.navigateByUrl(`profile/${this.post.user.id}`)
+  routeToProfile() {
+    console.log(this.post);
+    this.router.navigateByUrl(`profile/${this.post.user._id}`);
   }
-  routeToProfileByComment(userId){
-    this.router.navigateByUrl(`profile/${userId}`)
+  routeToProfileByComment(userId) {
+    this.router.navigateByUrl(`profile/${userId}`);
   }
 
   deletePost() {
@@ -131,9 +126,9 @@ profilePic:this.user.profielPic
       }
     });
   }
-  formatDate(){
-    this.post.date
-    const date=moment(this.post.date);
-  this.post.date=date.format('MM-DD-YYYY')
+  formatDate() {
+    this.post.date;
+    const date = moment(this.post.date);
+    this.post.date = date.format('MM-DD-YYYY');
   }
 }

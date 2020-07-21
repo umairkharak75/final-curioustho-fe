@@ -10,40 +10,44 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
   @Input() loggedUser;
-  notifications
-  notificationslength
-  constructor(public route: Router,public PostService:PostService,public api:ApiService) {
-    this.notifications=[]
+  notifications;
+  notificationslength;
+  constructor(
+    public route: Router,
+    public PostService: PostService,
+    public api: ApiService
+  ) {
+    this.notifications = [];
   }
 
   ngOnInit(): void {
-   
+    this.getAllNotifications();
 
-    this.getAllNotifications()
-   
-
-    this.PostService.getAddedPost().subscribe(notifications=>{
-      notifications=notifications
-      notifications.forEach(notification=>{
-        if(notification.userNotification===this.loggedUser.id && notification.status==='unSeen'){
-          this.notifications.push(notification)
+    this.PostService.getAddedPost().subscribe((notifications) => {
+      notifications = notifications;
+      notifications.forEach((notification) => {
+        if (
+          notification.userNotification === this.loggedUser.id &&
+          notification.status === 'unSeen'
+        ) {
+          this.notifications.push(notification);
         }
-      })
-      this.notificationslength=this.notifications.length
-    })
+      });
+      this.notificationslength = this.notifications.length;
+    });
   }
   logout() {
     localStorage.removeItem('user');
     this.route.navigateByUrl('/');
   }
-
-  getAllNotifications(){
-   
-const url=`http://localhost:5000/api/posts/notification/${this.loggedUser.id}`
-this.api.getData(url).subscribe(notification=>{
-  
-  console.log(notification)
-  this.notificationslength=notification.length})
+  routeToHome() {
+    this.route.navigateByUrl('/');
   }
-  
+  getAllNotifications() {
+    const url = `http://localhost:5000/api/posts/notification/${this.loggedUser.id}`;
+    this.api.getData(url).subscribe((notification) => {
+      console.log(notification);
+      this.notificationslength = notification.length;
+    });
+  }
 }

@@ -1,3 +1,4 @@
+import { MatDialogModule } from '@angular/material/dialog';
 import { SharedModule } from './../shared/shared.module';
 import { PostService } from './../main-dashboard/services/post.service';
 import { NgModule } from '@angular/core';
@@ -31,8 +32,9 @@ import {MatExpansionModule} from '@angular/material/expansion';
     FormsModule,
     MatInputModule,
     SharedModule,
-    MatExpansionModule
-    
+    MatExpansionModule,
+    MatDialogModule
+  
   ],
   providers: [PostService],
 })

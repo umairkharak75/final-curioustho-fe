@@ -1,41 +1,48 @@
 <div class="dashboard_header_fixed">
   <div class="container">
-      <div class="dashboard_header_container">
-          <div class="row w-100">
-              <div class="col-xl-6 col-lg-6 col-md-4 col-sm-12 col-12 dashboard_header_logo">
-                  <img src="../../../../assets/logo.png">
-              </div>
-              <div class="col-xl-6 col-lg-6 col-md-8 col-sm-12 col-12 d-none d-md-block dashboard_header_menu">
-                  <ul>
-                      <li>Upload Image</li>
-                      <li>Ask</li>
-                      <li>Inbox</li>
-                      <li>Profile</li>
-                      <li matBadge="{{notificationslength}}" matBadgeColor="warn">notifications
-                      
-                        
-    
-                        <!-- <span class="badge">{{notificationslength}}</span> -->
+    <div class="dashboard_header_container">
+      <div class="row w-100">
+        <div
+          (click)="routeToHome()"
+          class="col-xl-6 col-lg-6 col-md-4 col-sm-12 col-12 dashboard_header_logo"
+        >
+          <img src="../../../../assets/logo.png" />
+        </div>
+        <div
+          class="col-xl-6 col-lg-6 col-md-8 col-sm-12 col-12 d-none d-md-block dashboard_header_menu"
+        >
+          <ul>
+            <li>Upload Image</li>
+            <li>Ask</li>
+            <li>Inbox</li>
+            <li>Profile</li>
+            <li matBadge="{{ notificationslength }}" matBadgeColor="warn">
+              notifications
 
-                      </li>
-                      <li>Settings</li>
-                      <li (click)="logout()">Logout</li>
-                  </ul>
-              </div>
-          </div>
+              <!-- <span class="badge">{{notificationslength}}</span> -->
+            </li>
+            <li>Settings</li>
+            <li (click)="logout()">Logout</li>
+          </ul>
+        </div>
       </div>
+    </div>
   </div>
 </div>
 <div class="dashboard_header_fixed_bottom d-block d-md-none">
   <div class="container">
-      <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 dashboard_header_menu dashboard_header_menu_bottom">
-          <ul>
-              <li class="fa active"><i class="fa fa-camera" aria-hidden="true"></i></li>
-              <li class="fa"><i class="fa fa-inbox" aria-hidden="true"></i></li>
-              <li class="fa"><i class="fa fa-cog" aria-hidden="true"></i></li>
-              <li class="fa"><i class="fa fa-bell" aria-hidden="true"></i></li>
-              <li class="fa"><i class="fa fa-wrench" aria-hidden="true"></i></li>
-          </ul>
-      </div>
+    <div
+      class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 dashboard_header_menu dashboard_header_menu_bottom"
+    >
+      <ul>
+        <li class="fa active">
+          <i class="fa fa-camera" aria-hidden="true"></i>
+        </li>
+        <li class="fa"><i class="fa fa-inbox" aria-hidden="true"></i></li>
+        <li class="fa"><i class="fa fa-cog" aria-hidden="true"></i></li>
+        <li class="fa"><i class="fa fa-bell" aria-hidden="true"></i></li>
+        <li class="fa"><i class="fa fa-wrench" aria-hidden="true"></i></li>
+      </ul>
+    </div>
   </div>
 </div>
