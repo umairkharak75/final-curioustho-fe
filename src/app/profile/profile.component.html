@@ -58,9 +58,9 @@
                     >
                       <div
                         class="img"
-                        style="background: url('{{ user.profielPic }}');"
+                        style="background: url('{{ profileImage }}');"
                       ></div>
-                      <h5>{{ user.name }}</h5>
+                      <h5>{{ profileName }}</h5>
                       <!-- Button trigger modal -->
                       <button
                         *ngIf="user.id === currentProfileId"
@@ -182,13 +182,13 @@
     </div>
   </div>
 </div>
-<div class="floating_add_post_section" *ngif="currentProfileId !== user.id">
+<div class="floating_add_post_section" *ngIf="currentProfileId !== user.id">
   <div
     class="img"
-    style="float: right; background: url('{{ user.profielPic }}');"
+    style="float: right; background: url('{{ profileImage }}');"
   ></div>
   <button data-toggle="modal" data-target="#floating_ask_question">
-    Ask Question From {{ user.name }}
+    Ask Question From {{ profileName }}
   </button>
   <div
     class="modal fade"

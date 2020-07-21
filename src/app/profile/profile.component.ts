@@ -5,8 +5,7 @@ import { ProfileService } from './service/profile.service';
 import { SharedDataService } from 'src/app/shared/service/shared-data.service';
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { RepositionScrollStrategy } from '@angular/cdk/overlay';
-import { Route } from '@angular/compiler/src/core';
+
 import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
@@ -38,7 +37,6 @@ export class ProfileComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log('check');
     this.spinner.show();
     this.fetchAllusers();
     this.route.params.subscribe((data) => {
@@ -97,7 +95,6 @@ export class ProfileComponent implements OnInit {
     });
   }
   submitAnswer(param) {
-    console.log(param);
     const url = `http://localhost:5000/api/question/answer/${param._id}`;
 
     const body = {
