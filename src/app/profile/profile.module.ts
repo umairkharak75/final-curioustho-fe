@@ -13,14 +13,14 @@ import { LeftSideBarComponent } from './components/left-side-bar/left-side-bar.c
 import { ProfileBodyComponent } from './components/profile-body/profile-body.component';
 import { InboxComponent } from './components/inbox/inbox.component';
 import { MessageInboxComponent } from './components/message-inbox/message-inbox.component';
-import {MatExpansionModule} from '@angular/material/expansion';
+import { MatExpansionModule } from '@angular/material/expansion';
 
 @NgModule({
   declarations: [
     ProfileComponent,
     LeftSideBarComponent,
     ProfileBodyComponent,
-    
+
     InboxComponent,
     MessageInboxComponent,
   ],
@@ -33,8 +33,7 @@ import {MatExpansionModule} from '@angular/material/expansion';
     MatInputModule,
     SharedModule,
     MatExpansionModule,
-    MatDialogModule
-  
+    MatDialogModule,
   ],
   providers: [PostService],
 })

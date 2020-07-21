@@ -42,7 +42,6 @@ export class ProfileComponent implements OnInit {
     this.user = this.sharedData.getUserFromLs();
     const url = `http://localhost:5000/api/posts/${this.currentProfileId}`;
     this.profile.getAllCurrentPosts(url).subscribe((data) => {
-      console.log(data);
       this.post = data;
     });
     this.getAllQuestion();
@@ -63,8 +62,8 @@ export class ProfileComponent implements OnInit {
     const url = `http://localhost:5000/api/question/${this.currentProfileId}`;
 
     this.profile.GetAllAskedQuestion(url).subscribe((response) => {
-      this.question = response;
       console.log(response);
+      this.question = response;
     });
   }
   submitAnswer(param) {

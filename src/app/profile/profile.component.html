@@ -3,9 +3,6 @@
 <div class="profile_posts_section">
   <div class="container">
     <div class="row mx-0 my-5">
-      <!-- <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12 dashboard_empty_section">
-
-          </div> -->
       <div
         class="col-xl-8 col-lg-8 col-md-12 col-sm-12 col-12 dashboard_post_container"
       >
@@ -62,6 +59,7 @@
                       <h5>{{ user.name }}</h5>
                       <!-- Button trigger modal -->
                       <button
+                        *ngIf="user.id === currentProfileId"
                         type="button"
                         data-toggle="modal"
                         id="dashboard_post_menu"
@@ -250,7 +248,7 @@
     </div>
   </div>
 </div>
-<div class="floating_add_post_section">
+<div class="floating_add_post_section" *ngif="currentProfileId !== user.id">
   <div
     class="img"
     style="float: right; background: url('{{ user.profielPic }}');"

@@ -13,9 +13,9 @@
         >
           <ul>
             <li>Upload Image</li>
-            <li>Ask</li>
-            <li>Inbox</li>
-            <li>Profile</li>
+
+            <li (click)="routeToInBox()">Inbox</li>
+            <li (click)="routeToProfle()">Profile</li>
             <li matBadge="{{ notificationslength }}" matBadgeColor="warn">
               notifications
 

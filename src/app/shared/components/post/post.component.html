@@ -10,7 +10,7 @@
       <h5>{{ postUserName }}</h5>
       <!-- Button trigger modal -->
       <button
-        *ngIf="user.id === post.user._id || post.user"
+        *ngIf="user.id === postUserId"
         type="button"
         data-toggle="modal"
         id="dashboard_post_menu"
@@ -59,7 +59,7 @@
   </div>
 
   <mat-slider
-    *ngIf="user.id !== post.user._id"
+    *ngIf="user.id !== postUserId"
     class="example-margin"
     [disabled]="disabled"
     [invert]="invert"
@@ -93,7 +93,7 @@
       <p>{{ comments.review }}</p>
       <!-- Button trigger modal -->
       <button
-        *ngIf="user.id === post.user._id"
+        *ngIf="user.id === postUserId"
         type="button"
         data-toggle="modal"
         id="dashboard_post_menu"

@@ -50,4 +50,10 @@ export class HeaderComponent implements OnInit {
       this.notificationslength = notification.length;
     });
   }
+  routeToInBox() {
+    this.route.navigateByUrl('profile/inbox/user');
+  }
+  routeToProfle() {
+    this.route.navigateByUrl(`profile/${this.loggedUser.id}`);
+  }
 }

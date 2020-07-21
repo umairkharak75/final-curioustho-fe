@@ -14,6 +14,7 @@ import * as moment from 'moment';
 export class PostComponent implements OnInit {
   @Input() post;
   @Input() user;
+  postUserId;
   @Output() deletedPost = new EventEmitter();
   postProfilePic;
   postUserName;
@@ -50,7 +51,9 @@ export class PostComponent implements OnInit {
 
   ngOnInit(): void {
     console.log(this.post);
-    console.log(this.user);
+    if (this.post.user) {
+      this.postUserId = this.post.user;
+    }
     if (this.post.comments) {
       this.totalReviews = this.post.comments.length;
     }
