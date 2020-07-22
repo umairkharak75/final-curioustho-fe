@@ -62,6 +62,7 @@ export class MainDashboardComponent implements OnInit {
     const url = 'http://localhost:5000/api/users/allUser';
     this.api.getData(url).subscribe((response) => {
       this.allUsers = response.users;
+      console.log(this.allUsers);
     });
   }
 
