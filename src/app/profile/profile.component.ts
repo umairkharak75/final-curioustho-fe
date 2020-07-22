@@ -90,6 +90,7 @@ export class ProfileComponent implements OnInit {
     const url = `http://localhost:5000/api/question/${this.currentProfileId}`;
 
     this.profile.GetAllAskedQuestion(url).subscribe((response) => {
+      console.log(this.question);
       this.question = response;
       this.hasloader = false;
     });

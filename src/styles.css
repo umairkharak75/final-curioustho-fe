@@ -30,7 +30,8 @@ button:hover {
 .modal-backdrop.fade.show {
   display: none;
 }
-div#floating_ask_question {
+div#floating_ask_question,
+div.postmenu {
   background: rgba(0, 0, 0, 0.6);
 }
 .dashboard_posts_section {
