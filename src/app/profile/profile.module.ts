@@ -14,6 +14,7 @@ import { ProfileBodyComponent } from './components/profile-body/profile-body.com
 import { InboxComponent } from './components/inbox/inbox.component';
 import { MessageInboxComponent } from './components/message-inbox/message-inbox.component';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { NotificationsComponent } from './components/notifications/notifications.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
 
     InboxComponent,
     MessageInboxComponent,
+    NotificationsComponent,
   ],
   imports: [
     CommonModule,

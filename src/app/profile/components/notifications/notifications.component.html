@@ -1,0 +1,77 @@
+<app-header [loggedUser]="user"></app-header>
+
+<div class="notification_page">
+  <div class="notification_main_section">
+    <div class="d-block">
+      <div class="notification_section_inner">
+        <h1>Notifications</h1>
+        <div *ngFor="let notification of notification">
+          <div
+            class="notification_container"
+            style="background: #eee;"
+            *ngIf="
+              notification.status === 'unSeen' &&
+              notification.notificationType === 'review'
+            "
+          >
+            <div class="row mx-0">
+              <div class="col-xl-1 col-lg-1 col-md-1 col-sm-1 col-1">
+                <div
+                  class="logo_bg"
+                  style="background: url(../../../../assets/fire.png);"
+                ></div>
+              </div>
+              <div class="col-xl-10 col-lg-10 col-md-10 col-sm-10 col-10">
+                <div
+                  class="img d-block"
+                  style=" background: url('{{
+                    notification.reviewUserId.profilePic
+                  }}');"
+                ></div>
+              </div>
+              <div class="col-xl-1 col-lg-1 col-md-1 col-sm-1 col-1">
+                <i class="fa fa-caret-down" aria-hidden="true"></i>
+              </div>
+              <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                <h2>{{ notification.reviewUserId.name }} rated your post</h2>
+              </div>
+              <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12"></div>
+            </div>
+          </div>
+          <div
+            class="notification_container"
+            style="background: #fff;"
+            *ngIf="
+              notification.status === 'seen' &&
+              notification.notificationType === 'review'
+            "
+          >
+            <div class="row mx-0">
+              <div class="col-xl-1 col-lg-1 col-md-1 col-sm-1 col-1">
+                <div
+                  class="logo_bg"
+                  style="background: url(../../../../assets/fire.png);"
+                ></div>
+              </div>
+              <div class="col-xl-10 col-lg-10 col-md-10 col-sm-10 col-10">
+                <div
+                  class="img d-block"
+                  style=" background: url('{{
+                    notification.reviewUserId.profilePic
+                  }}');"
+                ></div>
+              </div>
+              <div class="col-xl-1 col-lg-1 col-md-1 col-sm-1 col-1">
+                <i class="fa fa-caret-down" aria-hidden="true"></i>
+              </div>
+              <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                <h2>{{ notification.reviewUserId.name }} rated your post</h2>
+              </div>
+              <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

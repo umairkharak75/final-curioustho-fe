@@ -16,7 +16,11 @@
 
             <li (click)="routeToInBox()">Inbox</li>
             <li (click)="routeToProfle()">Profile</li>
-            <li matBadge="{{ notificationslength }}" matBadgeColor="warn">
+            <li
+              (click)="routeToNotifications()"
+              matBadge="{{ notificationslength }}"
+              matBadgeColor="warn"
+            >
               notifications
 
               <!-- <span class="badge">{{notificationslength}}</span> -->

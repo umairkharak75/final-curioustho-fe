@@ -846,3 +846,87 @@ button:focus {
 }
 
 /*******login end ******/
+
+/*****notification****/
+
+input:focus,
+a:focus,
+button:focus,
+textarea:focus {
+  outline: none;
+}
+input:hover,
+a:hover,
+button:hover {
+  text-decoration: none;
+}
+.img {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  display: inline-block;
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+}
+.logo_bg {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  display: inline-block;
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  margin: 7px 0px 0px 0px;
+}
+.notification_page {
+  margin-top: 100px;
+}
+.notification_main_section {
+  display: flex;
+  width: 50%;
+  margin: 0 auto;
+}
+.notification_section_inner {
+  background: #fff;
+  min-width: 50vw;
+}
+.notification_section_inner h1 {
+  padding: 10px 15px;
+  font-size: 24px;
+}
+.notification_container {
+  padding: 20px 0px;
+  border-bottom: 3px solid #eee;
+}
+.notification_container i {
+  display: flex;
+  height: 100%;
+}
+.notification_container i:before {
+  margin: auto;
+}
+.notification_container h2 {
+  width: 92%;
+  float: right;
+  font-size: 18px;
+  margin: 10px 0px;
+}
+.notification_container h3 {
+  width: 92%;
+  float: right;
+  font-size: 14px;
+  color: #666;
+}
+@media (max-width: 480px) {
+  .notification_main_section {
+    display: flex;
+    width: 90%;
+    margin: 0 auto;
+  }
+  .notification_section_inner {
+    min-width: 90vw;
+  }
+}
+
+/********notification**********/

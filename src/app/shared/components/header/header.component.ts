@@ -46,9 +46,15 @@ export class HeaderComponent implements OnInit {
     this.route.navigateByUrl('home');
   }
   getAllNotifications() {
+    this.notificationslength = 0;
     const url = `http://localhost:5000/api/posts/notification/${this.loggedUser.id}`;
     this.api.getData(url).subscribe((notification) => {
-      this.notificationslength = notification.length;
+      this.notifications = notification;
+      this.notifications.forEach((notification) => {
+        if (notification.status === 'unSeen') {
+          this.notificationslength = this.notificationslength + 1;
+        }
+      });
     });
   }
   routeToInBox() {
@@ -57,5 +63,8 @@ export class HeaderComponent implements OnInit {
   routeToProfle() {
     this.route.navigateByUrl(`profile/${this.loggedUser.id}`);
     this.profileClicked.emit();
+  }
+  routeToNotifications() {
+    this.route.navigateByUrl('profile/notification/user');
   }
 }

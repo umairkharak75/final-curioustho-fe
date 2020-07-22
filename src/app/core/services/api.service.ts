@@ -13,7 +13,7 @@ export class ApiService {
   getData(url): Observable<any> {
     return this.http.get<any>(url, this.createHeaders());
   }
-  patchData(url, body): Observable<any> {
+  patchData(url, body?): Observable<any> {
     return this.http.patch<any>(url, body, this.createHeaders());
   }
   deleteData(url): Observable<any> {
@@ -31,16 +31,18 @@ export class ApiService {
     //   ),
     // };
 
-      const httpOptions = new HttpHeaders({
-        'x-auth-token':this.sharedData.getToken()
-        })
+    const httpOptions = new HttpHeaders({
+      'x-auth-token': this.sharedData.getToken(),
+    });
 
-      return this.http.post(url, body, { reportProgress: true, observe: 'events', headers: httpOptions });
-    }
+    return this.http.post(url, body, {
+      reportProgress: true,
+      observe: 'events',
+      headers: httpOptions,
+    });
+  }
 
-
-   // return this.http.post<any>(url, body, header);
-
+  // return this.http.post<any>(url, body, header);
 
   createHeaders() {
     return (this.httpOptions = {
@@ -51,7 +53,7 @@ export class ApiService {
     });
   }
 
-  public sendSubscriptionToTheServer(url,subscription: PushSubscription) {
-    return this.http.post(url, subscription)
+  public sendSubscriptionToTheServer(url, subscription: PushSubscription) {
+    return this.http.post(url, subscription);
   }
 }
