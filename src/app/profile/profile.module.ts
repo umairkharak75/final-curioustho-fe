@@ -15,6 +15,7 @@ import { InboxComponent } from './components/inbox/inbox.component';
 import { MessageInboxComponent } from './components/message-inbox/message-inbox.component';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { NotificationsComponent } from './components/notifications/notifications.component';
+import { ProfileSettingsComponent } from './components/profile-settings/profile-settings.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { NotificationsComponent } from './components/notifications/notifications
     InboxComponent,
     MessageInboxComponent,
     NotificationsComponent,
+    ProfileSettingsComponent,
   ],
   imports: [
     CommonModule,
