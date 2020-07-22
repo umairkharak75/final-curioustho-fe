@@ -10,7 +10,7 @@
       <div *ngFor="let question of question">
         <div *ngIf="!question.answer" class="inbox_question_section">
           <span>Q</span>
-          <textarea rows="4" placeholder="No Question">{{
+          <textarea disabled="true" rows="4" placeholder="No Question">{{
             question.question
           }}</textarea>
           <input

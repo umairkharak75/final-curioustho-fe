@@ -6,16 +6,16 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 @Component({
   selector: 'app-message-inbox',
   templateUrl: './message-inbox.component.html',
-  styleUrls: ['./message-inbox.component.css']
+  styleUrls: ['./message-inbox.component.css'],
 })
 export class MessageInboxComponent implements OnInit {
-
   question;
   user;
   model: any = {};
   panelOpenState = true;
   constructor(
     public profile: ProfileService,
+    public sharedDataService: SharedDataService,
     public sharedData: SharedDataService,
     public _snackBar: MatSnackBar
   ) {}
@@ -30,14 +30,11 @@ export class MessageInboxComponent implements OnInit {
     const url = `http://localhost:5000/api/question/${this.user.id}`;
 
     this.profile.GetAllAskedQuestion(url).subscribe((response) => {
-      console.log(this.question)
       this.question = response;
-      console.log(response);
     });
   }
 
   submitAnswer(question, answer) {
-    console.log(answer);
     const id = question._id;
 
     const index = this.question.findIndex((question) => question._id === id);
@@ -59,5 +56,4 @@ export class MessageInboxComponent implements OnInit {
       duration: 2000,
     });
   }
-
 }

@@ -62,10 +62,181 @@
                 ></div>
               </div>
               <div class="col-xl-1 col-lg-1 col-md-1 col-sm-1 col-1">
-                <i class="fa fa-caret-down" aria-hidden="true"></i>
+                <i
+                  class="fa fa-caret-down"
+                  aria-hidden="true"
+                  data-toggle="modal"
+                  data-target="#post_delete_modal1"
+                ></i>
+                <div
+                  class="modal fade post_delete_modal"
+                  id="post_delete_modal1"
+                  tabindex="-1"
+                  role="dialog"
+                  aria-labelledby="postmenuLabel"
+                  aria-hidden="true"
+                >
+                  <div
+                    class="modal-dialog modal-dialog-centered modal-dialog-scrollable"
+                    style="max-width: 400px; margin: 0 auto;"
+                  >
+                    <div class="modal-content">
+                      <div class="modal-body">
+                        <button type="button" data-dismiss="modal">
+                          Report Inappropriate
+                        </button>
+                        <button
+                          type="button"
+                          data-dismiss="modal"
+                          (click)="deleteNotification(notification)"
+                        >
+                          Delete
+                        </button>
+                        <button type="button" data-dismiss="modal">
+                          Go to post
+                        </button>
+                        <button type="button" data-dismiss="modal">
+                          Cancel
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
               <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                 <h2>{{ notification.reviewUserId.name }} rated your post</h2>
+              </div>
+              <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12"></div>
+            </div>
+          </div>
+          <div
+            class="notification_container"
+            style="background: #eee;"
+            *ngIf="
+              notification.notificationType === 'question' &&
+              notification.status === 'unSeen'
+            "
+          >
+            <div class="row mx-0">
+              <div class="col-xl-1 col-lg-1 col-md-1 col-sm-1 col-1">
+                <div
+                  class="logo_bg"
+                  style="background: url(../../../../assets/question.png);"
+                ></div>
+              </div>
+              <div class="col-xl-10 col-lg-10 col-md-10 col-sm-10 col-10">
+                <div class="img d-block" style="background: url();"></div>
+              </div>
+              <div class="col-xl-1 col-lg-1 col-md-1 col-sm-1 col-1">
+                <i
+                  class="fa fa-caret-down"
+                  aria-hidden="true"
+                  data-toggle="modal"
+                  data-target="#post_delete_modal1"
+                ></i>
+                <div
+                  class="modal fade post_delete_modal"
+                  id="post_delete_modal1"
+                  tabindex="-1"
+                  role="dialog"
+                  aria-labelledby="postmenuLabel"
+                  aria-hidden="true"
+                >
+                  <div
+                    class="modal-dialog modal-dialog-centered modal-dialog-scrollable"
+                    style="max-width: 400px; margin: 0 auto;"
+                  >
+                    <div class="modal-content">
+                      <div class="modal-body">
+                        <button type="button" data-dismiss="modal">
+                          Report Inappropriate
+                        </button>
+                        <button
+                          type="button"
+                          data-dismiss="modal"
+                          (click)="deleteNotification(notification)"
+                        >
+                          Delete
+                        </button>
+                        <button type="button" data-dismiss="modal">
+                          Go to post
+                        </button>
+                        <button type="button" data-dismiss="modal">
+                          Cancel
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                <h2>New question added. check inbox!</h2>
+              </div>
+              <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12"></div>
+            </div>
+          </div>
+          <div
+            class="notification_container"
+            style="background: #fff;"
+            *ngIf="
+              notification.notificationType === 'question' &&
+              notification.status === 'seen'
+            "
+          >
+            <div class="row mx-0">
+              <div class="col-xl-1 col-lg-1 col-md-1 col-sm-1 col-1">
+                <div
+                  class="logo_bg"
+                  style="background: url(../../../../assets/question.png);"
+                ></div>
+              </div>
+              <div class="col-xl-10 col-lg-10 col-md-10 col-sm-10 col-10">
+                <div class="img d-block" style="background: url();"></div>
+              </div>
+              <div class="col-xl-1 col-lg-1 col-md-1 col-sm-1 col-1">
+                <i
+                  class="fa fa-caret-down"
+                  aria-hidden="true"
+                  data-toggle="modal"
+                  data-target="#post_delete_modal1"
+                ></i>
+                <div
+                  class="modal fade post_delete_modal"
+                  id="post_delete_modal1"
+                  tabindex="-1"
+                  role="dialog"
+                  aria-labelledby="postmenuLabel"
+                  aria-hidden="true"
+                >
+                  <div
+                    class="modal-dialog modal-dialog-centered modal-dialog-scrollable"
+                    style="max-width: 400px; margin: 0 auto;"
+                  >
+                    <div class="modal-content">
+                      <div class="modal-body">
+                        <button type="button" data-dismiss="modal">
+                          Report Inappropriate
+                        </button>
+                        <button
+                          type="button"
+                          data-dismiss="modal"
+                          (click)="deleteNotification(notification)"
+                        >
+                          Delete
+                        </button>
+                        <button type="button" data-dismiss="modal">
+                          Go to post
+                        </button>
+                        <button type="button" data-dismiss="modal">
+                          Cancel
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                <h2>New question added. check inbox!</h2>
               </div>
               <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12"></div>
             </div>

@@ -1,0 +1,107 @@
+<div class="settings_page">
+  <div class="settings_main_section">
+    <div class="d-block">
+      <div class="settings_section_1">
+        <button
+          data-toggle="collapse"
+          data-target="#account_settings"
+          aria-expanded="false"
+          aria-controls="collapseExample"
+        >
+          Account Settings<i class="fa fa-caret-down" aria-hidden="true"></i>
+        </button>
+
+        <div class="collapse show" id="account_settings">
+          <div class="card card-body">
+            <h5>User Name</h5>
+            <input type="text" placeholder="johndoe" value="hadi.ahmed" />
+            <h5>Phone</h5>
+            <input type="text" placeholder="+92333xxxxxxx" value="" />
+            <h5>Email</h5>
+            <input
+              type="email"
+              placeholder="johndoe@example.com"
+              value="hadiahmedmah@gmail.com"
+            />
+            <a
+              href="javascript:void(0)"
+              data-toggle="modal"
+              data-target="#settings_change_password"
+              >Change Password</a
+            >
+            <div
+              class="modal fade"
+              id="settings_change_password"
+              tabindex="-1"
+              role="dialog"
+              aria-labelledby="exampleModalLabel"
+              aria-hidden="true"
+            >
+              <div
+                class="modal-dialog modal-dialog-centered modal-dialog-scrollable"
+              >
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">
+                      Change Password
+                    </h5>
+                    <button
+                      type="button"
+                      class="close"
+                      data-dismiss="modal"
+                      aria-label="Close"
+                    >
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <input type="text" placeholder="Old Password" />
+                    <input type="text" placeholder="New Password" />
+                    <input type="text" placeholder="Confirm New Password" />
+                  </div>
+                  <div class="modal-footer">
+                    <button id="close" data-dismiss="modal">Close</button>
+                    <button id="update">Update</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- <h5>Security</h5>
+                                <input type="text" value="hadi.ahmed"> -->
+          </div>
+        </div>
+      </div>
+      <div class="settings_section_2">
+        <button
+          data-toggle="collapse"
+          data-target="#data_permission"
+          aria-expanded="false"
+          aria-controls="collapseExample"
+        >
+          Data & Permission<i class="fa fa-caret-down" aria-hidden="true"></i>
+        </button>
+
+        <div class="collapse" id="data_permission">
+          <div class="card card-body">
+            <h5>Display Language</h5>
+            <select>
+              <option value="">Select</option>
+              <option value="English">English</option>
+              <option value="French">French</option>
+              <option value="Urdu">Urdu</option>
+            </select>
+            <h5>Country</h5>
+            <select>
+              <option value="">Select</option>
+              <option value="English">Pakistan</option>
+              <option value="French">UK</option>
+              <option value="Urdu">USA</option>
+            </select>
+            <!-- <h5>Apps & Sessions</h5>
+                                <input type="text" placeholder="apps" value="apps"> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
