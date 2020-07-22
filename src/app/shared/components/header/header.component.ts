@@ -1,3 +1,4 @@
+import { SharedDataService } from 'src/app/shared/service/shared-data.service';
 import { ApiService } from './../../../core/services/api.service';
 import { PostService } from './../../../main-dashboard/services/post.service';
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
@@ -12,19 +13,20 @@ export class HeaderComponent implements OnInit {
   @Input() loggedUser;
   notifications;
   notificationslength;
+  questionLength;
   @Output() profileClicked: EventEmitter<any> = new EventEmitter();
 
   constructor(
     public route: Router,
     public PostService: PostService,
-    public api: ApiService
+    public api: ApiService,
+    public sharedDataService: SharedDataService
   ) {
     this.notifications = [];
   }
-
   ngOnInit(): void {
     this.getAllNotifications();
-
+    this.getUnAnswerdQuestionLength();
     this.PostService.getAddedPost().subscribe((notifications) => {
       notifications = notifications;
       notifications.forEach((notification) => {
@@ -66,5 +68,12 @@ export class HeaderComponent implements OnInit {
   }
   routeToNotifications() {
     this.route.navigateByUrl('profile/notification/user');
+  }
+
+  getUnAnswerdQuestionLength() {
+    const url = `http://localhost:5000/api/question/length/${this.loggedUser.id}`;
+    this.api.getData(url).subscribe((response) => {
+      this.questionLength = response;
+    });
   }
 }

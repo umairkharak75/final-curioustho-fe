@@ -14,7 +14,13 @@
           <ul>
             <li>Upload Image</li>
 
-            <li (click)="routeToInBox()">Inbox</li>
+            <li
+              (click)="routeToInBox()"
+              matBadgeColor="warn"
+              matBadge="{{ questionLength }}"
+            >
+              Inbox
+            </li>
             <li (click)="routeToProfle()">Profile</li>
             <li
               (click)="routeToNotifications()"

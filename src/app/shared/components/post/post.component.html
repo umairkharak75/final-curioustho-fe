@@ -52,7 +52,7 @@
     <div class="dashboard_post_footer_section">
       <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
       <p>Total Reviews {{ totalReviews }}</p>
-      <h1>{{ post.description }}</h1>
+      <h1 *ngIf="post.description !== 'null'">{{ post.description }}</h1>
 
       <span>{{ post.date }}</span>
     </div>

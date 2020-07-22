@@ -67,7 +67,6 @@ export class CreatePostComponent implements OnInit {
   upload() {
     this.postForm.get('image').setValue('');
     // this.formData.append('description', this.postForm.value.description);
-    console.log(this.postForm.get('description').value);
     this.formData.append('description', this.postForm.get('description').value);
     const url = 'http://localhost:5000/api/posts';
     this.postService
@@ -86,7 +85,7 @@ export class CreatePostComponent implements OnInit {
             this.postAdded.emit(event.body.createdPost);
             setTimeout(() => {
               this.progress = 0;
-              this.openSnackBar('Successfully Answer Added', 'Done');
+              this.openSnackBar('Successfully Post Added', 'Done');
             }, 1500);
         }
       });
