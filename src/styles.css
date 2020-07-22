@@ -31,7 +31,8 @@ button:hover {
   display: none;
 }
 div#floating_ask_question,
-div.postmenu {
+div.postmenu,
+div#upload_image {
   background: rgba(0, 0, 0, 0.6);
 }
 .dashboard_posts_section {
@@ -392,8 +393,10 @@ body {
   padding: 0px 20px;
   font-size: 13px;
 }
-.add_photo_section #post {
+.add_photo_section #post,
+.add_photo_section #add_photo {
   height: 85%;
+  min-height: 40px;
   width: 100%;
   border: 1px solid #eee;
   background: linear-gradient(to right, #ff9909, #d97d11);
@@ -406,6 +409,29 @@ body {
 }
 .add_photo_section button i {
   margin: 5px 10px 0 0;
+}
+.add_photo_section #upload_image .modal-header h5 {
+  display: flex;
+  margin: auto;
+  font-size: 22px;
+  font-weight: bold;
+}
+.add_photo_section #upload_image .modal-header button.close {
+  margin-left: 0px;
+}
+.add_photo_section #upload_image .modal-body h3 {
+  margin: 7px 0px 0px 0px;
+  font-size: 16px;
+}
+.add_photo_section #upload_image .modal-body .modal_preview_image {
+  margin-top: 20px;
+}
+.add_photo_section #upload_image .modal-body .modal_preview_image img {
+  border-radius: 0%;
+  height: auto;
+}
+.add_photo_section #upload_image .modal-footer button#post {
+  border-radius: 3px;
 }
 .content_section ul {
   border: 1px solid #eee;
@@ -595,6 +621,7 @@ body {
   color: rgba(var(--i1d, 38, 38, 38), 1);
   font-size: 14px;
   font-weight: 600;
+  margin: 0 0 0 0;
 }
 .suggestion_title span {
   color: rgba(var(--f52, 142, 142, 142), 1);

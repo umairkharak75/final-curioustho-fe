@@ -53,7 +53,7 @@
       class="col-xl-3 col-lg-3 col-md-3 col-sm-4 col-4"
       [formGroup]="postForm"
     >
-      <button (click)="addFile()" *ngIf="!isImage">
+      <button id="add_photo" (click)="addFile()" *ngIf="!isImage">
         <i class="fa fa-picture-o" aria-hidden="true"> </i> Add a photo
         <input
           id="selectedFile"
@@ -63,7 +63,71 @@
           (change)="fileChangeEvent($event)"
         />
       </button>
-      <button id="post" (click)="upload()">Post</button>
+      <button
+        type="button"
+        class="btn btn-primary"
+        id="post"
+        data-toggle="modal"
+        data-target="#upload_image"
+      >
+        Launch Upload modal
+      </button>
+      <div
+        class="modal fade"
+        id="upload_image"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="upload_imageLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="upload_imageLabel">Create Post</h5>
+              <button
+                type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="row w-100 mx-0">
+                <div
+                  class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 px-0"
+                >
+                  <div class="row w-100 mx-0">
+                    <div class="col-xl-2 col-lg-2 col-md-2 col-sm-3 col-3 mx-0">
+                      <div
+                        class="img"
+                        style="background: url({{ user.profielPic }});"
+                      ></div>
+                    </div>
+                    <div
+                      class="col-xl-10 col-lg-10 col-md-10 col-sm-9 col-9 px-0"
+                    >
+                      <h3>{{ user.name }}</h3>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 modal_preview_image"
+                >
+                  <img
+                    src="https://i.pinimg.com/736x/2a/6c/ee/2a6cee71556302ec07acbcdb4564a68f.jpg"
+                    class="w-100"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button id="post" (click)="upload()">Post</button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>

@@ -152,21 +152,20 @@
               >
                 <!-- <a href="javascript:void(0);">See all</a> -->
               </div>
-              <div
-                *ngFor="let user of allUsers"
-                class="col-xl-10 col-lg-10 col-md-10 col-sm-10 col-10 suggestion_title"
-              >
-                <div class="row">
-                  <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3">
-                    <div
-                      (click)="navigateToProfile(user)"
-                      class="img"
-                      style="background: url('{{ user.profilePic }}');"
-                    ></div>
+              <div class="row w-100" *ngFor="let user of allUsers">
+                <div class="col-xl-10 col-lg-10 col-md-10 col-sm-10 col-10 suggestion_title">
+                  <div class="row">
+                      <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3">
+                          <div (click)="navigateToProfile(user)" class="img" style="background: url('{{ user.profilePic }}');"></div>
+                      </div>
+                      <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9 col-9">
+                          <h5>{{ user.name }}</h5>
+                          <span>Followed by hadi.ahmed</span>
+                      </div>
                   </div>
-                  <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9 col-9">
-                    <h5>{{ user.name }}</h5>
-                  </div>
+                </div>
+                <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-2 suggestion_link follow_link">
+                    <a href="javascript:void(0);">Follow</a>
                 </div>
               </div>
             </div>
