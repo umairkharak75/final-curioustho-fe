@@ -1,6 +1,7 @@
 <app-header [loggedUser]="user"></app-header>
+<ngx-spinner *ngIf="hasLoader"></ngx-spinner>
 
-<div class="notification_page">
+<div *ngIf="!hasLoader" class="notification_page">
   <div class="notification_main_section">
     <div class="d-block">
       <div class="notification_section_inner">

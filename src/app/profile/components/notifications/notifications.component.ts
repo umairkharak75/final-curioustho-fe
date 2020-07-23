@@ -1,7 +1,10 @@
+import { Router, ActivatedRoute } from '@angular/router';
 import { ApiService } from './../../../core/services/api.service';
 import { SharedDataService } from './../../../shared/service/shared-data.service';
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-notifications',
@@ -11,20 +14,33 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class NotificationsComponent implements OnInit {
   user;
   notification;
+  hasLoader;
+
   constructor(
     public sharedData: SharedDataService,
     public api: ApiService,
-    public _snackBar: MatSnackBar
-  ) {}
+    public route: ActivatedRoute,
+    public router: Router,
+    public _snackBar: MatSnackBar,
+    public spinner: NgxSpinnerService
+  ) {
+    this.notification = [];
+  }
 
   ngOnInit(): void {
-    this.user = this.sharedData.getUserFromLs();
-    this.getAllNotifications();
+    this.route.params.subscribe((data) => {
+      this.hasLoader = true;
+      this.spinner.show();
+      const route = this.router.url;
+      this.user = this.sharedData.getUserFromLs();
+      this.getAllNotifications();
+    });
   }
   getAllNotifications() {
     const url = `http://localhost:5000/api/posts/notification/${this.user.id}`;
     this.api.getData(url).subscribe((notification) => {
       console.log(notification);
+      this.hasLoader = false;
       this.notification = notification;
       this.changeNotificationStatus();
     });
