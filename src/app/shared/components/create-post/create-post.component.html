@@ -53,7 +53,7 @@
       class="col-xl-3 col-lg-3 col-md-3 col-sm-4 col-4"
       [formGroup]="postForm"
     >
-      <button id="add_photo" (click)="addFile()" *ngIf="!isImage">
+      <button id="add_photo" (click)="addFile()">
         <i class="fa fa-picture-o" aria-hidden="true"> </i> Add a photo
         <input
           id="selectedFile"
@@ -64,6 +64,7 @@
         />
       </button>
       <button
+        [hidden]="true"
         type="button"
         class="btn btn-primary"
         id="post"
@@ -89,6 +90,7 @@
                 class="close"
                 data-dismiss="modal"
                 aria-label="Close"
+                id="closeImageModal"
               >
                 <span aria-hidden="true">&times;</span>
               </button>
@@ -115,10 +117,7 @@
                 <div
                   class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 modal_preview_image"
                 >
-                  <img
-                    src="https://i.pinimg.com/736x/2a/6c/ee/2a6cee71556302ec07acbcdb4564a68f.jpg"
-                    class="w-100"
-                  />
+                  <img src="{{ imgUrl }}" class="w-100" />
                 </div>
               </div>
             </div>

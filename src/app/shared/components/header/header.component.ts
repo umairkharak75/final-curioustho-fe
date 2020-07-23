@@ -76,4 +76,7 @@ export class HeaderComponent implements OnInit {
       this.questionLength = response;
     });
   }
+  navigateToSettings() {
+    this.route.navigateByUrl('profile/user/settings');
+  }
 }

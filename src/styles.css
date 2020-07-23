@@ -1916,3 +1916,121 @@ button:hover {
 }
 
 /********notification**********/
+
+/*****settings********/
+
+input:focus,
+a:focus,
+button:focus,
+textarea:focus {
+  outline: none;
+}
+input:hover,
+a:hover,
+button:hover {
+  text-decoration: none;
+}
+.settings_page {
+  margin-top: 100px;
+}
+.settings_main_section {
+  display: flex;
+  width: 50%;
+  margin: 0 auto;
+}
+.settings_section_1,
+.settings_section_2 {
+  background: #fff;
+  min-width: 50vw;
+}
+.settings_section_1 button,
+.settings_section_2 button {
+  background: none;
+  width: 100%;
+  text-align: left;
+  padding: 10px 10px;
+  border: 1px solid #eee;
+  font-size: 20px;
+  font-weight: bold;
+}
+.settings_section_1 i,
+.settings_section_2 i {
+  float: right;
+  margin: 4px 0px 0px 0px;
+}
+#account_settings .card-body,
+#data_permission .card-body {
+  padding: 10px 0px;
+}
+#account_settings .card-body h5,
+#data_permission .card-body h5 {
+  font-size: 16px;
+  font-weight: normal;
+  padding: 5px 10px;
+}
+#account_settings .card-body a,
+#data_permission .card-body a {
+  padding: 5px 10px;
+  font-size: 16px;
+  font-weight: normal;
+}
+#settings_change_password button {
+  width: auto;
+  border: none;
+  color: #666;
+}
+#settings_change_password input {
+  width: 95%;
+}
+#settings_change_password .modal-footer #close {
+  background: red;
+  color: #fff;
+  margin: 0px 10px;
+  padding: 5px 25px;
+}
+#settings_change_password .modal-footer #update {
+  background: #ff9909;
+  color: #fff;
+  padding: 5px 25px;
+}
+#account_settings .card-body input,
+#data_permission .card-body input {
+  margin: 5px 10px;
+  padding: 5px 10px;
+  border: 1px solid #eee;
+  border-radius: 3px;
+  color: #666;
+  font-size: 14px;
+}
+#account_settings .card-body select,
+#data_permission .card-body select {
+  margin: 5px 10px;
+  padding: 5px 10px;
+  border: 1px solid #eee;
+  border-radius: 3px;
+  color: #666;
+  font-size: 14px;
+}
+#account_settings .card-body input:focus,
+#data_permission .card-body input:focus {
+  border: 1px solid #eee;
+}
+#account_settings .card-body button,
+#data_permission .card-body button {
+  font-size: 16px;
+  font-weight: normal;
+}
+.settings_section_2 {
+  margin: 20px 0;
+}
+@media (max-width: 480px) {
+  .settings_main_section {
+    display: flex;
+    width: 90%;
+    margin: 0 auto;
+  }
+  .settings_section_1,
+  .settings_section_2 {
+    min-width: 90vw;
+  }
+}

@@ -38,8 +38,7 @@ import { AskQuestionComponent } from './components/ask-question/ask-question.com
     DashbardComponent,
     LoginComponent,
     CreateProfileComponent,
-    AskQuestionComponent
-    
+    AskQuestionComponent,
   ],
   imports: [
     BrowserModule,
@@ -56,9 +55,10 @@ import { AskQuestionComponent } from './components/ask-question/ask-question.com
     ImageCropperModule,
     SocialLoginModule,
     SharedModule,
-   ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
-   // ServiceWorkerModule.register('ngsw-worker.js', { enabled: true})
-
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production,
+    }),
+    // ServiceWorkerModule.register('ngsw-worker.js', { enabled: true})
   ],
   providers: [
     AuthGuard,

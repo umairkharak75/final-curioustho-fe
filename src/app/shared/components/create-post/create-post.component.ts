@@ -16,6 +16,7 @@ export class CreatePostComponent implements OnInit {
   isImage: boolean;
   imgUrl;
   progress;
+  uploadedImage;
 
   @Output() postAdded = new EventEmitter();
 
@@ -37,16 +38,17 @@ export class CreatePostComponent implements OnInit {
 
   fileChangeEvent(event: any): void {
     if (event.target.files[0]) {
+      this.uploadedImage = event.target.files[0];
+      document.getElementById('post').click();
+
       this.isImage = true;
       this.formData = new FormData();
       this.formData.append('productImage', event.target.files[0]);
-      console.log(this.formData);
       this.imageChangedEvent = event;
       let reader = new FileReader();
       reader.readAsDataURL(event.target.files[0]);
       reader.onload = (event: any) => {
         this.imgUrl = event.target.result;
-        console.log(this.imgUrl);
       };
     } else {
       this.isImage = false;
@@ -65,6 +67,7 @@ export class CreatePostComponent implements OnInit {
     // show message
   }
   upload() {
+    document.getElementById('closeImageModal').click();
     this.postForm.get('image').setValue('');
     // this.formData.append('description', this.postForm.value.description);
     this.formData.append('description', this.postForm.get('description').value);
