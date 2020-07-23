@@ -13,6 +13,8 @@ import { NgxSpinnerModule } from 'ngx-spinner';
 import { MatBadgeModule } from '@angular/material/badge';
 import { BrowserModule } from '@angular/platform-browser';
 import { PostComponent } from './components/post/post.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatMomentDateModule } from '@angular/material-moment-adapter';
 
 @NgModule({
   declarations: [
@@ -23,6 +25,7 @@ import { PostComponent } from './components/post/post.component';
   ],
   entryComponents: [ConfirmationModalComponent],
   imports: [
+    MatMomentDateModule,
     MatSliderModule,
     CommonModule,
     MatSnackBarModule,
@@ -32,8 +35,10 @@ import { PostComponent } from './components/post/post.component';
     NgxSpinnerModule,
     MatBadgeModule,
     MatDialogModule,
+    MatDatepickerModule,
   ],
   exports: [
+    MatMomentDateModule,
     HeaderComponent,
     MatSnackBarModule,
     MatExpansionModule,
@@ -44,6 +49,7 @@ import { PostComponent } from './components/post/post.component';
     MatBadgeModule,
     PostComponent,
     ConfirmationModalComponent,
+    MatDatepickerModule,
   ],
   providers: [PostService],
 })

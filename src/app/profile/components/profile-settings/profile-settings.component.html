@@ -1,81 +1,26 @@
-<app-header></app-header>
+<app-header [loggedUser]="user"></app-header>
 
 <div class="settings_page">
   <div class="settings_main_section">
     <div class="d-block">
-      <div class="settings_section_1">
-        <button
-          data-toggle="collapse"
-          data-target="#account_settings"
-          aria-expanded="false"
-          aria-controls="collapseExample"
-        >
-          Account Settings<i class="fa fa-caret-down" aria-hidden="true"></i>
-        </button>
+      <h5>Name</h5>
+      <input formControlName="username" type="text" placeholder=" " />
+      <h5>DateoFbirth</h5>
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Choose a date</mat-label>
+        <input matInput [matDatepicker]="picker" />
+        <mat-datepicker-toggle matSuffix [for]="picker">
+          <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+        </mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
 
-        <div
-          class="collapse show"
-          id="account_settings"
-          [formGroup]="profileSettings"
-        >
-          <div class="card card-body">
-            <h5>User Name</h5>
-            <input formControlName="username" type="text" placeholder=" " />
-            <h5>Email</h5>
-            <input
-              disabled="true"
-              formControlName="email"
-              type="email"
-              placeholder="johndoe@example.com"
-            />
-            <!-- <a
-              href="javascript:void(0)"
-              data-toggle="modal"
-              data-target="#settings_change_password"
-              >Change Password</a
-            > -->
-            <div
-              class="modal fade"
-              id="settings_change_password"
-              tabindex="-1"
-              role="dialog"
-              aria-labelledby="exampleModalLabel"
-              aria-hidden="true"
-            >
-              <div
-                class="modal-dialog modal-dialog-centered modal-dialog-scrollable"
-              >
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">
-                      Change Password
-                    </h5>
-                    <button
-                      type="button"
-                      class="close"
-                      data-dismiss="modal"
-                      aria-label="Close"
-                    >
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                  </div>
-                  <div class="modal-body">
-                    <input type="text" placeholder="Old Password" />
-                    <input type="text" placeholder="New Password" />
-                    <input type="text" placeholder="Confirm New Password" />
-                  </div>
-                  <div class="modal-footer">
-                    <button id="close" data-dismiss="modal">Close</button>
-                    <button id="update">Update</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- <h5>Security</h5>
-                                <input type="text" value="hadi.ahmed"> -->
-          </div>
-        </div>
-      </div>
+      <h5>User Name</h5>
+      <input formControlName="username" type="text" placeholder=" " />
+      <h5>Email</h5>
+      <h5>User Name</h5>
+      <input formControlName="username" type="text" placeholder=" " />
+      <h5>Email</h5>
       <div class="settings_section_1">
         <button
           data-toggle="collapse"
