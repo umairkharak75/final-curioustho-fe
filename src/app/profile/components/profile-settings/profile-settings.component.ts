@@ -12,7 +12,6 @@ import { Component, OnInit } from '@angular/core';
 export class ProfileSettingsComponent implements OnInit {
   user;
   selectedLanguage;
-  selectedCountry = 'Afghanistan';
   userSettings;
   httpsPattern: '^(https?://)*[a-z0-9-]+(.[a-z0-9-]+)+(/[a-z0-9-]+)*/?$';
   isDisbaled;
@@ -25,6 +24,7 @@ export class ProfileSettingsComponent implements OnInit {
 
   ngOnInit(): void {
     this.profileSettings = new FormGroup({
+      dateOfBirt: new FormControl(),
       username: new FormControl(),
       phone: new FormControl(),
       email: new FormControl(),
