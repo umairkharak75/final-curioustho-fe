@@ -24,6 +24,7 @@ export class ProfileComponent implements OnInit {
   profileImage;
   profileName;
   hasloader;
+  answersCount;
   constructor(
     public sharedData: SharedDataService,
     public profile: ProfileService,
@@ -87,11 +88,16 @@ export class ProfileComponent implements OnInit {
   }
 
   getAllQuestion() {
+    this.answersCount = 0;
     const url = `http://localhost:5000/api/question/${this.currentProfileId}`;
 
     this.profile.GetAllAskedQuestion(url).subscribe((response) => {
-      console.log(this.question);
       this.question = response;
+      this.question.forEach((question) => {
+        if (question.visibleStatus) {
+          this.answersCount++;
+        }
+      });
       this.hasloader = false;
     });
   }

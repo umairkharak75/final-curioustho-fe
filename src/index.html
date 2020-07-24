@@ -32,36 +32,45 @@
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
     />
-      <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-</head>
+
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+  </head>
   <body class="mat-typography">
     <app-root></app-root>
   </body>
   <script>
     var stickySidebar = 350;
-    $(window).scroll(function() {
-        if ($(window).scrollTop() > stickySidebar) {
-            $('.mobile_show ul.nav-pills').addClass('fixed_top');
-        }
-        else {
-            $('.mobile_show ul.nav-pills').removeClass('fixed_top');
-        }
+    $(window).scroll(function () {
+      if ($(window).scrollTop() > stickySidebar) {
+        $(".mobile_show ul.nav-pills").addClass("fixed_top");
+      } else {
+        $(".mobile_show ul.nav-pills").removeClass("fixed_top");
+      }
     });
   </script>
   <script>
-    jQuery(document).ready(function() {
-        jQuery("#section2").hide();
+    jQuery(document).ready(function () {
+      jQuery("#section2").hide();
     });
     function changeSection(id) {
-        if ( id === 1 ) {
-            var new_id = 2;
-        }
-        else {
-            var new_id = 1;
-        }
-        jQuery("#section"+id).hide();
-        jQuery("#section"+new_id).show();
+      if (id === 1) {
+        var new_id = 2;
+      } else {
+        var new_id = 1;
+      }
+      jQuery("#section" + id).hide();
+      jQuery("#section" + new_id).show();
     }
-</script>
+  </script>
 </html>

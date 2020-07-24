@@ -12,6 +12,92 @@
       <div class="settings_section_1">
         <button
           data-toggle="collapse"
+          data-target="#basic_info"
+          aria-expanded="false"
+          aria-controls="collapseExample"
+        >
+          Basic Info<i class="fa fa-caret-down" aria-hidden="true"></i>
+        </button>
+
+        <div
+          class="collapse show"
+          id="basic_info"
+          [formGroup]="profileSettings"
+        >
+          <div class="card card-body">
+            <label for="file">update Profile Pic</label>
+            <input type="file" id="file" (change)="fileChangeEvent($event)" />
+            <div class="progress form-group" *ngIf="progress > 0">
+              <div
+                class="progress-bar progress-bar-striped bg-success"
+                role="progressbar"
+                [style.width.%]="progress"
+              ></div>
+            </div>
+
+            <button (click)="upload()">Upadate Profile Pic</button>
+
+            <h5>Name</h5>
+            <input formControlName="name" type="text" placeholder=" " />
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>Date Of Birth</mat-label>
+              <input
+                matInput
+                formControlName="dateOfBirth"
+                [matDatepicker]="picker"
+                (dateInput)="dateChange($event)"
+              />
+              <mat-datepicker-toggle matSuffix [for]="picker">
+                <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+              </mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+
+            <div
+              class="modal fade"
+              id="settings_change_password"
+              tabindex="-1"
+              role="dialog"
+              aria-labelledby="exampleModalLabel"
+              aria-hidden="true"
+            >
+              <div
+                class="modal-dialog modal-dialog-centered modal-dialog-scrollable"
+              >
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">
+                      Change Password
+                    </h5>
+                    <button
+                      type="button"
+                      class="close"
+                      data-dismiss="modal"
+                      aria-label="Close"
+                    >
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <input type="text" placeholder="Old Password" />
+                    <input type="text" placeholder="New Password" />
+                    <input type="text" placeholder="Confirm New Password" />
+                  </div>
+                  <div class="modal-footer">
+                    <button id="close" data-dismiss="modal">Close</button>
+                    <button id="update">Update</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- <h5>Security</h5>
+                                <input type="text" value="hadi.ahmed"> -->
+          </div>
+        </div>
+      </div>
+      <div class="settings_section_1">
+        <button
+          data-toggle="collapse"
           data-target="#account_settings"
           aria-expanded="false"
           aria-controls="collapseExample"
@@ -26,7 +112,7 @@
         >
           <div class="card card-body">
             <h5>User Name</h5>
-            <input formControlName="username" type="text" placeholder=" " />
+            <input formControlName="userName" type="text" placeholder=" " />
             <h5>Email</h5>
             <input
               disabled="true"

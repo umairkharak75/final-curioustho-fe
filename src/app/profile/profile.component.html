@@ -160,7 +160,7 @@
                 class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6 border-right text-center"
               >
                 <h3>Answers</h3>
-                <p>10</p>
+                <p>{{ answersCount }}</p>
               </div>
               <div
                 class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6 text-center"
@@ -172,10 +172,26 @@
           </div>
           <div class="recommend_section_social_details">
             <ul>
-              <li><i class="fa fa-facebook" aria-hidden="true"></i></li>
-              <li><i class="fa fa-linkedin" aria-hidden="true"></i></li>
-              <li><i class="fa fa-twitter" aria-hidden="true"></i></li>
-              <li><i class="fa fa-instagram" aria-hidden="true"></i></li>
+              <li *ngIf="user.social.facebook">
+                <a href="{{ user.social.facebook }}">
+                  <i class="fa fa-facebook" aria-hidden="true"> </i>
+                </a>
+              </li>
+              <li *ngIf="user.social.linkedIn">
+                <a href="{{ user.social.linkedIn }}">
+                  <i class="fa fa-linkedin" aria-hidden="true"></i>
+                </a>
+              </li>
+              <li *ngIf="user.social.twitter">
+                <a href="{{ user.social.twitter }}">
+                  <i class="fa fa-twitter" aria-hidden="true"></i>
+                </a>
+              </li>
+              <li *ngIf="user.social.instagram">
+                <a href="{{ user.social.instagram }}">
+                  <i class="fa fa-instagram" aria-hidden="true"></i>
+                </a>
+              </li>
             </ul>
           </div>
           <div class="suggestions_section">
