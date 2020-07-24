@@ -3,13 +3,7 @@
 <div class="settings_page">
   <div class="settings_main_section">
     <div class="d-block">
-      <h5>User Name</h5>
-      <input formControlName="username" type="text" placeholder=" " />
-      <h5>Email</h5>
-      <h5>User Name</h5>
-      <input formControlName="username" type="text" placeholder=" " />
-      <h5>Email</h5>
-      <div class="settings_section_1">
+      <div class="settings_section_3">
         <button
           data-toggle="collapse"
           data-target="#basic_info"
@@ -25,7 +19,7 @@
           [formGroup]="profileSettings"
         >
           <div class="card card-body">
-            <label for="file">update Profile Pic</label>
+            <!-- <label for="file">update Profile Pic</label>
             <input type="file" id="file" (change)="fileChangeEvent($event)" />
             <div class="progress form-group" *ngIf="progress > 0">
               <div
@@ -35,17 +29,74 @@
               ></div>
             </div>
 
-            <button (click)="upload()">Upadate Profile Pic</button>
-
+            <button (click)="upload()">Upadate Profile Pic</button> -->
+            <div class="px-2 d-flex">
+              <div
+                class="img"
+                style="background: url({{ user.profielPic }});"
+              ></div>
+              <a href="javascript:void(0);">Change Image</a>
+            </div>
+            <a
+              type="button"
+              class="btn btn-primary"
+              id="update_profile_image"
+              data-toggle="modal"
+              data-target="#update_profile_photo"
+            >
+              Launch Upload modal
+            </a>
+            <div
+              class="modal fade"
+              id="update_profile_photo"
+              tabindex="-1"
+              role="dialog"
+              aria-labelledby="update_profile_photoLabel"
+              aria-hidden="true"
+            >
+              <div
+                class="modal-dialog modal-dialog-centered modal-dialog-scrollable"
+              >
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="update_profile_photoLabel">
+                      Create Post
+                    </h5>
+                    <button
+                      type="button"
+                      class="close"
+                      data-dismiss="modal"
+                      aria-label="Close"
+                      id="closeImageModal"
+                    >
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <div class="row w-100 mx-0">
+                      <div
+                        class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 modal_preview_image"
+                      >
+                        <img src="{{ imgUrl }}" class="w-100" />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <button id="post" (click)="upload()">Post</button>
+                  </div>
+                </div>
+              </div>
+            </div>
             <h5>Name</h5>
             <input formControlName="name" type="text" placeholder=" " />
             <mat-form-field class="example-full-width" appearance="fill">
-              <mat-label>Date Of Birth</mat-label>
+              <h5>Date Of Birth</h5>
               <input
                 matInput
                 formControlName="dateOfBirth"
                 [matDatepicker]="picker"
                 (dateInput)="dateChange($event)"
+                id="date_of_birth"
               />
               <mat-datepicker-toggle matSuffix [for]="picker">
                 <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
@@ -106,7 +157,7 @@
         </button>
 
         <div
-          class="collapse show"
+          class="collapse"
           id="account_settings"
           [formGroup]="profileSettings"
         >
@@ -185,36 +236,47 @@
         >
           <div class="card card-body">
             <h5>Facebook</h5>
-            <input
-              formControlName="facebook"
-              type="text"
-              placeholder="johndoe@example.com"
-            />
+            <div id="facebook">
+              <i class="fa fa-facebook" aria-hidden="true"></i>
+              <input
+                formControlName="facebook"
+                type="text"
+                placeholder="johndoe@example.com"
+              />
+            </div>
             <h5>Twitter</h5>
-            <input
-              formControlName="twitter"
-              type="text"
-              placeholder="johndoe@example.com"
-            />
+            <div id="twitter">
+              <i class="fa fa-twitter" aria-hidden="true"></i>
+              <input
+                formControlName="twitter"
+                type="text"
+                placeholder="johndoe@example.com"
+              />
+            </div>
             <h5>LinkedIn</h5>
-            <input
-              formControlName="linkedIn"
-              type="text"
-              placeholder="johndoe@example.com"
-            />
+            <div id="twitter">
+              <i class="fa fa-linkedin" aria-hidden="true"></i>
+              <input
+                formControlName="linkedIn"
+                type="text"
+                placeholder="johndoe@example.com"
+              />
+            </div>
             <h5>Instagram</h5>
-            <input
-              formControlName="instagram"
-              type="text"
-              placeholder="johndoe@example.com"
-            />
+            <div id="insta">
+              <i class="fa fa-instagram" aria-hidden="true"></i>
+              <input
+                formControlName="instagram"
+                type="text"
+                placeholder="johndoe@example.com"
+              />
+            </div>
             <!-- <h5>Apps & Sessions</h5>
                                 <input type="text" placeholder="apps" value="apps"> -->
           </div>
         </div>
       </div>
+      <button id="save_settings" (click)="submit()">save</button>
     </div>
   </div>
 </div>
-
-<button (click)="submit()">save</button>

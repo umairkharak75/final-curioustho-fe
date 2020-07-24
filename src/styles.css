@@ -1369,16 +1369,23 @@ body {
 .add_photo_section button i {
   margin: 5px 10px 0 0;
 }
-.add_photo_section #upload_image .modal-header h5 {
+.add_photo_section #upload_image .modal-header h5,
+div#basic_info div#update_profile_photo .modal-header h5 {
   display: flex;
   margin: auto;
   font-size: 22px;
   font-weight: bold;
 }
-.add_photo_section #upload_image .modal-header button.close {
+.add_photo_section #upload_image .modal-header button.close,
+div#basic_info div#update_profile_photo .modal-header button.close {
   margin-left: 0px;
+  border: none;
+  width: auto;
+  font-size: 1.5rem;
+  font-weight: bold;
 }
-.add_photo_section #upload_image .modal-body h3 {
+.add_photo_section #upload_image .modal-body h3,
+div#basic_info div#update_profile_photo .modal-body h3 {
   margin: 7px 0px 0px 0px;
   font-size: 16px;
 }
@@ -1392,17 +1399,23 @@ body {
   border-radius: 3px;
   border: 1px solid #eee;
 }
-.add_photo_section #upload_image .modal-body .modal_preview_image {
+.add_photo_section #upload_image .modal-body .modal_preview_image,
+div#basic_info div#update_profile_photo .modal-body .modal_preview_image {
   margin-top: 20px;
 }
-.add_photo_section #upload_image .modal-body .modal_preview_image img {
+.add_photo_section #upload_image .modal-body .modal_preview_image img,
+div#basic_info div#update_profile_photo .modal-body .modal_preview_image img {
   border-radius: 0%;
   height: auto;
 }
-.add_photo_section #upload_image .modal-footer button#post {
+.add_photo_section #upload_image .modal-footer button#post,
+div#basic_info div#update_profile_photo .modal-footer button#post {
   border-radius: 3px;
   width: 86%;
   margin: 0 auto;
+  background: linear-gradient(to right, #ff9909, #d97d11);
+  color: #fff;
+  text-align: center;
 }
 .content_section ul {
   border: 1px solid #eee;
@@ -1588,6 +1601,31 @@ body {
 }
 .recommend_section_social_details ul li {
   margin: auto;
+}
+.recommend_section_copy_url {
+  background: #fff;
+  padding: 10px 5px;
+  margin: 10px 0px;
+  border-radius: 3px;
+}
+.recommend_section_copy_url input#copy_url {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-left: 5px solid #ff9909;
+  border-radius: 5px;
+  background: #ececf3;
+  color: #000;
+}
+.recommend_section_copy_url input#copy_url_button {
+  width: 100%;
+  padding: 10px;
+  margin: 15px 0px 0px 0px;
+  background: #ff9909;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
 .star-rating .fa-star {
   color: #ff9909;
@@ -1992,12 +2030,14 @@ button:hover {
   margin: 0 auto;
 }
 .settings_section_1,
-.settings_section_2 {
+.settings_section_2,
+.settings_section_3 {
   background: #fff;
   min-width: 50vw;
 }
 .settings_section_1 button,
-.settings_section_2 button {
+.settings_section_2 button,
+.settings_section_3 button {
   background: none;
   width: 100%;
   text-align: left;
@@ -2007,25 +2047,37 @@ button:hover {
   font-weight: bold;
 }
 .settings_section_1 i,
-.settings_section_2 i {
+.settings_section_2 i,
+.settings_section_3 i {
   float: right;
   margin: 4px 0px 0px 0px;
 }
 #account_settings .card-body,
-#data_permission .card-body {
+#data_permission .card-body,
+#basic_info .card-body {
   padding: 10px 0px;
 }
 #account_settings .card-body h5,
-#data_permission .card-body h5 {
+#data_permission .card-body h5,
+#basic_info .card-body h5 {
   font-size: 16px;
   font-weight: normal;
   padding: 5px 10px;
+  margin: 10px 0px 0px 0px;
 }
 #account_settings .card-body a,
-#data_permission .card-body a {
+#data_permission .card-body a,
+#basic_info .card-body a {
   padding: 5px 10px;
   font-size: 16px;
   font-weight: normal;
+}
+#basic_info .card-body a {
+  margin: 6px 0 0 0;
+  font-size: 14px;
+}
+#basic_info .card-body a:hover {
+  text-decoration: underline;
 }
 #settings_change_password button {
   width: auto;
@@ -2047,7 +2099,7 @@ button:hover {
   padding: 5px 25px;
 }
 #account_settings .card-body input,
-#data_permission .card-body input {
+#basic_info .card-body input {
   margin: 5px 10px;
   padding: 5px 10px;
   border: 1px solid #eee;
@@ -2055,8 +2107,28 @@ button:hover {
   color: #666;
   font-size: 14px;
 }
+#data_permission .card-body i {
+  width: 40px;
+  text-align: center;
+  margin: 0px 0px 0px 10px;
+  padding: 5px 0px;
+  background: #ff9909;
+  color: #fff;
+  font-size: 20px;
+  float: left;
+}
+#data_permission .card-body input {
+  margin: 0px 0px;
+  padding: 5px 10px;
+  border: 1px solid #eee;
+  border-radius: 3px;
+  color: #666;
+  font-size: 14px;
+  width: 91%;
+}
 #account_settings .card-body select,
-#data_permission .card-body select {
+#data_permission .card-body select,
+#basic_info .card-body select {
   margin: 5px 10px;
   padding: 5px 10px;
   border: 1px solid #eee;
@@ -2065,16 +2137,96 @@ button:hover {
   font-size: 14px;
 }
 #account_settings .card-body input:focus,
-#data_permission .card-body input:focus {
+#data_permission .card-body input:focus,
+#basic_info .card-body input:focus {
   border: 1px solid #eee;
 }
 #account_settings .card-body button,
-#data_permission .card-body button {
+#data_permission .card-body button,
+#basic_info .card-body button {
   font-size: 16px;
   font-weight: normal;
 }
-.settings_section_2 {
+#basic_info .card-body button.mat-focus-indicator {
+  position: absolute;
+  padding: 2px 5px;
+  width: auto;
+  height: auto;
+  border: none;
+  right: 10px;
+  top: 16px;
+  background: #ff9909;
+  border-radius: 0px;
+  color: #fff;
+}
+#basic_info .card-body .mat-form-field-appearance-fill .mat-form-field-flex {
+  background: #fff;
+  padding: 0;
+}
+#basic_info .card-body #date_of_birth {
+  padding: 8px 10px;
+  border: 1px solid #eee;
+  border-radius: 3px;
+  color: #666;
+  font-size: 14px;
+  width: 97%;
+}
+#basic_info .card-body .mat-form-field-wrapper,
+#basic_info .card-body .mat-form-field-appearance-fill .mat-form-field-infix {
+  padding-bottom: 0;
+}
+#basic_info .card-body .mat-form-field-underline {
+  display: none;
+}
+.settings_section_2,
+.settings_section_1 {
   margin: 20px 0;
+}
+.settings_main_section button#save_settings {
+  width: 100%;
+  padding: 5px;
+  background: #ff9909;
+  color: #fff;
+  text-transform: capitalize;
+  border: none;
+  border-radius: 3px;
+  font-size: 16px;
+}
+.other_accounts_section {
+  background: #fff;
+  margin-top: 15px;
+  border-radius: 3px;
+  padding: 10px 20px;
+}
+.other_accounts_section_image {
+  width: 100%;
+  height: 200px;
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  border-radius: 3px;
+}
+.other_accounts_section h5 {
+  font-size: 22px;
+}
+.other_account_details h5 {
+  margin: 10px 0px 5px 0px;
+  font-size: 18px;
+}
+.other_account_details span {
+  font-size: 14px;
+  color: #666;
+}
+.other_account_details .star-rating {
+  margin: 10px 0px;
+}
+.other_account_details a {
+  display: block;
+  text-align: center;
+  padding: 5px 0px;
+  border: 1px solid #ff9909;
+  color: #ff9909;
+  width: 70%;
 }
 @media (max-width: 480px) {
   .settings_main_section {
