@@ -50,7 +50,6 @@ export class PostComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log(this.post);
     if (typeof this.post.user === 'string') {
       {
         this.postUserId = this.post.user;

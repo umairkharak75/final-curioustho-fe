@@ -10,7 +10,6 @@ import {
 } from 'angularx-social-login';
 import * as $ from 'jquery';
 
-
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -33,30 +32,24 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
-
-    $(document).ready(function() {
-      $("#section2").hide();
-  });
-  function changeSection(id) {
-      if ( id === 1 ) {
-          var new_id = 2;
+    $(document).ready(function () {
+      $('#section2').hide();
+    });
+    function changeSection(id) {
+      if (id === 1) {
+        var new_id = 2;
+      } else {
+        var new_id = 1;
       }
-      else {
-          var new_id = 1;
-      }
-      $("#section"+id).hide();
-      $("#section"+new_id).show();
-  }
-
-
-
-
+      $('#section' + id).hide();
+      $('#section' + new_id).show();
+    }
 
     const user = this.sharedDataService.getUserFromLs();
-    if (user){
-      if(user.token)
-      {this.router.navigateByUrl('home');}
+    if (user) {
+      if (user.token) {
+        this.router.navigateByUrl('home');
+      }
     }
 
     this.loginForm = new FormGroup({
@@ -117,7 +110,6 @@ export class LoginComponent implements OnInit {
   }
   signInWithFB() {
     this.socialAuth.signIn(FacebookLoginProvider.PROVIDER_ID).then((data) => {
-      
       this.generateSocaialUuserToken(data);
     });
   }
@@ -130,24 +122,24 @@ export class LoginComponent implements OnInit {
       provider: response.provider,
       idToken: response.idToken,
       name: response.name,
-      profilePic:response.photoUrl
+      profilePic: response.photoUrl,
     };
 
     const url = 'http://localhost:5000/api/auth';
 
     this.authService.login(url, body).subscribe((response) => {
-      console.log(response)
       const user = {
         token: response.token,
         email: response.user.email,
         id: response.user.id,
         link: response.user.link,
-        name:response.user.name,
+        name: response.user.name,
         idToken: response.idToken,
         askQuestionLink: response.user.askQuestionLink,
-        profielPic:response.user.profilePic
+        profielPic: response.user.profilePic,
+        social: response.user.social,
       };
-
+      console.log(user);
       this.sharedDataService.setUsertoLocalStorage(user);
       this.isLoader = false;
       this.router.navigateByUrl('/home');
