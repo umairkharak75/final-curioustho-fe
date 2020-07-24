@@ -24,18 +24,22 @@ export class ApiService {
     return this.http.post<any>(url, body, this.createHeaders());
   }
   postImageData(url, body): Observable<any> {
-    // var header = {
-    //   headers: new HttpHeaders().set(
-    //     'x-auth-token',
-    //     this.sharedData.getToken()
-    //   ),
-    // };
-
     const httpOptions = new HttpHeaders({
       'x-auth-token': this.sharedData.getToken(),
     });
 
     return this.http.post(url, body, {
+      reportProgress: true,
+      observe: 'events',
+      headers: httpOptions,
+    });
+  }
+  postProfilePic(url, body): Observable<any> {
+    const httpOptions = new HttpHeaders({
+      'x-auth-token': this.sharedData.getToken(),
+    });
+
+    return this.http.patch(url, body, {
       reportProgress: true,
       observe: 'events',
       headers: httpOptions,

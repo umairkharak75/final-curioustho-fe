@@ -1,3 +1,4 @@
+import { MatIconModule } from '@angular/material/icon';
 import { MatSliderModule } from '@angular/material/slider';
 import { CreatePostComponent } from '../shared/components/create-post/create-post.component';
 import { MatDialogModule } from '@angular/material/dialog';
@@ -36,6 +37,7 @@ import { MatMomentDateModule } from '@angular/material-moment-adapter';
     MatBadgeModule,
     MatDialogModule,
     MatDatepickerModule,
+    MatIconModule,
   ],
   exports: [
     MatMomentDateModule,
@@ -50,6 +52,7 @@ import { MatMomentDateModule } from '@angular/material-moment-adapter';
     PostComponent,
     ConfirmationModalComponent,
     MatDatepickerModule,
+    MatIconModule,
   ],
   providers: [PostService],
 })
