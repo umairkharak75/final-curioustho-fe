@@ -1,3 +1,4 @@
+import { environment } from './../../../environments/environment';
 import { SharedDataService } from 'src/app/shared/service/shared-data.service';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
@@ -11,24 +12,28 @@ export class ApiService {
   constructor(private http: HttpClient, public sharedData: SharedDataService) {}
 
   getData(url): Observable<any> {
-    return this.http.get<any>(url, this.createHeaders());
+    return this.http.get<any>(this.createUrl(url), this.createHeaders());
   }
   patchData(url, body?): Observable<any> {
-    return this.http.patch<any>(url, body, this.createHeaders());
+    return this.http.patch<any>(
+      this.createUrl(url),
+      body,
+      this.createHeaders()
+    );
   }
   deleteData(url): Observable<any> {
     console.log(this.createHeaders);
-    return this.http.delete<any>(url, this.createHeaders());
+    return this.http.delete<any>(this.createUrl(url), this.createHeaders());
   }
   postData(url, body): Observable<any> {
-    return this.http.post<any>(url, body, this.createHeaders());
+    return this.http.post<any>(this.createUrl(url), body, this.createHeaders());
   }
   postImageData(url, body): Observable<any> {
     const httpOptions = new HttpHeaders({
       'x-auth-token': this.sharedData.getToken(),
     });
 
-    return this.http.post(url, body, {
+    return this.http.post(this.createUrl(url), body, {
       reportProgress: true,
       observe: 'events',
       headers: httpOptions,
@@ -39,7 +44,7 @@ export class ApiService {
       'x-auth-token': this.sharedData.getToken(),
     });
 
-    return this.http.patch(url, body, {
+    return this.http.patch(this.createUrl(url), body, {
       reportProgress: true,
       observe: 'events',
       headers: httpOptions,
@@ -58,6 +63,11 @@ export class ApiService {
   }
 
   public sendSubscriptionToTheServer(url, subscription: PushSubscription) {
-    return this.http.post(url, subscription);
+    return this.http.post(this.createUrl(url), subscription);
+  }
+
+  createUrl(url) {
+    const requestUrl = environment.backEndUrl + url;
+    return requestUrl;
   }
 }

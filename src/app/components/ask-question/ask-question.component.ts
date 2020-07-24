@@ -13,25 +13,23 @@ import { ProfileService } from 'src/app/profile/service/profile.service';
 export class AskQuestionComponent implements OnInit {
   questionForm;
   userId;
-  panelOpenState
-  hasError
+  panelOpenState;
+  hasError;
 
   constructor(
     private route: ActivatedRoute,
     public router: Router,
     public profile: ProfileService,
     public _snackBar: MatSnackBar,
-    public api:ApiService
+    public api: ApiService
   ) {
-    this.hasError=false
+    this.hasError = false;
   }
 
   ngOnInit(): void {
-
-
     this.route.params.subscribe((params) => {
       this.userId = params.id;
-      this.checkUserId(this.userId)
+      this.checkUserId(this.userId);
     });
     this.questionForm = new FormGroup({
       question: new FormControl(),
@@ -39,7 +37,7 @@ export class AskQuestionComponent implements OnInit {
   }
 
   addQuestion() {
-    const url = `http://localhost:5000/api/question/${this.userId}`;
+    const url = `api/question/${this.userId}`;
     const body = {
       question: this.questionForm.value.question,
     };
@@ -59,8 +57,17 @@ export class AskQuestionComponent implements OnInit {
     this.router.navigateByUrl('');
   }
 
-  checkUserId(id){
-    const url=`http://localhost:5000/api/users/userIdConfirmation/${id}`
-    this.api.getData(url).subscribe(response=>{console.log(response)},error=>{if(error){this.hasError=true}})
+  checkUserId(id) {
+    const url = `api/users/userIdConfirmation/${id}`;
+    this.api.getData(url).subscribe(
+      (response) => {
+        console.log(response);
+      },
+      (error) => {
+        if (error) {
+          this.hasError = true;
+        }
+      }
+    );
   }
 }

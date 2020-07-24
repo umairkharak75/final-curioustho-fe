@@ -68,7 +68,7 @@ export class LoginComponent implements OnInit {
   }
   login() {
     this.isLoader = true;
-    const url = 'http://localhost:5000/api/auth';
+    const url = 'api/auth';
     const body = {
       email: this.loginForm.value.email,
       password: this.loginForm.value.password,
@@ -125,7 +125,7 @@ export class LoginComponent implements OnInit {
       profilePic: response.photoUrl,
     };
 
-    const url = 'http://localhost:5000/api/auth';
+    const url = 'api/auth';
 
     this.authService.login(url, body).subscribe((response) => {
       const user = {

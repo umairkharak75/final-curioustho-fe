@@ -71,7 +71,7 @@ export class CreatePostComponent implements OnInit {
     this.postForm.get('image').setValue('');
     // this.formData.append('description', this.postForm.value.description);
     this.formData.append('description', this.postForm.get('description').value);
-    const url = 'http://localhost:5000/api/posts';
+    const url = 'api/posts';
     this.postService
       .createPost(url, this.formData)
       .subscribe((event: HttpEvent<any>) => {
@@ -99,7 +99,7 @@ export class CreatePostComponent implements OnInit {
   }
   uploads() {
     this.http
-      .post('http://localhost:5000/api/posts', this.formData, {
+      .post('api/posts', this.formData, {
         reportProgress: true,
         observe: 'events',
       })

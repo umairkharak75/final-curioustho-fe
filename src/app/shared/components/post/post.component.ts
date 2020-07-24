@@ -1,3 +1,4 @@
+import { environment } from './../../../../environments/environment';
 import { OnInit, EventEmitter, Input, Output, Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { PostService } from 'src/app/main-dashboard/services/post.service';
@@ -32,6 +33,7 @@ export class PostComponent implements OnInit {
   vertical = false;
   tickInterval = 1;
   hasSubmit: boolean;
+  backendUrl = environment.backEndUrl;
 
   getSliderTickInterval(): number | 'auto' {
     if (this.showTicks) {
@@ -78,7 +80,7 @@ export class PostComponent implements OnInit {
   onDropReview(value: number) {
     if (!this.hasSubmit) {
       this.value = value;
-      const url = `http://localhost:5000/api/posts/review/${this.post._id}`;
+      const url = `api/posts/review/${this.post._id}`;
       const data = { review: this.value };
       this.postService.postReview(url, data).subscribe((data) => {
         this.hasSubmit = true;
@@ -124,7 +126,7 @@ export class PostComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe((response) => {
       if (response === 'delete') {
-        const url = `http://localhost:5000/api/posts/${this.post._id}`;
+        const url = `api/posts/${this.post._id}`;
         this.postService.deletePost(url).subscribe((response) => {
           if (response.msg === 'Post removed') {
             this.deletedPost.emit(this.post);

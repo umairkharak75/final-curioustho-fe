@@ -40,16 +40,18 @@ export class ProfileComponent implements OnInit {
   ngOnInit(): void {
     this.spinner.show();
     this.fetchAllusers();
+
     this.route.params.subscribe((data) => {
       this.currentProfileId = data.id;
       this.post = [];
       this.question = [];
       this.hasloader = true;
-      const url = `http://localhost:5000/api/posts/${this.currentProfileId}`;
+      const url = `api/posts/${this.currentProfileId}`;
       this.profile.getAllCurrentPosts(url).subscribe((data) => {
         this.post = data;
       });
       this.getAllQuestion();
+      this.getReviewAvg();
     });
 
     this.questionForm = new FormGroup({
@@ -69,7 +71,7 @@ export class ProfileComponent implements OnInit {
       this.profileImage = this.user.profielPic;
       this.profileName = this.user.name;
     }
-    const url = `http://localhost:5000/api/posts/${this.currentProfileId}`;
+    const url = `api/posts/${this.currentProfileId}`;
     this.profile.getAllCurrentPosts(url).subscribe((data) => {
       this.post = data;
     });
@@ -77,7 +79,7 @@ export class ProfileComponent implements OnInit {
   }
 
   addQuestion() {
-    const url = `http://localhost:5000/api/question/${this.currentProfileId}`;
+    const url = `api/question/${this.currentProfileId}`;
     const body = {
       question: this.questionForm.value.question,
     };
@@ -89,7 +91,7 @@ export class ProfileComponent implements OnInit {
 
   getAllQuestion() {
     this.answersCount = 0;
-    const url = `http://localhost:5000/api/question/${this.currentProfileId}`;
+    const url = `api/question/${this.currentProfileId}`;
 
     this.profile.GetAllAskedQuestion(url).subscribe((response) => {
       this.question = response;
@@ -102,7 +104,7 @@ export class ProfileComponent implements OnInit {
     });
   }
   submitAnswer(param) {
-    const url = `http://localhost:5000/api/question/answer/${param._id}`;
+    const url = `api/question/answer/${param._id}`;
 
     const body = {
       answer: this.questionForm.value.answer,
@@ -114,7 +116,7 @@ export class ProfileComponent implements OnInit {
   }
 
   deleteQuestion(param) {
-    const url = `http://localhost:5000/api/question/${param._id}`;
+    const url = `api/question/${param._id}`;
     this.profile.deleteQuestion(url).subscribe((data) => {
       var newQuestion = this.question.filter(function (question) {
         return question._id !== param._id;
@@ -126,7 +128,7 @@ export class ProfileComponent implements OnInit {
   deletedPost() {}
 
   addNewQuestion() {
-    const url = `http://localhost:5000/api/question/${this.currentProfileId}`;
+    const url = `api/question/${this.currentProfileId}`;
     const body = {
       question: this.questionForm.value.question,
     };
@@ -155,14 +157,14 @@ export class ProfileComponent implements OnInit {
     this.post.unshift(params);
   }
   fetchAllusers() {
-    const url = 'http://localhost:5000/api/users/allUser';
+    const url = 'api/users/allUser';
     this.api.getData(url).subscribe((response) => {
       console.log(response);
       this.allUsers = response.users;
     });
   }
   fetchProfileUser() {
-    const url = `http://localhost:5000/api/users/findSpecificUser/${this.currentProfileId}`;
+    const url = `api/users/findSpecificUser/${this.currentProfileId}`;
 
     this.api.getData(url).subscribe((response) => {
       if (response) {
@@ -179,5 +181,12 @@ export class ProfileComponent implements OnInit {
   profileClicked() {
     this.profileImage = this.user.profielPic;
     this.profileName = this.user.name;
+  }
+
+  getReviewAvg() {
+    const url = `api/posts/avg/${this.currentProfileId}`;
+    this.api.getData(url).subscribe((data) => {
+      console.log(data);
+    });
   }
 }

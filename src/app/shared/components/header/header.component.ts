@@ -49,7 +49,7 @@ export class HeaderComponent implements OnInit {
   }
   getAllNotifications() {
     this.notificationslength = 0;
-    const url = `http://localhost:5000/api/posts/notification/${this.loggedUser.id}`;
+    const url = `api/posts/notification/${this.loggedUser.id}`;
     this.api.getData(url).subscribe((notification) => {
       this.notifications = notification;
       this.notifications.forEach((notification) => {
@@ -71,7 +71,7 @@ export class HeaderComponent implements OnInit {
   }
 
   getUnAnswerdQuestionLength() {
-    const url = `http://localhost:5000/api/question/length/${this.loggedUser.id}`;
+    const url = `api/question/length/${this.loggedUser.id}`;
     this.api.getData(url).subscribe((response) => {
       this.questionLength = response;
     });

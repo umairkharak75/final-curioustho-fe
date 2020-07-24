@@ -27,7 +27,7 @@ export class MessageInboxComponent implements OnInit {
   }
 
   getAllQuestion() {
-    const url = `http://localhost:5000/api/question/${this.user.id}`;
+    const url = `api/question/${this.user.id}`;
 
     this.profile.GetAllAskedQuestion(url).subscribe((response) => {
       this.question = response;
@@ -39,7 +39,7 @@ export class MessageInboxComponent implements OnInit {
 
     const index = this.question.findIndex((question) => question._id === id);
 
-    const url = `http://localhost:5000/api/question/answer/${question._id}`;
+    const url = `api/question/answer/${question._id}`;
     const body = {
       answer: answer,
     };
