@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Curiosity</title>
+    <base href="https://umairkharak75.github.io/final-curioustho-fe/">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+
+    <!-- jQuery library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+  <link rel="stylesheet" href="styles.5c230255f3520bef9f6f.css"></head>
+  <body class="mat-typography">
+    <app-root></app-root>
+  <script src="runtime.78315c963e7b2b788b21.js" defer></script><script src="polyfills.5aab4676029f8f7a1213.js" defer></script><script src="main.27898203c37c5979b20b.js" defer></script></body>
+  <script>
+    var stickySidebar = 350;
+    $(window).scroll(function () {
+      if ($(window).scrollTop() > stickySidebar) {
+        $(".mobile_show ul.nav-pills").addClass("fixed_top");
+      } else {
+        $(".mobile_show ul.nav-pills").removeClass("fixed_top");
+      }
+    });
+  </script>
+  <script>
+    jQuery(document).ready(function () {
+      jQuery("#section2").hide();
+    });
+    function changeSection(id) {
+      if (id === 1) {
+        var new_id = 2;
+      } else {
+        var new_id = 1;
+      }
+      jQuery("#section" + id).hide();
+      jQuery("#section" + new_id).show();
+    }
+  </script>
+</html>
