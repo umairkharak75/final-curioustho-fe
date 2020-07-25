@@ -3,14 +3,13 @@ import { Observable, BehaviorSubject } from 'rxjs';
 import { Injectable } from '@angular/core';
 import io from 'socket.io-client';
 
-
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
   isLoggedIn: boolean;
   private isAuthenticated$ = new BehaviorSubject<boolean>(false);
-  socket = io('http://localhost:5000');
+  socket = io('https://sleepy-gorge-55662.herokuapp.com');
 
   constructor(public apiService: ApiService) {}
   addNewUser(url, body): Observable<any> {
@@ -43,6 +42,4 @@ export class AuthService {
   getToken() {
     return localStorage.getItem('token');
   }
-
-
 }
