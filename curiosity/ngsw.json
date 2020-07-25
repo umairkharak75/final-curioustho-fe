@@ -1,0 +1,100 @@
+{
+  "configVersion": 1,
+  "timestamp": 1595667158766,
+  "index": "https://umairkharak75.github.io/final-curioustho-fe/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "https://umairkharak75.github.io/final-curioustho-fe/5.538191fd7c9d4151ac4b.js",
+        "https://umairkharak75.github.io/final-curioustho-fe/6.47616da9973e1b823602.js",
+        "https://umairkharak75.github.io/final-curioustho-fe/common.8f5bb91eee6c6f4cf276.js",
+        "https://umairkharak75.github.io/final-curioustho-fe/favicon.ico",
+        "https://umairkharak75.github.io/final-curioustho-fe/index.html",
+        "https://umairkharak75.github.io/final-curioustho-fe/main.27898203c37c5979b20b.js",
+        "https://umairkharak75.github.io/final-curioustho-fe/manifest.webmanifest",
+        "https://umairkharak75.github.io/final-curioustho-fe/polyfills.5aab4676029f8f7a1213.js",
+        "https://umairkharak75.github.io/final-curioustho-fe/runtime.78315c963e7b2b788b21.js",
+        "https://umairkharak75.github.io/final-curioustho-fe/styles.5c230255f3520bef9f6f.css"
+      ],
+      "patterns": []
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "https://umairkharak75.github.io/final-curioustho-fe/assets/bg-01.jpg",
+        "https://umairkharak75.github.io/final-curioustho-fe/assets/fire-ratings.png",
+        "https://umairkharak75.github.io/final-curioustho-fe/assets/fire.png",
+        "https://umairkharak75.github.io/final-curioustho-fe/assets/icons/icon-128x128.png",
+        "https://umairkharak75.github.io/final-curioustho-fe/assets/icons/icon-144x144.png",
+        "https://umairkharak75.github.io/final-curioustho-fe/assets/icons/icon-152x152.png",
+        "https://umairkharak75.github.io/final-curioustho-fe/assets/icons/icon-192x192.png",
+        "https://umairkharak75.github.io/final-curioustho-fe/assets/icons/icon-384x384.png",
+        "https://umairkharak75.github.io/final-curioustho-fe/assets/icons/icon-512x512.png",
+        "https://umairkharak75.github.io/final-curioustho-fe/assets/icons/icon-72x72.png",
+        "https://umairkharak75.github.io/final-curioustho-fe/assets/icons/icon-96x96.png",
+        "https://umairkharak75.github.io/final-curioustho-fe/assets/logo-mobile.png",
+        "https://umairkharak75.github.io/final-curioustho-fe/assets/logo.png",
+        "https://umairkharak75.github.io/final-curioustho-fe/assets/question.png",
+        "https://umairkharak75.github.io/final-curioustho-fe/fire-ratings.a0166724181d3cb9e32d.png"
+      ],
+      "patterns": []
+    }
+  ],
+  "dataGroups": [],
+  "hashTable": {
+    "https://umairkharak75.github.io/final-curioustho-fe/5.538191fd7c9d4151ac4b.js": "4e6784286ea77c3cef9938d168c44e97e146c275",
+    "https://umairkharak75.github.io/final-curioustho-fe/6.47616da9973e1b823602.js": "f480fc17f0affc8482282e51713c7c2621c8467f",
+    "https://umairkharak75.github.io/final-curioustho-fe/assets/bg-01.jpg": "4a30dbb06eee4a7ecf4bac875e013cff9a2ecc6c",
+    "https://umairkharak75.github.io/final-curioustho-fe/assets/fire-ratings.png": "f46f8bea23b569fa0716ad92d276e347cea82914",
+    "https://umairkharak75.github.io/final-curioustho-fe/assets/fire.png": "b4f59b88c6a9d23e5e6795875418ba2bc06c033a",
+    "https://umairkharak75.github.io/final-curioustho-fe/assets/icons/icon-128x128.png": "dae3b6ed49bdaf4327b92531d4b5b4a5d30c7532",
+    "https://umairkharak75.github.io/final-curioustho-fe/assets/icons/icon-144x144.png": "b0bd89982e08f9bd2b642928f5391915b74799a7",
+    "https://umairkharak75.github.io/final-curioustho-fe/assets/icons/icon-152x152.png": "7479a9477815dfd9668d60f8b3b2fba709b91310",
+    "https://umairkharak75.github.io/final-curioustho-fe/assets/icons/icon-192x192.png": "1abd80d431a237a853ce38147d8c63752f10933b",
+    "https://umairkharak75.github.io/final-curioustho-fe/assets/icons/icon-384x384.png": "329749cd6393768d3131ed6304c136b1ca05f2fd",
+    "https://umairkharak75.github.io/final-curioustho-fe/assets/icons/icon-512x512.png": "559d9c4318b45a1f2b10596bbb4c960fe521dbcc",
+    "https://umairkharak75.github.io/final-curioustho-fe/assets/icons/icon-72x72.png": "c457e56089a36952cd67156f9996bc4ce54a5ed9",
+    "https://umairkharak75.github.io/final-curioustho-fe/assets/icons/icon-96x96.png": "3914125a4b445bf111c5627875fc190f560daa41",
+    "https://umairkharak75.github.io/final-curioustho-fe/assets/logo-mobile.png": "0fd8cf5ed790868b5af3622731b3009185f19258",
+    "https://umairkharak75.github.io/final-curioustho-fe/assets/logo.png": "5ca928e49dd4f38d6a1347854018358ee1afc7b3",
+    "https://umairkharak75.github.io/final-curioustho-fe/assets/question.png": "0cd567c615e0d148c4d6120604100c7bd55e7cec",
+    "https://umairkharak75.github.io/final-curioustho-fe/common.8f5bb91eee6c6f4cf276.js": "110b071afbd5f70b315da1071748dcd69164a75d",
+    "https://umairkharak75.github.io/final-curioustho-fe/favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
+    "https://umairkharak75.github.io/final-curioustho-fe/fire-ratings.a0166724181d3cb9e32d.png": "f46f8bea23b569fa0716ad92d276e347cea82914",
+    "https://umairkharak75.github.io/final-curioustho-fe/index.html": "3b7aa1b20029a39996c162206f01c52f5224989c",
+    "https://umairkharak75.github.io/final-curioustho-fe/main.27898203c37c5979b20b.js": "bc1457b614163db600dfc5dced3062be84fa56bc",
+    "https://umairkharak75.github.io/final-curioustho-fe/manifest.webmanifest": "84c07d237c97ad0bee42e5518fb298dff0fa1797",
+    "https://umairkharak75.github.io/final-curioustho-fe/polyfills.5aab4676029f8f7a1213.js": "15a133b6cbb459a66fcd2e75f6aa25782e5d79c4",
+    "https://umairkharak75.github.io/final-curioustho-fe/runtime.78315c963e7b2b788b21.js": "e6e48cf3b304c219c599864cc681367b3f269f85",
+    "https://umairkharak75.github.io/final-curioustho-fe/styles.5c230255f3520bef9f6f.css": "77106066f6176000986814fe5810214cf7e36505"
+  },
+  "navigationUrls": [
+    {
+      "positive": true,
+      "regex": "^\\/.*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*\\.[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*\\/.*$"
+    }
+  ]
+}
