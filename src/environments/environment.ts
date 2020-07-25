@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  backEndUrl: `http://localhost:5000/`,
+  backEndUrl: `https://sleepy-gorge-55662.herokuapp.com/`,
 };
 
 /*

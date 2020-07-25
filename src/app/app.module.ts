@@ -20,16 +20,37 @@ import { ClipboardModule } from '@angular/cdk/clipboard';
 import { ImageCropperModule } from 'ngx-image-cropper';
 import { CreateProfileComponent } from './auth/components/create-profile/create-profile.component';
 
-import {
-  SocialLoginModule,
-  GoogleLoginProvider,
-  FacebookLoginProvider,
-  SocialAuthServiceConfig,
-} from 'angularx-social-login';
 import { SharedModule } from './shared/shared.module';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { AskQuestionComponent } from './components/ask-question/ask-question.component';
+
+// {
+//   id: FacebookLoginProvider.PROVIDER_ID,
+//   provider: new FacebookLoginProvider('Facebook-App-Id')
+// },
+// {
+//   id: LinkedinLoginProvider.PROVIDER_ID,
+//   provider: new LinkedinLoginProvider('LINKEDIN_CLIENT_ID')
+// }
+
+// const config = new SocialAuthServiceConfig([
+//   {
+//     id: GoogleLoginProvider.PROVIDER_ID,
+//     provider: new GoogleLoginProvider('528961187921-ld24b25466u4t2lacn9r35asg000lfis.apps.googleusercontent.com')
+//   },
+//   // {
+//   //   id: FacebookLoginProvider.PROVIDER_ID,
+//   //   provider: new FacebookLoginProvider('561602290896109')
+//   // },
+//   // {
+//   //   id: LinkedInLoginProvider.PROVIDER_ID,
+//   //   provider: new LinkedInLoginProvider("78iqy5cu2e1fgr")
+//   // }
+// ]);
+// export function provideConfig() {
+//   return config;
+// }
 
 @NgModule({
   declarations: [
@@ -53,35 +74,15 @@ import { AskQuestionComponent } from './components/ask-question/ask-question.com
     MatButtonModule,
     ClipboardModule,
     ImageCropperModule,
-    SocialLoginModule,
+
     SharedModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production,
     }),
     // ServiceWorkerModule.register('ngsw-worker.js', { enabled: true})
   ],
-  providers: [
-    AuthGuard,
 
-    {
-      provide: 'SocialAuthServiceConfig',
-      useValue: {
-        autoLogin: false,
-        providers: [
-          {
-            id: GoogleLoginProvider.PROVIDER_ID,
-            provider: new GoogleLoginProvider(
-              '989732037782-rmgp80ulhurl6off02chhehs1gig9csu.apps.googleusercontent.com'
-            ),
-          },
-          {
-            id: FacebookLoginProvider.PROVIDER_ID,
-            provider: new FacebookLoginProvider('3215415031886304'),
-          },
-        ],
-      } as SocialAuthServiceConfig,
-    },
-  ],
+  providers: [AuthGuard],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

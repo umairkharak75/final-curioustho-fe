@@ -194,6 +194,27 @@
               </li>
             </ul>
           </div>
+          <div class="recommend_section_copy_url" [formGroup]="profileForm">
+            <label for="copy_url">Copy URL</label>
+            <input
+              disabled="true"
+              #txtConfigFile
+              formControlName="copyUrl"
+              type="text"
+              id="copy_url"
+              name="copy_url"
+              placeholder="John Doe"
+              value=""
+              required
+            />
+            <input
+              (click)="successCopyMessage()"
+              type="submit"
+              id="copy_url_button"
+              name="copy_url_button"
+              value="Copy"
+            />
+          </div>
           <div class="suggestions_section">
             <div class="row w-100 my-5">
               <div

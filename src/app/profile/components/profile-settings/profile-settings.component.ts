@@ -116,6 +116,7 @@ export class ProfileSettingsComponent implements OnInit {
 
   upload() {
     this.profileSettings.get('profilePic').setValue('');
+    document.getElementById('closeImageModal').click();
 
     const url = 'api/users/updateProfilePic';
     this.api
@@ -129,6 +130,10 @@ export class ProfileSettingsComponent implements OnInit {
           case HttpEventType.Response:
             console.log('User successfully created!', event.body);
 
+            this.user.profilePic = event.body.user.profilePic;
+            this.sharedDataService.setUsertoLocalStorage(this.user);
+            this.imgUrl = this.user.profilePic;
+            console.log(this.user.profilePic);
             this.profileSettings.get('profilePic').setValue('');
 
             setTimeout(() => {
@@ -140,6 +145,7 @@ export class ProfileSettingsComponent implements OnInit {
   }
   fileChangeEvent(event: any): void {
     if (event.target.files[0]) {
+      document.getElementById('update_profile_image').click();
       this.uploadedImage = event.target.files[0];
       //    document.getElementById('post').click();
 

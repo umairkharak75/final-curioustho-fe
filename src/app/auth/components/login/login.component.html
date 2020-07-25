@@ -1,30 +1,31 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Curious Cat</title>
-
-
-    </head>
-    <body>
-        <div class="login_page">
-            <div class="login_page_inner">
-                <img src="../../../../assets/logo.png">
-                <div class="buttons" id="section1">
-                    <button onClick="changeSection(1);">I already have an account</button>
-                    <button onClick="changeSection(1);">I want to create an account</button>
-                </div>
-                <div class="buttons" id="section2">
-                    <button>Login with Twitter</button>
-                    <button (click)="signInWithFB()" >Login with Facebook</button>
-                    <button (click)="signInWithGoogle()">Login with Google</button>
-                    <a href="javascript:void(0);" onClick="changeSection(2);">Back</a>
-                    <div class="positions">
-                        <span>By logging in you agree to our</span>
-                        <p>Terms of Service, Privacy Policy, <span>&</span> Cookie Policy</p>
-                    </div>
-                </div>
-            </div>
+  <head>
+    <title>Curious Cat</title>
+  </head>
+  <body>
+    <div class="login_page">
+      <div class="login_page_inner">
+        <img src="assets/logo.png" />
+        <div class="buttons" id="section1">
+          <button onClick="changeSection(1);">I already have an account</button>
+          <button onClick="changeSection(1);">
+            I want to create an account
+          </button>
         </div>
-    </body>
-
+        <div class="buttons" id="section2">
+          <button>Login with Twitter</button>
+          <button (click)="fbLogin()">Login with Facebook</button>
+          <button #loginRef (click)="prepareLogin()">Login with Google</button>
+          <a href="javascript:void(0);" onClick="changeSection(2);">Back</a>
+          <div class="positions">
+            <span>By logging in you agree to our</span>
+            <p>
+              Terms of Service, Privacy Policy, <span>&</span> Cookie Policy
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>

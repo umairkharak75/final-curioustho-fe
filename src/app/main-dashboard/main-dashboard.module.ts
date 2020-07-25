@@ -15,7 +15,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatSliderModule } from '@angular/material/slider';
 import { FormsModule } from '@angular/forms';
 import { MatDialogModule } from '@angular/material/dialog';
-import { SocialAuthService } from 'angularx-social-login';
 
 @NgModule({
   declarations: [MainDashboardComponent],
@@ -35,6 +34,6 @@ import { SocialAuthService } from 'angularx-social-login';
     SharedModule,
   ],
 
-  providers: [PostService, SharedDataService, SocialAuthService],
+  providers: [PostService, SharedDataService],
 })
 export class MainDashboardModule {}

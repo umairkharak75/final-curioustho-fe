@@ -9,7 +9,7 @@ import { Observable, Subject } from 'rxjs';
 })
 export class PostService {
   getPost: Subject<any>;
-  socket = io('http://localhost:5000');
+  socket = io(`https://sleepy-gorge-55662.herokuapp.com`);
 
   constructor(public apiService: ApiService) {}
 
