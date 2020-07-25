@@ -3,7 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { FormGroup, FormControl } from '@angular/forms';
 import { ProfileService } from './service/profile.service';
 import { SharedDataService } from 'src/app/shared/service/shared-data.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 import { NgxSpinnerService } from 'ngx-spinner';
@@ -24,7 +24,9 @@ export class ProfileComponent implements OnInit {
   profileImage;
   profileName;
   hasloader;
+  profileForm;
   answersCount;
+  @ViewChild('txtConfigFile') txtConfigFile: ElementRef;
   constructor(
     public sharedData: SharedDataService,
     public profile: ProfileService,
@@ -51,7 +53,7 @@ export class ProfileComponent implements OnInit {
         this.post = data;
       });
       this.getAllQuestion();
-      this.getReviewAvg();
+      //this.getReviewAvg();
     });
 
     this.questionForm = new FormGroup({
@@ -69,6 +71,7 @@ export class ProfileComponent implements OnInit {
       this.fetchProfileUser();
     } else {
       this.profileImage = this.user.profielPic;
+      console.log(this.user.profilePic);
       this.profileName = this.user.name;
     }
     const url = `api/posts/${this.currentProfileId}`;
@@ -76,6 +79,10 @@ export class ProfileComponent implements OnInit {
       this.post = data;
     });
     this.getAllQuestion();
+
+    this.profileForm = new FormGroup({
+      copyUrl: new FormControl(this.user.askQuestionLink),
+    });
   }
 
   addQuestion() {
@@ -183,10 +190,25 @@ export class ProfileComponent implements OnInit {
     this.profileName = this.user.name;
   }
 
-  getReviewAvg() {
-    const url = `api/posts/avg/${this.currentProfileId}`;
-    this.api.getData(url).subscribe((data) => {
-      console.log(data);
-    });
+  // getReviewAvg() {
+  //   const url = `api/posts/avg/${this.currentProfileId}`;
+  //   this.api.getData(url).subscribe((data) => {
+  //     console.log(data);
+  //   });
+  // }
+
+  successCopyMessage() {
+    if (this.txtConfigFile) {
+      // Select textarea text
+      this.txtConfigFile.nativeElement.select();
+
+      // Copy to the clipboard
+      document.execCommand('copy');
+
+      // Deselect selected textarea
+      this.txtConfigFile.nativeElement.setSelectionRange(0, 0);
+    }
+
+    this.openSnackBar('Copied successfully', 'Done');
   }
 }

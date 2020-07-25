@@ -16,6 +16,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { PostComponent } from './components/post/post.component';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatMomentDateModule } from '@angular/material-moment-adapter';
+import { ClipboardModule } from '@angular/cdk/clipboard';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { MatMomentDateModule } from '@angular/material-moment-adapter';
     MatDialogModule,
     MatDatepickerModule,
     MatIconModule,
+    ClipboardModule,
   ],
   exports: [
     MatMomentDateModule,

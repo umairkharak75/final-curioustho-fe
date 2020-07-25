@@ -35,9 +35,16 @@
                 class="img"
                 style="background: url({{ user.profielPic }});"
               ></div>
-              <a href="javascript:void(0);">Change Image</a>
+              <input
+                id="selectedFile"
+                formControlName="profilePic"
+                type="file"
+                (change)="fileChangeEvent($event)"
+              />
+              <a href="javascript:void(0);"> Change Image</a>
             </div>
             <a
+              [hidden]="true"
               type="button"
               class="btn btn-primary"
               id="update_profile_image"
@@ -46,6 +53,13 @@
             >
               Launch Upload modal
             </a>
+            <div class="progress form-group" *ngIf="progress > 0">
+              <div
+                class="progress-bar progress-bar-striped bg-success"
+                role="progressbar"
+                [style.width.%]="progress"
+              ></div>
+            </div>
             <div
               class="modal fade"
               id="update_profile_photo"
@@ -63,6 +77,7 @@
                       Create Post
                     </h5>
                     <button
+                      (click)="upload()"
                       type="button"
                       class="close"
                       data-dismiss="modal"
