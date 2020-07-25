@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1595667158766,
+  "timestamp": 1595679301036,
   "index": "https://umairkharak75.github.io/final-curioustho-fe/index.html",
   "assetGroups": [
     {
@@ -16,7 +16,7 @@
         "https://umairkharak75.github.io/final-curioustho-fe/common.8f5bb91eee6c6f4cf276.js",
         "https://umairkharak75.github.io/final-curioustho-fe/favicon.ico",
         "https://umairkharak75.github.io/final-curioustho-fe/index.html",
-        "https://umairkharak75.github.io/final-curioustho-fe/main.27898203c37c5979b20b.js",
+        "https://umairkharak75.github.io/final-curioustho-fe/main.4833f1e711d15cc8c935.js",
         "https://umairkharak75.github.io/final-curioustho-fe/manifest.webmanifest",
         "https://umairkharak75.github.io/final-curioustho-fe/polyfills.5aab4676029f8f7a1213.js",
         "https://umairkharak75.github.io/final-curioustho-fe/runtime.78315c963e7b2b788b21.js",
@@ -72,8 +72,8 @@
     "https://umairkharak75.github.io/final-curioustho-fe/common.8f5bb91eee6c6f4cf276.js": "110b071afbd5f70b315da1071748dcd69164a75d",
     "https://umairkharak75.github.io/final-curioustho-fe/favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
     "https://umairkharak75.github.io/final-curioustho-fe/fire-ratings.a0166724181d3cb9e32d.png": "f46f8bea23b569fa0716ad92d276e347cea82914",
-    "https://umairkharak75.github.io/final-curioustho-fe/index.html": "3b7aa1b20029a39996c162206f01c52f5224989c",
-    "https://umairkharak75.github.io/final-curioustho-fe/main.27898203c37c5979b20b.js": "bc1457b614163db600dfc5dced3062be84fa56bc",
+    "https://umairkharak75.github.io/final-curioustho-fe/index.html": "c1332cad119c33eb7258883a210ababc55e9ada4",
+    "https://umairkharak75.github.io/final-curioustho-fe/main.4833f1e711d15cc8c935.js": "ef859e3170103e02c3d3478090a2f8163b99cc05",
     "https://umairkharak75.github.io/final-curioustho-fe/manifest.webmanifest": "84c07d237c97ad0bee42e5518fb298dff0fa1797",
     "https://umairkharak75.github.io/final-curioustho-fe/polyfills.5aab4676029f8f7a1213.js": "15a133b6cbb459a66fcd2e75f6aa25782e5d79c4",
     "https://umairkharak75.github.io/final-curioustho-fe/runtime.78315c963e7b2b788b21.js": "e6e48cf3b304c219c599864cc681367b3f269f85",
