@@ -13,8 +13,7 @@ export class ProfileBodyComponent implements OnInit {
   @Input() user;
   questionForm: any;
   model: any = {};
-  constructor(private fb: FormBuilder, public profile: ProfileService) {
-  }
+  constructor(private fb: FormBuilder, public profile: ProfileService) {}
 
   ngOnInit(): void {
     this.questionForm = new FormGroup({
@@ -28,7 +27,7 @@ export class ProfileBodyComponent implements OnInit {
 
     const index = this.question.findIndex((question) => question._id === id);
 
-    const url = `http://localhost:5000/api/question/answer/${question._id}`;
+    const url = `api/question/answer/${question._id}`;
     const body = {
       answer: answer,
     };
@@ -41,7 +40,7 @@ export class ProfileBodyComponent implements OnInit {
     });
   }
   addQuestion() {
-    const url = `http://localhost:5000/api/question/${this.user.id}`;
+    const url = `api/question/${this.user.id}`;
     const body = {
       question: this.questionForm.value.question,
     };
@@ -51,7 +50,7 @@ export class ProfileBodyComponent implements OnInit {
     });
   }
   deleteQuestion(param) {
-    const url = `http://localhost:5000/api/question/${param._id}`;
+    const url = `api/question/${param._id}`;
     this.profile.deleteQuestion(url).subscribe((data) => {
       var newQuestion = this.question.filter(function (question) {
         return question._id !== param._id;

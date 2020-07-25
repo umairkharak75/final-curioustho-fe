@@ -37,7 +37,7 @@ export class NotificationsComponent implements OnInit {
     });
   }
   getAllNotifications() {
-    const url = `http://localhost:5000/api/posts/notification/${this.user.id}`;
+    const url = `api/posts/notification/${this.user.id}`;
     this.api.getData(url).subscribe((notification) => {
       console.log(notification);
       this.hasLoader = false;
@@ -46,7 +46,7 @@ export class NotificationsComponent implements OnInit {
     });
   }
   changeNotificationStatus() {
-    const url = `http://localhost:5000/api/posts/notification/${this.user.id}`;
+    const url = `api/posts/notification/${this.user.id}`;
 
     this.api.patchData(url).subscribe((response) => {
       console.log(response);
@@ -55,7 +55,7 @@ export class NotificationsComponent implements OnInit {
 
   deleteNotification(params) {
     console.log(params);
-    const url = `http://localhost:5000/api/posts/notification/${params._id}`;
+    const url = `api/posts/notification/${params._id}`;
     this.api.deleteData(url).subscribe((response) => {
       if (response.msg === 'Notification removed') {
         this.notification = this.notification.filter((notification) => {

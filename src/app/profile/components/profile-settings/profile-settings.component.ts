@@ -5,6 +5,7 @@ import { ApiService } from './../../../core/services/api.service';
 import { Component, OnInit } from '@angular/core';
 import * as moment from 'moment';
 import { HttpEvent, HttpEventType } from '@angular/common/http';
+import { of } from 'rxjs';
 
 @Component({
   selector: 'app-profile-settings',
@@ -18,7 +19,9 @@ export class ProfileSettingsComponent implements OnInit {
   progress;
   uploadedImage;
   formData;
+  hasDateOfBirth;
   imgUrl;
+  hasDuplicateUserName;
   userSettings;
   httpsPattern: '^(https?://)*[a-z0-9-]+(.[a-z0-9-]+)+(/[a-z0-9-]+)*/?$';
   isDisbaled;
@@ -30,6 +33,8 @@ export class ProfileSettingsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.hasDuplicateUserName = false;
+    this.hasDateOfBirth = true;
     this.profileSettings = new FormGroup({
       profilePic: new FormControl(),
       dateOfBirt: new FormControl(),
@@ -54,7 +59,7 @@ export class ProfileSettingsComponent implements OnInit {
   }
 
   getUserSettings(id) {
-    const url = `http://localhost:5000/api/users/findSpecificUser/${id}`;
+    const url = `api/users/findSpecificUser/${id}`;
     this.api.getData(url).subscribe((response) => {
       this.userSettings = response.users[0];
 
@@ -62,7 +67,7 @@ export class ProfileSettingsComponent implements OnInit {
         userName: this.userSettings.userName || '',
         dateOfBirth: this.userSettings.dateOfBirth || '',
         email: this.userSettings.email || '',
-        facebook: this.userSettings.social.facebook,
+        facebook: this.userSettings.social.facebook || '',
         twitter: this.userSettings.social.twitter || '',
         linkedIn: this.userSettings.social.linkedIn || '',
         instagram: this.userSettings.social.instagram || '',
@@ -72,10 +77,14 @@ export class ProfileSettingsComponent implements OnInit {
   }
 
   submit() {
+    if (!this.profileSettings.value.dateOfBirth) {
+      this.hasDateOfBirth = false;
+      return;
+    }
     const body = {
       userName: this.profileSettings.value.userName,
       name: this.profileSettings.value.name,
-      dateOfBirth: this.profileSettings.value.dateOfBirth._d,
+      dateOfBirth: this.profileSettings.value.dateOfBirth._d || '',
       email: this.profileSettings.value.email,
       facebook: this.profileSettings.value.facebook,
       twitter: this.profileSettings.value.twitter,
@@ -83,8 +92,12 @@ export class ProfileSettingsComponent implements OnInit {
       instagram: this.profileSettings.value.instagram,
     };
 
-    const url = `http://localhost:5000/api/users/profileSettings/${this.user.id}`;
+    const url = `api/users/profileSettings/${this.user.id}`;
     this.api.patchData(url, body).subscribe((data) => {
+      if (data.error == 409) {
+        this.openSnackBar('Username already exists', 'Error');
+        this.hasDuplicateUserName = true;
+      }
       if (data.msg === 'Updated Successfully') {
         this.openSnackBar('Successfully Updated', 'Done');
       }
@@ -104,7 +117,7 @@ export class ProfileSettingsComponent implements OnInit {
   upload() {
     this.profileSettings.get('profilePic').setValue('');
 
-    const url = 'http://localhost:5000/api/users/updateProfilePic';
+    const url = 'api/users/updateProfilePic';
     this.api
       .postProfilePic(url, this.formData)
       .subscribe((event: HttpEvent<any>) => {

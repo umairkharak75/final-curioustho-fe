@@ -33,7 +33,7 @@ export class MainDashboardComponent implements OnInit {
     this.askQuestionLink = this.user.askQuestionLink;
     console.log(this.askQuestionLink);
     const token = this.user.token;
-    const url = 'http://localhost:5000/api/posts';
+    const url = 'api/posts';
     this.spinner.show();
     this.hasSpinner = true;
     this.postService.getAllPosts(url).subscribe((response) => {
@@ -59,7 +59,7 @@ export class MainDashboardComponent implements OnInit {
   }
 
   fetchAllusers() {
-    const url = 'http://localhost:5000/api/users/allUser';
+    const url = 'api/users/allUser';
     this.api.getData(url).subscribe((response) => {
       this.allUsers = response.users;
       console.log(this.allUsers);

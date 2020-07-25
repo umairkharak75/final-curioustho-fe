@@ -63,7 +63,7 @@ export class SignupComponent implements OnInit {
       return;
     }
     this.isLoader = true;
-    const url = 'http://localhost:5000/api/users';
+    const url = 'api/users';
     const body = {
       name: this.userForm.value.name,
       password: this.userForm.value.password,
