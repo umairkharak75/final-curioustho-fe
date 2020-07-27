@@ -11,7 +11,7 @@
         ></div>
         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
           <div class="login_page_inner">
-            <img src="../../../../assets/logo.png" />
+            <img src="assets/logo.png" />
             <div class="buttons" id="section1">
               <button onClick="changeSection(1);">
                 I already have an account
@@ -24,7 +24,7 @@
               <button>Login with Twitter</button>
              
               <button  (click)="fbLogin()">Login with Facebook</button>
-              <button #loginRef (click)="prepareLogin()">Login with Google</button>
+              <button id="loginRef" #loginRef (click)="prepareLogin()">Login with Google</button>
               <a href="javascript:void(0);" onClick="changeSection(2);">Back</a>
               <div class="positions">
                 <span>By logging in you agree to our</span>

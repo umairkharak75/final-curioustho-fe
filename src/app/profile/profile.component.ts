@@ -39,10 +39,13 @@ export class ProfileComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    console.log('checl')
     this.spinner.show();
     this.fetchAllusers();
 
     this.route.params.subscribe((data) => {
+      console.log('checl')
+
       this.currentProfileId = data.id;
       this.post = [];
       this.question = [];

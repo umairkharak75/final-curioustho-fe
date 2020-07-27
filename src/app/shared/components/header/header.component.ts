@@ -28,7 +28,7 @@ export class HeaderComponent implements OnInit {
     this.getAllNotifications();
     this.getUnAnswerdQuestionLength();
     this.PostService.getAddedPost().subscribe((notifications) => {
-      notifications = notifications;
+      this.notifications=[]
       notifications.forEach((notification) => {
         if (
           notification.userNotification === this.loggedUser.id &&
@@ -64,7 +64,7 @@ export class HeaderComponent implements OnInit {
   }
   routeToProfle() {
     this.route.navigateByUrl(`profile/${this.loggedUser.id}`);
-    this.profileClicked.emit();
+   // this.profileClicked.emit();
   }
   routeToNotifications() {
     this.route.navigateByUrl('profile/notification/user');

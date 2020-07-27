@@ -7,10 +7,12 @@ import {
   ViewChild,
   ɵConsole,
   NgZone,
+  Inject,
 } from '@angular/core';
-import { Router, UrlSegmentGroup } from '@angular/router';
+import { Router } from '@angular/router';
 import { AuthService } from '../../service/auth.service';
 import * as $ from 'jquery';
+import { DOCUMENT } from '@angular/common';
 
 @Component({
   selector: 'app-login',
@@ -31,6 +33,7 @@ export class LoginComponent implements OnInit {
     public authService: AuthService,
     public router: Router,
     private ngZone: NgZone,
+    @Inject(DOCUMENT) document,
 
     public sharedDataService: SharedDataService
   ) {
@@ -161,7 +164,7 @@ export class LoginComponent implements OnInit {
   }
   prepareLogin() {
     this.auth2.attachClickHandler(
-      this.loginElement.nativeElement,
+      document.getElementById('loginRef'),
       {},
       (googleUser) => {
         let profile = googleUser.getBasicProfile();

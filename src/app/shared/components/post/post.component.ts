@@ -79,7 +79,9 @@ export class PostComponent implements OnInit {
     this.value = params.value;
   }
   onDropReview(value: number) {
+    
     if (!this.hasSubmit) {
+      console.log(value)
       this.value = value;
       const url = `api/posts/review/${this.post._id}`;
       const data = { review: this.value };

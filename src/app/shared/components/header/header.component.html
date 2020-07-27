@@ -6,18 +6,18 @@
           (click)="routeToHome()"
           class="col-xl-6 col-lg-6 col-md-4 col-sm-12 col-12 dashboard_header_logo"
         >
-          <img src="assets/logo.png" />
+          <img src="assets/logo.png"/>
         </div>
         <div
           class="col-xl-6 col-lg-6 col-md-8 col-sm-12 col-12 d-none d-md-block dashboard_header_menu"
         >
           <ul>
-           
             <li (click)="routeToHome()">Home</li>
             <li
               (click)="routeToInBox()"
               matBadgeColor="warn"
-              matBadge="{{ questionLength }}"
+            
+              [matBadge]="questionLength?.length || null"
             >
               Inbox
             </li>
@@ -25,7 +25,8 @@
           
             <li
               (click)="routeToNotifications()"
-              matBadge="{{ notificationslength }}"
+              
+              [matBadge]="notificationslength?.length || null"
               matBadgeColor="warn"
             >
               notifications
