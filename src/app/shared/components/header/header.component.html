@@ -12,8 +12,8 @@
           class="col-xl-6 col-lg-6 col-md-8 col-sm-12 col-12 d-none d-md-block dashboard_header_menu"
         >
           <ul>
-            <li>Upload Image</li>
-
+           
+            <li (click)="routeToHome()">Home</li>
             <li
               (click)="routeToInBox()"
               matBadgeColor="warn"
@@ -22,6 +22,7 @@
               Inbox
             </li>
             <li (click)="routeToProfle()">Profile</li>
+          
             <li
               (click)="routeToNotifications()"
               matBadge="{{ notificationslength }}"
@@ -45,13 +46,13 @@
       class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 dashboard_header_menu dashboard_header_menu_bottom"
     >
       <ul>
-        <li class="fa active">
-          <i class="fa fa-camera" aria-hidden="true"></i>
+        <li  (click)="routeToHome()" class="fa active">
+          <i  class="fa fa-camera" aria-hidden="true"></i>
         </li>
-        <li class="fa"><i class="fa fa-inbox" aria-hidden="true"></i></li>
-        <li class="fa"><i class="fa fa-cog" aria-hidden="true"></i></li>
-        <li class="fa"><i class="fa fa-bell" aria-hidden="true"></i></li>
-        <li class="fa"><i class="fa fa-wrench" aria-hidden="true"></i></li>
+        <li class="fa"  (click)="routeToInBox()"><i class="fa fa-inbox" aria-hidden="true"></i></li>
+        <li class="fa" (click)="navigateToSettings()"><i class="fa fa-cog" aria-hidden="true"></i></li>
+        <li class="fa"  (click)="routeToNotifications()"><i class="fa fa-bell" aria-hidden="true"></i></li>
+        <li class="fa"  (click)="logout()"><i class="fa fa-wrench" aria-hidden="true"></i></li>
       </ul>
     </div>
   </div>

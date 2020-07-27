@@ -22,7 +22,7 @@ export class ProfileBodyComponent implements OnInit {
   }
 
   submitAnswer(question, answer) {
-    console.log(answer);
+   
     const id = question._id;
 
     const index = this.question.findIndex((question) => question._id === id);

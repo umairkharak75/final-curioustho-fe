@@ -55,6 +55,8 @@ export class ProfileSettingsComponent implements OnInit {
       }
     });
     this.user = this.sharedDataService.getUserFromLs();
+    this.imgUrl=this.user.profilePic
+    console.log(this.imgUrl)
     this.getUserSettings(this.user.id);
   }
 
@@ -131,6 +133,7 @@ export class ProfileSettingsComponent implements OnInit {
             console.log('User successfully created!', event.body);
 
             this.user.profilePic = event.body.user.profilePic;
+            console.log(this.user)
             this.sharedDataService.setUsertoLocalStorage(this.user);
             this.imgUrl = this.user.profilePic;
             console.log(this.user.profilePic);
@@ -159,5 +162,13 @@ export class ProfileSettingsComponent implements OnInit {
       };
     } else {
     }
+  }
+  fileInput(){
+    document.getElementById('selectedFile').click();
+
+  }
+  cancelUpdatePic(){
+    this.profileSettings.get('profilePic').reset()
+    this.imgUrl=this.user.profilePic
   }
 }

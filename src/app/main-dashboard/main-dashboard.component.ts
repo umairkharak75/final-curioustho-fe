@@ -30,7 +30,6 @@ export class MainDashboardComponent implements OnInit {
     this.fetchAllusers();
 
     this.user = JSON.parse(this.sharedData.getUser());
-
     this.askQuestionLink = this.user.askQuestionLink;
     console.log(this.askQuestionLink);
     const token = this.user.token;

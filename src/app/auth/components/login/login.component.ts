@@ -1,13 +1,15 @@
 import { SharedDataService } from 'src/app/shared/service/shared-data.service';
 import { FormGroup, FormControl } from '@angular/forms';
-import { Component, OnInit } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  ElementRef,
+  ViewChild,
+  ɵConsole,
+  NgZone,
+} from '@angular/core';
 import { Router, UrlSegmentGroup } from '@angular/router';
 import { AuthService } from '../../service/auth.service';
-import {
-  SocialAuthService,
-  GoogleLoginProvider,
-  FacebookLoginProvider,
-} from 'angularx-social-login';
 import * as $ from 'jquery';
 
 @Component({
@@ -20,10 +22,16 @@ export class LoginComponent implements OnInit {
   isLoader: boolean;
   isValidCredentials: boolean;
   isDisabled: boolean;
+  auth2;
+  Name;
+  show;
+
+  @ViewChild('loginRef', { static: true }) loginElement: ElementRef;
   constructor(
     public authService: AuthService,
     public router: Router,
-    public socialAuth: SocialAuthService,
+    private ngZone: NgZone,
+
     public sharedDataService: SharedDataService
   ) {
     this.isDisabled = true;
@@ -32,6 +40,9 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.googleInitialize();
+    this.fbLibrary();
+
     $(document).ready(function () {
       $('#section2').hide();
     });
@@ -99,34 +110,13 @@ export class LoginComponent implements OnInit {
       }
     );
   }
-  signInWithGoogle(): void {
-    this.isLoader = true;
-    this.socialAuth.signIn(GoogleLoginProvider.PROVIDER_ID).then((response) => {
-      this.generateSocaialUuserToken(response);
-    });
-  }
+
   signup() {
     this.router.navigateByUrl('/signup');
   }
-  signInWithFB() {
-    this.socialAuth.signIn(FacebookLoginProvider.PROVIDER_ID).then((data) => {
-      this.generateSocaialUuserToken(data);
-    });
-  }
 
-  generateSocaialUuserToken(response) {
-    const body = {
-      email: response.email,
-      password: '123456',
-      id: response.id,
-      provider: response.provider,
-      idToken: response.idToken,
-      name: response.name,
-      profilePic: response.photoUrl,
-    };
-
+  generateSocaialUuserToken(body) {
     const url = 'api/auth';
-
     this.authService.login(url, body).subscribe((response) => {
       const user = {
         token: response.token,
@@ -136,13 +126,127 @@ export class LoginComponent implements OnInit {
         name: response.user.name,
         idToken: response.idToken,
         askQuestionLink: response.user.askQuestionLink,
-        profielPic: response.user.profilePic,
+        profilePic: response.user.profilePic,
         social: response.user.social,
       };
-      console.log(user);
       this.sharedDataService.setUsertoLocalStorage(user);
       this.isLoader = false;
-      this.router.navigateByUrl('/home');
+      this.ngZone.run(() => this.router.navigateByUrl('home')).then();
+      //this.router.navigateByUrl('/create-profile');
     });
+  }
+
+  googleInitialize() {
+    window['googleSDKLoaded'] = () => {
+      window['gapi'].load('auth2', () => {
+        this.auth2 = window['gapi'].auth2.init({
+          client_id:
+            '1067301653775-t188c9ip3n9ffe5ia2gv7qhjkr9ma9c5.apps.googleusercontent.com',
+          cookie_policy: 'single_host_origin',
+        });
+        this.prepareLogin();
+      });
+    };
+    (function (d, s, id) {
+      var js,
+        fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) {
+        return;
+      }
+      js = d.createElement(s);
+      js.id = id;
+      js.src = 'https://apis.google.com/js/platform.js?onload=googleSDKLoaded';
+      fjs.parentNode.insertBefore(js, fjs);
+    })(document, 'script', 'google-jssdk');
+  }
+  prepareLogin() {
+    this.auth2.attachClickHandler(
+      this.loginElement.nativeElement,
+      {},
+      (googleUser) => {
+        let profile = googleUser.getBasicProfile();
+        console.log(profile);
+        console.log('Token || ' + googleUser.getAuthResponse().id_token);
+        this.show = true;
+        this.Name = profile.getName();
+        console.log('Image URL: ' + profile.getImageUrl());
+        console.log('Email: ' + profile.getEmail());
+        const user = {};
+        const body = {
+          email: profile.getEmail(),
+          password: '123456',
+          id: profile.getId(),
+          provider: 'Google',
+          name: profile.getName(),
+          profilePic: profile.getImageUrl(),
+        };
+
+        this.generateSocaialUuserToken(body);
+      },
+      (error) => {
+        alert(JSON.stringify(error, undefined, 2));
+      }
+    );
+  }
+
+  fbLibrary() {
+    (window as any).fbAsyncInit = function () {
+      window['FB'].init({
+        appId: '309424153753158',
+        cookie: true,
+        xfbml: true,
+        version: 'v3.1',
+      });
+      window['FB'].AppEvents.logPageView();
+    };
+
+    (function (d, s, id) {
+      var js,
+        fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) {
+        return;
+      }
+      js = d.createElement(s);
+      js.id = id;
+      js.src = 'https://connect.facebook.net/en_US/sdk.js';
+      fjs.parentNode.insertBefore(js, fjs);
+    })(document, 'script', 'facebook-jssdk');
+  }
+
+  fbLogin() {
+    window['FB'].login(
+      (response) => {
+        console.log('login response', response);
+        if (response.authResponse) {
+          window['FB'].api(
+            '/me',
+            {
+              fields: 'last_name, first_name, email, name,picture',
+            },
+            (userInfo) => {
+              console.log('user information');
+              console.log(userInfo);
+              const body = {
+                email: userInfo.email,
+                password: '123456',
+                id: userInfo.id,
+                provider: 'Facebook',
+                name: userInfo.name,
+                profilePic: userInfo.picture.data.url,
+              };
+              this.generateSocaialUuserToken(body);
+            }
+          );
+        } else {
+          console.log('User login failed');
+        }
+      },
+      { scope: 'email' }
+    );
+  }
+
+  routeToCreate(){
+    console.log('check')
+    this.router.navigateByUrl('/create-profile')
   }
 }

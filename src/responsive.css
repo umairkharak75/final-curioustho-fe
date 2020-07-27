@@ -1,9 +1,101 @@
-@media(max-width: 1024px) {
-   
+@media (max-width: 1024px) {
+  .suggestion_title .col-xl-9 {
+    padding: 0 0 0 8px;
+  }
+  .add_photo_section .col-lg-2 {
+    margin-left: 2px;
+  }
+  .recommend_section_inner_image {
+    width: 35%;
+  }
+  .content_section ul li {
+    width: 48%;
+  }
+  .positions {
+    width: 40%;
+  }
+  #data_permission .card-body input {
+    width: 88%;
+  }
 }
-@media(max-width: 768px) {
-   
+@media (max-width: 768px) {
+  .dashboard_posts_section {
+    width: 100%;
+  }
+  .dashboard_recommend_section {
+    display: none;
+  }
+  .dashboard_header_logo img {
+    width: 75%;
+  }
+  .positions {
+    width: 55%;
+  }
+  .profile_posts_section {
+    width: 100%;
+  }
+  #data_permission .card-body input {
+    width: 85%;
+  }
 }
-@media(max-width: 480px) {
-   
+@media (max-width: 480px) {
+  .add_photo_section .col-lg-2 {
+    margin-left: 0px;
+  }
+  .content_section ul li a {
+    padding: 10px 10px;
+  }
+  .content_section ul li {
+    width: 50%;
+  }
+  .content_section ul li:first-child {
+    margin-right: 0px;
+  }
+  .dashboard_header_logo {
+    text-align: center;
+  }
+  .dashboard_header_menu_bottom ul li:last-child {
+    margin-right: auto;
+  }
+  .inbox_section_inner {
+    width: 90%;
+  }
+  .inbox_question_section input {
+    width: 79%;
+  }
+  .login_page_inner {
+    min-width: 350px;
+  }
+  .positions {
+    width: 85%;
+  }
+  .notification_main_section {
+    display: flex;
+    width: 90%;
+    margin: 0 auto;
+  }
+  .notification_section_inner {
+    min-width: 90vw;
+  }
+  .settings_main_section {
+    display: flex;
+    width: 90%;
+    margin: 0 auto;
+  }
+  .settings_section_1,
+  .settings_section_2 {
+    min-width: 90vw;
+  }
+  .add_photo_section button i {
+    display: none;
+  }
+  .add_photo_section #post,
+  .add_photo_section #add_photo {
+    width: 115%;
+  }
+}
+@media (max-width: 360px) {
+  #data_permission .card-body input {
+    width: 83%;
+  }
 }

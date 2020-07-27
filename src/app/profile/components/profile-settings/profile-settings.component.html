@@ -19,21 +19,23 @@
           [formGroup]="profileSettings"
         >
           <div class="card card-body">
-         
-
-            <button (click)="upload()">Upadate Profile Pic</button> -->
+            <button (click)="upload()">Upadate Profile Pic</button>
             <div class="px-2 d-flex">
               <div
                 class="img"
-                style="background: url({{ user.profielPic }});"
+                style="background: url('{{ imgUrl }}');"
+               
               ></div>
               <input
-                id="selectedFile"
-                formControlName="profilePic"
-                type="file"
-                (change)="fileChangeEvent($event)"
-              />
-              <a href="javascript:void(0);"> Change Image</a>
+              style=display:none
+              id="selectedFile"
+              formControlName="profilePic"
+              type="file"
+              (change)="fileChangeEvent($event)"
+            />
+              <a (click)="fileInput()">
+              
+                Change Image</a>
             </div>
             <a
               [hidden]="true"
@@ -66,10 +68,10 @@
                 <div class="modal-content">
                   <div class="modal-header">
                     <h5 class="modal-title" id="update_profile_photoLabel">
-                      Create Post
+                      Update Profile Pic
                     </h5>
                     <button
-                      (click)="upload()"
+                      (click)="cancelUpdatePic()"
                       type="button"
                       class="close"
                       data-dismiss="modal"

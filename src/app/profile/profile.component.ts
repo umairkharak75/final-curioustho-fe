@@ -5,7 +5,6 @@ import { ProfileService } from './service/profile.service';
 import { SharedDataService } from 'src/app/shared/service/shared-data.service';
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
-
 import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
@@ -66,12 +65,13 @@ export class ProfileComponent implements OnInit {
     });
 
     this.user = this.sharedData.getUserFromLs();
+    console.log(this.user)
 
     if (this.currentProfileId !== this.user.id) {
       this.fetchProfileUser();
     } else {
-      this.profileImage = this.user.profielPic;
-      console.log(this.user.profilePic);
+      this.profileImage = this.user.profilePic;
+      
       this.profileName = this.user.name;
     }
     const url = `api/posts/${this.currentProfileId}`;
@@ -161,6 +161,12 @@ export class ProfileComponent implements OnInit {
   }
 
   newPostAdded(params) {
+
+    const user={name:this.user.name,
+      profilePic:this.user.profilePic,
+      _id:this.user.id
+    }
+    params.user=user
     this.post.unshift(params);
   }
   fetchAllusers() {
@@ -198,16 +204,17 @@ export class ProfileComponent implements OnInit {
   // }
 
   successCopyMessage() {
-    if (this.txtConfigFile) {
-      // Select textarea text
-      this.txtConfigFile.nativeElement.select();
-
-      // Copy to the clipboard
-      document.execCommand('copy');
-
-      // Deselect selected textarea
-      this.txtConfigFile.nativeElement.setSelectionRange(0, 0);
-    }
+    let selBox = document.createElement('textarea');
+    selBox.style.position = 'fixed';
+    selBox.style.left = '0';
+    selBox.style.top = '0';
+    selBox.style.opacity = '0';
+    selBox.value = this.profileForm.get('copyUrl').value;
+    document.body.appendChild(selBox);
+    selBox.focus();
+    selBox.select();
+    document.execCommand('copy');
+    document.body.removeChild(selBox);
 
     this.openSnackBar('Copied successfully', 'Done');
   }

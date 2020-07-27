@@ -198,7 +198,7 @@
             <label for="copy_url">Copy URL</label>
             <input
               disabled="true"
-              #txtConfigFile
+              #userinput
               formControlName="copyUrl"
               type="text"
               id="copy_url"
@@ -208,7 +208,8 @@
               required
             />
             <input
-              (click)="successCopyMessage()"
+            (click)="successCopyMessage()"
+           
               type="submit"
               id="copy_url_button"
               name="copy_url_button"
