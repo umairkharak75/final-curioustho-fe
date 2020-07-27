@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1595684166226,
+  "timestamp": 1595848763085,
   "index": "https://umairkharak75.github.io/final-curioustho-fe/index.html",
   "assetGroups": [
     {
@@ -11,16 +11,16 @@
         "ignoreVary": true
       },
       "urls": [
-        "https://umairkharak75.github.io/final-curioustho-fe/5.da5c90cd00f5c5172ced.js",
-        "https://umairkharak75.github.io/final-curioustho-fe/6.1674567c798b2ac638ee.js",
-        "https://umairkharak75.github.io/final-curioustho-fe/common.8f5bb91eee6c6f4cf276.js",
+        "https://umairkharak75.github.io/final-curioustho-fe/5.814679fb5f3ecb889e7c.js",
+        "https://umairkharak75.github.io/final-curioustho-fe/6.fc4370d7578ecc1f8e41.js",
+        "https://umairkharak75.github.io/final-curioustho-fe/common.5e1d1a08dba56b549c4d.js",
         "https://umairkharak75.github.io/final-curioustho-fe/favicon.ico",
         "https://umairkharak75.github.io/final-curioustho-fe/index.html",
-        "https://umairkharak75.github.io/final-curioustho-fe/main.1f6273757792efa700bb.js",
+        "https://umairkharak75.github.io/final-curioustho-fe/main.6287d1fb851cb094ac21.js",
         "https://umairkharak75.github.io/final-curioustho-fe/manifest.webmanifest",
         "https://umairkharak75.github.io/final-curioustho-fe/polyfills.5aab4676029f8f7a1213.js",
-        "https://umairkharak75.github.io/final-curioustho-fe/runtime.48f4a3af425a645d0605.js",
-        "https://umairkharak75.github.io/final-curioustho-fe/styles.5c230255f3520bef9f6f.css"
+        "https://umairkharak75.github.io/final-curioustho-fe/runtime.661e2a4058f9938f7eaa.js",
+        "https://umairkharak75.github.io/final-curioustho-fe/styles.60d86b9a7567bf1f3019.css"
       ],
       "patterns": []
     },
@@ -53,8 +53,8 @@
   ],
   "dataGroups": [],
   "hashTable": {
-    "https://umairkharak75.github.io/final-curioustho-fe/5.da5c90cd00f5c5172ced.js": "c07122447290013d6978aa330bb2eed9c62141c4",
-    "https://umairkharak75.github.io/final-curioustho-fe/6.1674567c798b2ac638ee.js": "970e9cf9e34a55ff7fb8e2a7407c8f10e6b0d6e9",
+    "https://umairkharak75.github.io/final-curioustho-fe/5.814679fb5f3ecb889e7c.js": "b3488cf38c0c1d6d4d27e6466a587b47c6aeabdb",
+    "https://umairkharak75.github.io/final-curioustho-fe/6.fc4370d7578ecc1f8e41.js": "61bacb90b9d03ed366db58456c834824a9545f20",
     "https://umairkharak75.github.io/final-curioustho-fe/assets/bg-01.jpg": "4a30dbb06eee4a7ecf4bac875e013cff9a2ecc6c",
     "https://umairkharak75.github.io/final-curioustho-fe/assets/fire-ratings.png": "f46f8bea23b569fa0716ad92d276e347cea82914",
     "https://umairkharak75.github.io/final-curioustho-fe/assets/fire.png": "b4f59b88c6a9d23e5e6795875418ba2bc06c033a",
@@ -69,15 +69,15 @@
     "https://umairkharak75.github.io/final-curioustho-fe/assets/logo-mobile.png": "0fd8cf5ed790868b5af3622731b3009185f19258",
     "https://umairkharak75.github.io/final-curioustho-fe/assets/logo.png": "5ca928e49dd4f38d6a1347854018358ee1afc7b3",
     "https://umairkharak75.github.io/final-curioustho-fe/assets/question.png": "0cd567c615e0d148c4d6120604100c7bd55e7cec",
-    "https://umairkharak75.github.io/final-curioustho-fe/common.8f5bb91eee6c6f4cf276.js": "110b071afbd5f70b315da1071748dcd69164a75d",
+    "https://umairkharak75.github.io/final-curioustho-fe/common.5e1d1a08dba56b549c4d.js": "734e634ffe8e438a017f8559b6b315cb82c533fd",
     "https://umairkharak75.github.io/final-curioustho-fe/favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
     "https://umairkharak75.github.io/final-curioustho-fe/fire-ratings.a0166724181d3cb9e32d.png": "f46f8bea23b569fa0716ad92d276e347cea82914",
-    "https://umairkharak75.github.io/final-curioustho-fe/index.html": "4a46efbe38dd17c99826d4cd64157ca00392b4aa",
-    "https://umairkharak75.github.io/final-curioustho-fe/main.1f6273757792efa700bb.js": "2ce092ad301f046ff9958fe456e26d8938db77d9",
-    "https://umairkharak75.github.io/final-curioustho-fe/manifest.webmanifest": "f8f4317443386ac9b361eb07fc44320dc3ec5c18",
+    "https://umairkharak75.github.io/final-curioustho-fe/index.html": "cab557f17365dde6cef4aee543e680e0f273d5c5",
+    "https://umairkharak75.github.io/final-curioustho-fe/main.6287d1fb851cb094ac21.js": "d76b0c39e4c06c4aff4aedce100a2904f2222e0c",
+    "https://umairkharak75.github.io/final-curioustho-fe/manifest.webmanifest": "84c07d237c97ad0bee42e5518fb298dff0fa1797",
     "https://umairkharak75.github.io/final-curioustho-fe/polyfills.5aab4676029f8f7a1213.js": "15a133b6cbb459a66fcd2e75f6aa25782e5d79c4",
-    "https://umairkharak75.github.io/final-curioustho-fe/runtime.48f4a3af425a645d0605.js": "f1f7d35867ad5a3eb6034b21f2bcf9e7861f6915",
-    "https://umairkharak75.github.io/final-curioustho-fe/styles.5c230255f3520bef9f6f.css": "77106066f6176000986814fe5810214cf7e36505"
+    "https://umairkharak75.github.io/final-curioustho-fe/runtime.661e2a4058f9938f7eaa.js": "134bde2cdb6dffa2743934453c61442470644fa7",
+    "https://umairkharak75.github.io/final-curioustho-fe/styles.60d86b9a7567bf1f3019.css": "f432460d47e3eb0462a6ea0a30618e93b4750a46"
   },
   "navigationUrls": [
     {
